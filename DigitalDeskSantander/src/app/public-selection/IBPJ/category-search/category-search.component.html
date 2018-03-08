@@ -1,0 +1,29 @@
+<div class="white-background">
+
+  <p class="title">{{channelTitle}} - Busca por Categoria</p>
+
+  <br><br>
+  
+  <div class="row">
+    <br>
+    <div class="input-field col s6">
+      <select>
+        <option disabled selected>Escolha uma opção</option>
+        <option>Internet Banking</option>
+        <option>Van Gogh</option>
+        
+      </select>
+      <label style="font-size: 12px">Categoria</label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s6">
+      <button class="btn" (click)="addValues(); callTable = false">Consultar</button>
+      <button class="btn btn-line" routerLink="">Sair</button>
+    </div>
+  </div>
+
+</div>
+  
+<app-table-result *ngIf="callTable" (eventClose)="receiveEvent($event)" [showTable]="callTable" [dataEmmit]="dataGeneral"></app-table-result>

@@ -1,0 +1,28 @@
+<div class="white-background">
+  <p class="title">Monitoramento dos Módulos por Canal</p>
+  <br>
+  <div class="row col s12">
+    <div class="col s6" *ngFor="let channelData of channelDatas; let i = index">
+      <blockquote class="block" [ngStyle]="{'border-left': randomic(i, 10)}" style="margin: 0px; height: 160px">
+        <div class="center" [ngStyle]="{'border-bottom': randomic(i, 2)}">
+          <a class="block block-title" style="width: 100%">{{channelData.channel}}</a><br>
+        </div>
+        <div class="row">
+          <div class="col s3 center" style="height: 122.59px; padding-top: 30px">
+            <img [src]="iconsChannel[i]">
+          </div>
+          <div class="col s9">
+            <div class="block left block-description valign-wrapper" style="height: 36px">Público Real</div>
+            <div class="block right block-data" style="width: 138px; text-align: right">{{channelData.dataProduction}}</div><br>
+            <div class="block left block-description valign-wrapper" style="height: 36px">Público Oculto</div>
+            <div class="block right block-data" style="width: 138px; text-align: right">{{channelData.dataProduction}}</div><br>
+            <div class="block left block-description valign-wrapper" style="height: 36px">Público Preservado</div>
+            <div class="block right block-data" style="width: 138px; text-align: right">{{channelData.dataProduction}}</div><br>
+          </div>
+        </div>
+        
+      </blockquote>
+    </div>
+  </div>
+</div>
+

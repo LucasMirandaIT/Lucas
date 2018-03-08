@@ -1,0 +1,53 @@
+<div class="row center-align" style="margin-top: 20px">
+  <div class="col s4" *ngFor="let channelData of channelDatas; let i = index">
+    <div class="z-depth-3 fill-white">
+      <h5 class="title">{{channelData.channel}}</h5>
+      <br>
+      <div class="border-dash">
+        <div class="row" *ngIf="(i != 1)">
+          <div class="col s12 dashs">
+            <div class="dashs-fill" [ngClass]="{'dash-zero': !verify(channelData.dataProduction), 'dash-blur': verify(channelData.dataProduction)}">
+              <a class="title-dash">Real</a>
+              <br>
+              <a class="data-dash" >{{channelData.dataProduction}}</a>
+            </div>
+          </div>
+        </div>
+        <div class="row" *ngIf="(i == 1)">
+          <div class="col s6 dashs">
+            <div class="dashs-fill" [ngClass]="{'dash-zero': !verify(channelData.dataProduction), 'dash-blur': verify(channelData.dataProduction)}">
+              <a class="title-dash">Real 1</a>
+              <br>
+              <a class="data-dash" >25.000</a>
+            </div>
+          </div>
+          <div class="col s6 dashs">
+            <div class="dashs-fill" [ngClass]="{'dash-zero': !verify(channelData.dataProduction), 'dash-blur': verify(channelData.dataProduction)}">
+              <a class="title-dash">Real 2</a>
+              <br>
+              <a class="data-dash" >30.000</a>
+            </div>
+          </div>
+        </div>
+        <div class="row ">
+          <div class="col s6 dashs">
+            <div class="dashs-fill" [ngClass]="{'dash-zero': !verify(channelData.dataHidden), 'dash-blur': verify(channelData.dataHidden)}">
+              <a class="title-dash">Oculto</a>
+              <br>
+              <a class="data-dash" >{{channelData.dataHidden}}</a>
+            </div>
+          </div>
+          <div class="col s6 dashs">
+            <div class="dashs-fill" [ngClass]="{'dash-zero': !verify(channelData.dataPreserved), 'dash-blur': verify(channelData.dataPreserved)}">
+              <a class="title-dash">Preservado</a>
+              <br>
+              <a class="data-dash" >{{channelData.dataPreserved}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+    </div>
+  </div>
+</div>
+
