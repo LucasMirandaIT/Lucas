@@ -1,0 +1,22 @@
+<p>
+  cliente works!
+</p>
+
+
+<ul>
+  <li *ngFor="let c of clientes">
+    <a [routerLink]="['/cliente', c.id]">{{c.nome}}</a>
+    </li>
+</ul>
+
+<div>
+<input type="button" class="btn-md btn-primary" (click)="proximaPagina()" value="Próxima Página">
+</div>
+
+{{pagina}}
+
+<!-- <form #meuForm="ngForm">
+  <input type="text" name="idClienteForm" class="form-control" pattern="[0-9]+" ngModel #idClienteForm placeholder="idCliente">
+<br>
+  <input type="text" name="idEmpresaForm" class="form-control" pattern="[0-9]+" ngModel #idEmpresaForm placeholder="idEmpresa">
+</form> -->

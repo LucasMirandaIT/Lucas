@@ -1,0 +1,28 @@
+<div class="white-background">
+
+  <p class="title">{{channelTitle}} - Filtros Pré-Definidos</p>
+
+  <br><br>
+  
+  <div class="row">
+    <br>
+    <div class="input-field col s6">
+      <select>
+        <option disabled selected>Escolha uma opção</option>
+        <option>Filtro Indra sem Diretores</option>
+        <option>Filtro Produban</option>        
+      </select>
+      <label style="font-size: 12px">Filtros</label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s6">
+      <button class="btn" id="rollBtn" (click)="addValues()">Consultar</button>
+      <button class="btn btn-line" routerLink="">Sair</button>
+    </div>
+  </div>
+
+</div>
+
+<app-table-result *ngIf="callTable" (eventClose)="receiveEvent($event)" [showTable]="callTable" [dataEmmit]="dataGeneral"></app-table-result>

@@ -1,0 +1,11 @@
+<p>
+  http-exemplo works!
+</p>
+
+<input type="text" (keydown.enter)="buscaProjetos()" [(ngModel)]="searchField" value="">
+
+Total : {{total}}
+
+<ul>
+  <li *ngFor="let project of projects"> {{project.full_name}} </li>
+</ul>

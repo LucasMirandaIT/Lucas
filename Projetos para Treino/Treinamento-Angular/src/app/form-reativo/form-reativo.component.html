@@ -1,0 +1,20 @@
+<p>
+  form-reativo works!
+</p>
+
+<form [formGroup]="formComponent" (ngSubmit)="onSubmit()" >
+  <div class="form-group" [ngClass]="aplicarCssElemento('nome')">
+    <label for="nome" class="control-label">Nome</label>
+    <input type="text" formControlName="nome" name="nome" class="form-control" placeholder="Digite aqui o seu nome">
+  </div>
+
+  <div class="form-group" [ngClass]="aplicarCssElemento('email')">
+    <label for="email" class="control-label">Email</label>
+    <input type="email" formControlName="email" name="email" class="form-control" placeholder="Digite aqui o seu email">
+  </div>
+
+  <input type="submit" class="btn btn-block btn-success" name="" id="">
+
+  <app-form-debug [formularioDebug]="formComponent"></app-form-debug>
+</form>
+<input type="button" value="Clique Aqui" (click)="consultarCEP()">

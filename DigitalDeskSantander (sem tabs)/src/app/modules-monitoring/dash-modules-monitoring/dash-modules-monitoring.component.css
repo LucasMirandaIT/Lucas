@@ -1,0 +1,65 @@
+.size-chart {
+  font-size: 11px;
+  margin: 0px !important;
+}
+
+.fill-white {
+  background: white;
+}
+
+div.col {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.title {
+  margin: 0px;
+  padding-top: 15px;
+  padding-bottom: 5px;
+  font-size: 20px;
+}
+
+.dashs {
+  height: 80px;
+  border-radius: 8px;
+}
+
+.dashs-fill {
+  height: 80px;
+  border-radius: 8px;
+}
+
+.title-dash {
+  color: white;
+  font-size: 17px;
+}
+
+.data-dash {
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.row .col.s6 {
+  padding: 7.5px;
+}
+
+.row .col.s12 {
+  padding: 7.5px;
+}
+
+.row .col.s4 {
+  padding-bottom: 30px;
+}
+
+.border-dash {
+  padding: 7.5px;
+}
+
+.dash-zero {
+  background: #b5b2b2;
+}
+
+.dash-blur {
+  background: #20B2BB;
+}

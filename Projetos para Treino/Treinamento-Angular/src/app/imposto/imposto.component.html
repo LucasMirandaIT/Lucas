@@ -1,0 +1,13 @@
+<p>
+  imposto works!
+</p>
+
+<input type="text" [(ngModel)]="salario" name="salario" value="" placeholder="Digite aqui o seu salário">
+
+<!--  <input type="text" readonly [(ngModel)]="aliquota" name="aliquota"> -->
+
+<input type="button" class="btn-info" (click)="calcularAliquota()" (click)="alert('Olá')" name="" value="Clique para calcular Aliquota">
+
+<br> <br>
+Seu salário é de: {{salario | currency:'BRL'}}, portanto, seu desconto será de {{aliquota | currency:'BRL'}}
+<br><br><br>

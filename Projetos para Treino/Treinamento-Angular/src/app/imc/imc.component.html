@@ -1,0 +1,11 @@
+<div>
+<input class="form-control" type="text" [(ngModel)]= "nome" name="nome" value="" placeholder="Nome" required>
+<input class="form-control"type="text" [(ngModel)]= "sobrenome" name="sobrenome" value="" placeholder="Sobrenome" required>
+<br>
+Digite sua altura apenas com números (e.g. 183) e seu peso separando Kg e G por ",". <br>
+<input class="col-md-2" type="number" min= "140" max="220" name="altura" [(ngModel)]="altura" placeholder="Altura (cm)">
+<input class="col-md-2" type="number" min= "45" max="140" name="peso" [(ngModel)]="peso" placeholder="Peso" step=".5"> <br> <br>
+
+<input class="btn-info" type="button" (click)="calcularImc()" name="" value="Clique para calcular">
+
+</div>

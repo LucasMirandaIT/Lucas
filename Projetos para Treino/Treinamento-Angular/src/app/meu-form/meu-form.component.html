@@ -1,0 +1,22 @@
+<form #f="ngForm" (ngSubmit) = "onSubmit(f)" >
+  <div class="form-group"
+[ngClass]="aplicarCssElemento(nome)">
+
+    <label class="control-label" for="nome">Nome</label>
+    <input required pattern="[a-zA-Z ]+" minlength="3" type="text" name="nome"
+    value="" [(ngModel)]="f.nome" #nome="ngModel" class="form-control" id="nome">
+    <app-form-error nomeCampo="Nome" [campoValidation]="nome.valid" [campoTouched]="nome.touched"> </app-form-error>
+  </div>
+
+
+  <div class="form-group"
+  [class.has-error]="email.valid == false && email.touched == true"
+  [class.has-success]="email.valid == true && email.touched == true">
+    <label class="control-label" for="email">Email</label>
+<input required pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" type="email" name="email" value="" [readonly]="nome.valid == false" #email="ngModel" [(ngModel)]="f.email" class="form-control" id="email">
+<app-form-error nomeCampo="Email" [campoValidation]="email.valid" [campoTouched]="email.touched"> </app-form-error>
+  </div>
+<input type="submit" class="btn-lg btn-info"name="" value="Enviar" [disabled]="f.valid == false">
+</form>
+
+<app-form-error [formularioErro]="f"></app-form-error>

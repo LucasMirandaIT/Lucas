@@ -1,0 +1,11 @@
+.nav-wrapper{
+    background-color: red;
+}
+
+.logo{
+    max-height: 55px;
+}
+
+.dropdown-content{
+    margin-top:65px;
+}

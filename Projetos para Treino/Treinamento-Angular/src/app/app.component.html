@@ -1,0 +1,47 @@
+<!-- <app-menu></app-menu> -->
+
+<nav class="navbar navbar-inverse" *ngIf="mostrarMenu == true" >
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <img src="./assets/img/Santander-Logo-menu.png" width="45px" class="img" alt="Logo Santander">
+        <a class="navbar-brand" routerLink="/">Santander</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="routerActive-link"><a routerLink="/" (click)="newRota('/')">Home</a></li>
+          <li class="routerActive-link"><a routerLink="form" (click)="newRota('form')">Meu Form</a></li>
+          <li class="routerActive-link"><a routerLink="imc" (click)="newRota('imc')">IMC</a></li>
+          <li class="routerActive-link"><a routerLink="clientes" (click)="newRota('clientes')" [queryParams]="{pagina :1, ultimo:10}">Clientes</a></li>
+          <!-- <li class="routerActive-link"><a [routerLink]="['/cliente', idClienteForm.value]">Clientes Detalhe</a></li> -->
+          <li class="routerActive-link"><a routerLink="aluno" (click)="newRota('aluno')">Aluno</a></li>
+          <li class="routerActive-link"><a routerLink="form-reativo" (click)="newRota('form-reativo')">Form Reativo</a></li>
+
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+         <li class="routerActive-link"><a routerLink="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li class="routerActive-link"><a routerLink="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<!-- <div>
+<img class="img-responsive" alt="Angular Logo" src="./assets/img/Santander-Logo.png">
+</div> -->
+
+<!-- <form #meuForm="ngForm">
+    <label for="idClienteForm">Nome</label>
+    <input type="text" name="idClienteForm" ngModel #idClienteForm placeholder="idCliente"> 
+  </form> -->
+
+<div class="container">
+  <router-outlet></router-outlet>
+
+</div>
+
+<!-- <app-footer></app-footer> -->

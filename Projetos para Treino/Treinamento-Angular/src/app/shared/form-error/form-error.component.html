@@ -1,0 +1,7 @@
+<div class="alert-success" *ngIf="campoValidation == true && campoTouched == true">
+  {{nomeCampo}} Válido
+</div>
+
+<div class="alert-danger"  *ngIf="campoValidation == false && campoTouched == true">
+  {{nomeCampo}} Inválido
+</div>

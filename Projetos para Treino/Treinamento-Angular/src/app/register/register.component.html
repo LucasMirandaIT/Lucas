@@ -1,0 +1,45 @@
+<p>
+  Registrar-se
+</p>
+
+<form #f="ngForm" (ngSubmit) = "onSubmit(f)">
+  <div class="container">
+      <div class="form-group"
+      [ngClass]="aplicarCssElemento('nome')">
+      <label class="control-label" for="nome">Nome</label>    
+      <input required pattern="[a-zA-Z ]+" minlength="3" type="text" name="nome"
+          value="" [(ngModel)]="f.nome" #nome="ngModel" class="form-control" id="nome">
+          <!-- <app-form-error nomeCampo="Nome" [campoValidation]="nome.valid" [campoTouched]="nome.touched" placeholder="Nome"> </app-form-error> -->
+        </div>
+      
+      
+        <div class="form-group"
+        [ngClass]="aplicarCssElemento('email')">
+      <label class="control-label" for="email">Email</label>
+      <input required pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" type="email" name="email" value="" [readonly]="nome.valid == false" #email="ngModel" [(ngModel)]="f.email" class="form-control" id="email">
+      <!-- <app-form-error nomeCampo="Email" [campoValidation]="email.valid" [campoTouched]="email.touched"> </app-form-error> -->
+        </div>
+
+<br><br>
+
+<div class="form-group" [ngClass]="aplicarCssElemento(nome)">
+<input type="text" class="col-md-3" pattern="[0-9]+" maxlength="9" [(ngModel)]="f.cep" name="cep" value="" placeholder="Digite o CEP (00000000)" (blur)="buscarCEP(f.cep, f)">
+<!-- <app-form-error nomeCampo="cep" [campoValidation]="cep.valid" [campoTouched]="cep.touched"> </app-form-error> -->
+<input type="Endereço" class="col-md-6" name="logradouro" [(ngModel)]="f.logradouro" id="logradouro" readonly placeholder="Logradouro (Preenchimento Automático pelo CEP)">
+
+<input type="number" class="col-md-3" name="numero" [(ngModel)]="f.numero" id="numero" placeholder="Numeração">
+<!-- <app-form-error nomeCampo="numeroEndereco" [campoValidation]="numeroEndereco.valid" [campoTouched]="numeroEndereco.touched"> </app-form-error> -->
+</div>
+
+<div class="form-group">
+<input type="text" class="col-md-3" name="complemento" [(ngModel)]="f.complemento" id="complemento" placeholder="Complemento (Apt / Casa / Bloco / Sala)">
+<input type="text" readonly class="col-md-4" name="bairro" [(ngModel)]="f.bairro" id="bairro" placeholder="Bairro (Preenchimento automático pelo CEP)">
+<input type="text" readonly class="col-md-4" name="cidade" [(ngModel)]="f.cidade" id="cidade" placeholder="Cidade (Preenchimento automático pelo CEP)">
+<input type="text" readonly class="col-md-1" name="estado" [(ngModel)]="f.estado" id="estado" placeholder="UF">
+</div>
+
+<button type="submit" class="btn btn-block btn-primary">Enviar</button>
+
+<br>
+</div>
+</form>

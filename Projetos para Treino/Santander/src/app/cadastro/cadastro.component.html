@@ -1,0 +1,116 @@
+<div>
+  <h4>Seleção de Clientes</h4>
+  <hr class="hr">
+</div>
+<br>
+<div class="row">  
+  <div class="input-field col s12 m5">
+    <select>
+      <option value="" ngModel="selecte">Escolha uma opção</option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </select>
+    <label>Canal Origem</label>
+  </div>
+  <i class="col s12 m1"></i>
+  <div class="input-field col s12 m5">
+    <select>
+      <option value="" disabled selected>Escolha uma opção</option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </select>
+    <label>Canal Destino</label>
+  </div>
+</div>
+<div class="row">  
+  <div class="input-field col s12 m5">
+    <select>
+      <option value="" disabled selected>Escolha uma opção</option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </select>
+    <label>Ambiente Origem</label>
+  </div>
+  <i class="col s12 m1"></i>
+  <div class="input-field col s12 m5">
+    <select>
+      <option value="" disabled selected>Escolha uma opção</option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </select>
+    <label>Ambiente Destino</label>
+  </div>
+</div>
+<div class="row">  
+  <div class="input-field col s12 m5">
+    <select>
+      <option value="" disabled selected>Escolha uma opção</option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </select>
+    <label>Parceiro</label>
+  </div>
+  <i class="col s12 m1"></i>
+  <div class="input-field col s12 m5">
+    <select>
+      <option value="" disabled selected>Escolha uma opção</option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </select>
+    <label>Segmento</label>
+  </div>
+</div>
+<div class="row">  
+
+</div>
+<div class="row">
+  <div class="col s12 m5">    
+    <div class="input-field">
+      <input id="last_name" type="text" class="validate">
+      <label for="last_name">CPF</label>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="right">
+ <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Consultar</a>
+ <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Carregar Arquivo</a>
+ <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Sair</a>
+</div>
+
+ <div id="modal1" class="modal modal-fixed-footer">
+   <div class="modal-content">
+     <h4>Modal Header</h4>
+     <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>CPF</th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          <tr *ngFor="let dado of dados" >
+            <td>{{dado.nome}}</td>
+            <td>{{dado.cpf}}</td>
+          </tr>
+        </tbody>
+      </table>
+   </div>
+   <div class="modal-footer">
+     <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">EXPORTAR</a>
+     <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">CANCELAR</a>
+   </div>
+ </div>
+  
+  

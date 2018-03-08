@@ -1,0 +1,61 @@
+/* Footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 00px;
+}
+
+#footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 275px;
+  background:
+  /* color overlay */
+    linear-gradient(
+      rgba(105, 93, 1, 1),
+      rgba(0, 0, 0, 0.45)
+    ),
+    /* image to overlay */
+    url(http://images.cdn.fotopedia.com/_avPIZmqM3w-7z161LH_268-hd.jpg);
+}
+
+
+/* Custom footer CSS
+-------------------------------------------------- */
+.img-circle-1 {
+  margin-left: 67px;
+}
+
+.img-circle-2 {
+  margin-left: 67px;
+}
+
+.img-circle-3 {
+  margin-left: 65px;
+}
+
+h4 {
+  text-align: center;
+}
+
+.col-md-4 {
+  margin: 0px auto;
+}
+
+.container {
+  width: auto;
+  max-width: 680px;
+  padding: 0 15px;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+.footertext {
+  color: #ffffff;
+}

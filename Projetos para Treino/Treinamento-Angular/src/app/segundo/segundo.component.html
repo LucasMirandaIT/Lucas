@@ -1,0 +1,25 @@
+<div>
+<input class="form-control" type="text" [(ngModel)]= "nome" name="nome" value="" placeholder="Nome" required>
+<input class="form-control"type="text" [(ngModel)]= "sobrenome" name="sobrenome" value="" placeholder="Sobrenome" required>
+<br>
+<input class="form_control" type="number" min= "1" max="2.20" name="altura" [(ngModel)]="altura" placeholder="Altura"step=".05"> <br>
+<input class="form_control" type="number" min= "45" max="140" name="peso" [(ngModel)]="peso" placeholder="Peso" step=".5"> <br> <br>
+
+<input class="btn-info" type="button" (click)="calcular()" name="" value="Clique para calcular">
+</div>
+
+<br>
+Meu nome é {{nome}} {{sobrenome}}.
+<br>
+<div **ngFor="let imcValue of imc">
+  {{imcValue}}
+</div>
+--------------------------------------------------------------------------------------------------------------
+<br>
+<!-- Dois campos, altura e peso. Quando preencher os dois campos, divide o peso pela altura ao quadrado
+      Botão clique aqui. Verifica digitação dos dados.-->
+
+<input class="form_control" type="number" min= "1" max="2.20" name="altura" [(ngModel)]="altura" placeholder="Altura"step=".05"> <br>
+<input class="form_control" type="number" min= "45" max="140" name="peso" [(ngModel)]="peso" placeholder="Peso" step=".5"> <br> <br>
+
+<input class="btn-info" type="button" (click)="calcular()" name="" value="Clique para calcular">
