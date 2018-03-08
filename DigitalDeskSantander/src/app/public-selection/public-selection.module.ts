@@ -6,7 +6,6 @@ import { PublicSelectionRoutingModule } from './public-selection-routing.module'
 import { ImportSearchComponent } from './commom/import-search/import-search.component';
 import { TableResultComponent } from './commom/table-result/table-result.component';
 import { HttpModule } from '@angular/http';
-import { CategorySearchComponent } from './IBPJ/category-search/category-search.component';
 import { SavedGroupsComponent } from './commom/saved-groups/saved-groups.component';
 import { ModulesSettingsComponent } from './commom/modules-settings/modules-settings.component';
 import { ModulesTurnComponent } from './commom/modules-turn/modules-turn.component';
@@ -25,7 +24,6 @@ import { CnpjSearchComponent } from './IBPJ/create-selection/cnpj-search/cnpj-se
     ImportSearchComponent,
     TableResultComponent,
     CnpjSearchComponent,
-    CategorySearchComponent,
     SavedGroupsComponent,
     ModulesSettingsComponent,
     ModulesTurnComponent,

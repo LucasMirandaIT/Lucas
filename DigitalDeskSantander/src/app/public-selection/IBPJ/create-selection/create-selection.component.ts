@@ -88,7 +88,7 @@ export class CreateSelectionComponent implements OnInit {
   };
 
   addValues () {
-    this.getDatabaseService.getFilterData('arquivos').subscribe(
+    this.getDatabaseService.getFilterData('agency').subscribe(
       response => {
       this.dataGeneral = this.dataGeneral.concat(response.dados);
       this.total = this.dataGeneral.length;

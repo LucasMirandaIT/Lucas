@@ -8,7 +8,6 @@ import { AuthGuardService } from './services/guard/auth-guard.service';
 import { HomeComponent } from './home/home.component';
 import { RootComponent } from './commom/root/root.component';
 import { ImportSearchComponent } from './public-selection/commom/import-search/import-search.component';
-import { CategorySearchComponent } from './public-selection/IBPJ/category-search/category-search.component';
 import { DashboardsComponent } from './modules-monitoring/dashboards/dashboards.component';
 import { ModulesTurnComponent } from './public-selection/commom/modules-turn/modules-turn.component';
 import { ModulesSettingsComponent } from './public-selection/commom/modules-settings/modules-settings.component';
@@ -40,16 +39,8 @@ const routes: Routes = [
         },
       },
       {
-        path: 'category-search',
-        component: CategorySearchComponent,
-        // canActivate:[AuthGuardService],
-        data: {
-          breadcrumb: 'Seleção por Categoria'
-        },
-      },
-      {
         path: 'import-search',
-        component: ImportSearchComponent,
+        redirectTo : 'create-selection', pathMatch : 'full',
         // canActivate:[AuthGuardService],
         data: {
           breadcrumb: 'Seleção por Carga de Arquivo'

@@ -9,8 +9,6 @@ import { PostDatabaseService } from '../../../services/post-database/post-databa
   styleUrls: ['./saved-groups.component.css']
 })
 export class SavedGroupsComponent implements OnInit {
-  @Input() showTable: boolean = false;
-  @Output() eventClose = new EventEmitter<boolean>();
 
   actualPage: any;
   nPages = [];
@@ -20,10 +18,14 @@ export class SavedGroupsComponent implements OnInit {
   aux : number;
   switchButton: boolean = true;
   serverStatus: boolean = false;
+  openTable: boolean = false;
 
   constructor(private getDatabaseService : GetDatabaseService, private postDatabaseService : PostDatabaseService) { }
 
   ngOnInit() {
+    $(document).ready(function(){
+      $('.modal').modal();
+    });
     this.getFilters();
   }
 
@@ -32,7 +34,7 @@ export class SavedGroupsComponent implements OnInit {
     this.dataGeneral = [];
     this.total = 0;
 
-    this.getDatabaseService.getFilterData('arquivos')
+    this.getDatabaseService.getFilterData('listGroup')
       .subscribe(
         response => {
         this.dataGeneral = response.dados;
@@ -59,8 +61,8 @@ export class SavedGroupsComponent implements OnInit {
 
       }, error => {
         alert('Erro ao acessar servidor!');
-        this.eventClose.emit(false);
-        this.showTable = false;
+        // this.eventClose.emit(false);
+        // this.showTable = false;
         // $(document).ready(function() {
         //   $('#modalSelecao').modal('close');
         // });
@@ -98,12 +100,12 @@ export class SavedGroupsComponent implements OnInit {
   };
 
   close () {
-    this.eventClose.emit(false);
+    // this.eventClose.emit(false);
   }
 
   switchStatus(returnStatus) {
     this.switchButton = returnStatus;
-}
+  }
 
 }
 

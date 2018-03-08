@@ -15,31 +15,25 @@
 
         <tbody>
           <tr *ngFor="let data of dataDisplay" >
-            <td>{{data.cpf}}</td>
             <td>{{data.nome}}</td>
-            <td>{{data.nome}}</td>
+            <td>{{data.canal}}</td>
+            <td>{{data.criador}}</td>
             <td>
                 <!-- Switch -->
                 <div class="switch" >
                     <label class="enabled">
                       Desativar
-                      <input type="checkbox" (click)="switchStatus()">
+                      <input type="checkbox" (click)="switchStatus()" [checked]="data.status">
                       <span class="lever"></span>
                       Ativar
                     </label>
                   </div>
             </td>
-            <td><i class="material-icons">mode_edit</i></td>
+            <td><i class="material-icons modal-trigger" data-target="modalClients">mode_edit</i></td>
+
             <td class="center"><i class="material-icons table-close-icon" >close</i></td>
           </tr>
         </tbody>
-
-        <!-- <tfoot>
-          <tr>
-            <th>Exibindo:  {{total}} clientes</th>
-            <th> </th>
-          </tr>
-        </tfoot> -->
       </table>
     </div>
     <p style="color: #787878">Foram encontrados, um total de {{dataGeneral.length}} clientes para estes filtros</p>
@@ -53,9 +47,17 @@
       <li class="waves-effect"><a (click)="pagination(actualPage + 1)"><i class="material-icons">chevron_right</i></a></li>
       <li class="waves-effect"><a (click)="pagination(aux)"><i class="material-icons">last_page</i></a></li>
       <li class="right">
-          <button class="waves-effect btn" (click)="postData(); showTable = false">Gravar</button>
-          <button class="waves-effect btn btn-line" (click)="showTable = false; close()">Cancelar</button>
+          <button class="waves-effect btn" (click)="postData()">Gravar</button>
+          <button class="waves-effect btn btn-line" (click)="close()">Cancelar</button>
       </li>
     </ul>
     <br>
+</div>
+
+<!-- Modal Structure -->
+<div id="modalClients" class="modal">
+  <div class="modal-content">
+    <h4>Lista de Clientes do Grupo</h4>
+    <app-table-result></app-table-result>
+  </div>
 </div>

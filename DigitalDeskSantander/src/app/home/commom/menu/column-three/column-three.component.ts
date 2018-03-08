@@ -8,71 +8,81 @@ import { Router } from '@angular/router';
 })
 export class ColumnThreeComponent implements OnInit, OnDestroy {
   
-  @Input() navBar: boolean = false;
-
   header: any = "Gestão de Canais";
   headerIcon: any = "group";
   headerLevelOne: any = ['IBPF', 'IBPJ', 'Novo Front', 'Mobile PF', 'Mobile PJ', 'Way'];
   headerIconLevelOne: any = ['keyboard_arrow_right', 'keyboard_arrow_right', 'keyboard_arrow_right', 'keyboard_arrow_right', 'keyboard_arrow_right', 'keyboard_arrow_right'];
   headerLevelTwo: any = [
-    { options: ['Seleção de Público', 'Configurações'] },
-    { options: ['Seleção de Público', 'Configurações'] },
-    { options: ['Seleção de Público', 'Configurações'] },
-    { options: ['Seleção de Público', 'Configurações'] },
-    { options: ['Seleção de Público', 'Configurações'] },
-    { options: ['Seleção de Público', 'Configurações'] },
+    { options: ['Criar Seleção', 'Visualizar/ Editar Seleção', 'Configurações dos Módulos'] },
+    { options: ['Criar Seleção', 'Visualizar/ Editar Seleção', 'Configurações dos Módulos'] },
+    { options: ['Criar Seleção', 'Visualizar/ Editar Seleção', 'Configurações dos Módulos'] },
+    { options: ['Criar Seleção', 'Visualizar/ Editar Seleção', 'Configurações dos Módulos'] },
+    { options: ['Criar Seleção', 'Visualizar/ Editar Seleção', 'Configurações dos Módulos'] },
+    { options: ['Criar Seleção', 'Visualizar/ Editar Seleção', 'Configurações dos Módulos'] },
   ];
   headerIconLevelTwo: any = ['keyboard_arrow_right', 'keyboard_arrow_right', 'keyboard_arrow_right', 'keyboard_arrow_right', 'keyboard_arrow_right', 'keyboard_arrow_right'];
   body: any = [
     { options: [
-      { subOptions: ['Busca por CPF', 'Carga de Arquivo',  'Filtros Pré-Definidos', 'Testes Ativos'] },
-      { subOptions: ['Alteração de Modulos', 'Configuração de Módulos', 'Logs'] },
+      { subOptions: ['Por CPF', 'Por Carga de Arquivo'] },
+      { subOptions: ['Por Grupo'] },
+      { subOptions: ['Gestão dos Módulos', 'Parametrização dos Módulos'] },
     ]},
     { options: [
-      { subOptions: ['Busca por CNPJ', 'Busca por Categoria', 'Carga de Arquivo',  'Filtros Pré-Definidos', 'Testes Ativos'] },
-      { subOptions: ['Alteração de Modulos', 'Configuração de Módulos', 'Logs'] },      
+      { subOptions: ['Por Agência/ Conta', 'Por Carga de Arquivo'] },
+      { subOptions: ['Por Grupo'] },
+      { subOptions: ['Gestão dos Módulos', 'Parametrização dos Módulos'] },    
     ]},
     { options: [
-      { subOptions: ['Body'] },
-      { subOptions: ['Alteração de Modulos', 'Configuração de Módulos', 'Logs'] }, 
+      { subOptions: ['Por CPF', 'Por Carga de Arquivo'] },
+      { subOptions: ['Por Grupo'] },
+      { subOptions: ['Gestão dos Módulos', 'Parametrização dos Módulos'] },
     ]},
     { options: [
-      { subOptions: ['Body'] },
-      { subOptions: ['Alteração de Modulos', 'Configuração de Módulos', 'Logs'] }, 
+      { subOptions: ['Por CPF', 'Por Carga de Arquivo'] },
+      { subOptions: ['Por Grupo'] },
+      { subOptions: ['Gestão dos Módulos', 'Parametrização dos Módulos'] },
     ]},
     { options: [
-      { subOptions: ['Body'] },
-      { subOptions: ['Alteração de Modulos', 'Configuração de Módulos', 'Logs'] }, 
+      { subOptions: ['Por CPF', 'Por Carga de Arquivo'] },
+      { subOptions: ['Por Grupo'] },
+      { subOptions: ['Gestão dos Módulos', 'Parametrização dos Módulos'] },
     ]},
     { options: [
-      { subOptions: ['Body'] },
-      { subOptions: ['Alteração de Modulos', 'Configuração de Módulos', 'Logs'] }, 
+      { subOptions: ['Por CPF', 'Por Carga de Arquivo'] },
+      { subOptions: ['Por Grupo'] },
+      { subOptions: ['Gestão dos Módulos', 'Parametrização dos Módulos'] },
     ]},
   ];
   routers: any = [
     { options: [
-      { subOptions: ['cnpj-search', 'import-search', 'saved-filters', 'active-tests'] },
-      { subOptions: ['modules-turn', 'modules-settings', 'channel-logs'] },
+      { subOptions: ['create-selection', 'import-search'] },
+      { subOptions: ['saved-groups'] },
+      { subOptions: ['modules-turn', 'modules-settings',] },
     ]},
     { options: [
-      { subOptions: ['cnpj-search', 'category-search', 'import-search', 'predefined-filters', 'active-tests'] },
-      { subOptions: ['modules-turn', 'modules-settings', 'channel-logs'] },      
+      { subOptions: ['create-selection', 'import-search'] },
+      { subOptions: ['saved-groups'] },
+      { subOptions: ['modules-turn', 'modules-settings',] },   
     ]},
     { options: [
-      { subOptions: ['modules-settings'] },
-      { subOptions: ['modules-turn', 'modules-settings', 'channel-logs'] },            
+      { subOptions: ['create-selection', 'import-search'] },
+      { subOptions: ['saved-groups'] },
+      { subOptions: ['modules-turn', 'modules-settings',] },         
     ]},
     { options: [
-      { subOptions: ['modules-settings'] },
-      { subOptions: ['modules-turn', 'modules-settings', 'channel-logs'] },            
+      { subOptions: ['create-selection', 'import-search'] },
+      { subOptions: ['saved-groups'] },
+      { subOptions: ['modules-turn', 'modules-settings',] },         
     ]},
     { options: [
-      { subOptions: ['modules-settings'] },
-      { subOptions: ['modules-turn', 'modules-settings', 'channel-logs'] },            
+      { subOptions: ['create-selection', 'import-search'] },
+      { subOptions: ['saved-groups'] },
+      { subOptions: ['modules-turn', 'modules-settings',] },         
     ]},
     { options: [
-      { subOptions: ['modules-settings'] },
-      { subOptions: ['modules-turn', 'modules-settings', 'channel-logs'] },            
+      { subOptions: ['create-selection', 'import-search'] },
+      { subOptions: ['saved-groups'] },
+      { subOptions: ['modules-turn', 'modules-settings',] },         
     ]},
 
   ];

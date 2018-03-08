@@ -31,7 +31,7 @@ export class PreviousTestersComponent implements OnInit {
     this.dataGeneral = [];
     this.total = 0;
 
-    this.getDatabaseService.getFilterData('arquivos')
+    this.getDatabaseService.getFilterData('agency')
       .subscribe(
         response => {
         this.dataGeneral = response.dados;

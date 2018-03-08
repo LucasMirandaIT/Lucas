@@ -34,45 +34,45 @@ export class ColumnOneComponent implements OnInit, OnDestroy {
     ]},
     { options: [
       { subOptions: ['Criar Seleção', 'Visualizar/ Editar Seleção'] },
-      { subOptions: ['Gestão dos Módulos', 'Parametrização dos Módulos', 'Logs'] },
+      { subOptions: ['Gestão dos Módulos', 'Parametrização dos Módulos'] },
     ]},
     { options: [
       { subOptions: ['Criar Seleção', 'Visualizar/ Editar Seleção'] },
-      { subOptions: ['Gestão dos Módulos', 'Parametrização dos Módulos', 'Logs'] },
+      { subOptions: ['Gestão dos Módulos', 'Parametrização dos Módulos'] },
     ]},
     { options: [
       { subOptions: ['Criar Seleção', 'Visualizar/ Editar Seleção'] },
-      { subOptions: ['Gestão dos Módulos', 'Parametrização dos Módulos', 'Logs'] },
+      { subOptions: ['Gestão dos Módulos', 'Parametrização dos Módulos'] },
     ]},
     { options: [
       { subOptions: ['Criar Seleção', 'Visualizar/ Editar Seleção'] },
-      { subOptions: ['Gestão dos Módulos', 'Parametrização dos Módulos', 'Logs'] },
+      { subOptions: ['Gestão dos Módulos', 'Parametrização dos Módulos'] },
     ]},
   ];
   routers: any = [
     { options: [
       { subOptions: ['create-selection', 'saved-groups'] },
-      { subOptions: ['modules-turn', 'modules-settings', 'channel-logs'] },
+      { subOptions: ['modules-turn', 'modules-settings'] },
     ]},
     { options: [
       { subOptions: ['create-selection', 'saved-groups'] },
-      { subOptions: ['modules-turn', 'modules-settings', 'channel-logs'] },    
+      { subOptions: ['modules-turn', 'modules-settings'] },    
     ]},
     { options: [
       { subOptions: ['create-selection', 'saved-groups'] },
-      { subOptions: ['modules-turn', 'modules-settings', 'channel-logs'] },          
+      { subOptions: ['modules-turn', 'modules-settings'] },          
     ]},
     { options: [
       { subOptions: ['create-selection', 'saved-groups'] },
-      { subOptions: ['modules-turn', 'modules-settings', 'channel-logs'] },          
+      { subOptions: ['modules-turn', 'modules-settings'] },          
     ]},
     { options: [
       { subOptions: ['create-selection', 'saved-groups'] },
-      { subOptions: ['modules-turn', 'modules-settings', 'channel-logs'] },          
+      { subOptions: ['modules-turn', 'modules-settings'] },          
     ]},
     { options: [
       { subOptions: ['create-selection', 'saved-groups'] },
-      { subOptions: ['modules-turn', 'modules-settings', 'channel-logs'] },          
+      { subOptions: ['modules-turn', 'modules-settings'] },          
     ]},
 
   ];

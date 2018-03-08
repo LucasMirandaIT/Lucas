@@ -425,15 +425,15 @@ p.title {
   transform: rotate(90deg);
 }
 
-/* .row .col.s3 {
-  width: 26% !important;
-} */
-
 i {
   cursor: pointer !important;
 }
 
-span.caret{
-  color: white !important;
-  font-size: 13px !important;
+.collapsible-header i {
+  margin-right: 0px;
+}
+
+.collapsible-body {
+  padding-left: 25px;
+  padding-right: 25px;
 }

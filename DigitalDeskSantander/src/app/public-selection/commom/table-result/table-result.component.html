@@ -1,26 +1,35 @@
-<div *ngIf="showTable" class="white-background table-div">
-  <p class="title">Resultado dos Filtros</p>
-  <div class="table-scroll z-depth-2" >
-    <table class="bordered" >
-      <thead>
-        <tr>
-          <th>CNPJ</th>
-          <th>Nome</th>
-          <th>Categoria</th>
-          <th class="close"></th>
-        </tr>
-      </thead>
-      
-      <tbody>
-        <tr *ngFor="let data of dataDisplay" >
-          <td>{{data.cpf}}</td>
-          <td>{{data.nome}}</td>
-          <td>{{data.nome}}</td>
-          <td><i class="material-icons table-close-icon">close</i></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<div class="table-scroll z-depth-2">
+  <table class="bordered" >
+    <thead>
+      <tr>
+        <th>Agência</th>
+        <th>Conta</th>
+        <th>Razão Social</th>
+        <th>Ativar/Desativar</th>
+        <th class="center close">Cancelar</th>
+      </tr>
+    </thead>            
+    <tbody>
+      <tr *ngFor="let data of dataDisplay" >
+        <td>{{data.agencia}}</td>
+        <td>{{data.conta}}</td>
+        <td>{{data.nome}}</td>
+        <td>
+            <div class="switch" >
+                <label class="enabled">
+                  Desativar
+                  <input type="checkbox" [checked]="data.status">
+                  <span class="lever"></span>
+                  Ativar
+                </label>
+              </div>
+        </td>
+        <td class="center"><i class="material-icons table-close-icon" >close</i></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div>
   <p style="color: #787878">Foram encontrados, um total de {{dataGeneral.length}} clientes para estes filtros</p>
   <ul class="pagination">
     <li class="waves-effect"><a (click)="pagination(1)" style="padding-left: 0px !important"><i class="material-icons" >first_page</i></a></li>
@@ -32,9 +41,9 @@
     <li class="waves-effect"><a (click)="pagination(actualPage + 1)"><i class="material-icons">chevron_right</i></a></li>
     <li class="waves-effect"><a (click)="pagination(aux)"><i class="material-icons">last_page</i></a></li>
     <li class="right">
-        <button class="waves-effect btn" (click)="postData(); showTable = false">Gravar</button>
-        <button class="waves-effect btn btn-line" (click)="showTable = false; close()">Cancelar</button>
+        <button class="waves-effect btn" (click)="postData()">Gravar</button>
+        <button class="waves-effect btn btn-line" (click)="close()">Cancelar</button>
     </li>
   </ul>
-  <br>
-</div> 
+
+</div>
