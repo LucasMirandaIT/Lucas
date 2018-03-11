@@ -10,7 +10,7 @@ import { EventEmitterService } from '../../../services/event-emitter/event-emitt
   styleUrls: ['./create-selection.component.css']
 })
 export class CreateSelectionComponent implements OnInit {
-
+  
   channelActive: boolean = true;
   callTable: boolean = false;
   channelTitle: any = "";

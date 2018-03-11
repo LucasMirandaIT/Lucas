@@ -8,6 +8,7 @@ import { EventEmitterService } from '../../../../services/event-emitter/event-em
 })
 export class CnpjSearchComponent implements OnInit {
 
+  channels: string [] = ['Real', 'Preservado', 'Oculto'];
   changeEmmit: boolean = false;
 
   constructor(private eventEmitterService : EventEmitterService) { }

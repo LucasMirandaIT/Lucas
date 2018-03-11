@@ -21,6 +21,7 @@ export class NavbarComponent implements OnInit {
     $(document).ready(function(){
       $(".btn_sidenav").sideNav({
         closeOnClick: true,
+        hover:true
       });
       $('.collapsible').collapsible();
       $('.dropdown-button').dropdown({
@@ -30,8 +31,9 @@ export class NavbarComponent implements OnInit {
       });
       $('.modal').modal();
     });
-
   }
+
+  
 
   ChangeRoute(){
     this.logout = true;
