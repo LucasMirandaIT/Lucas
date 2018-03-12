@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { EventEmitterService } from '../../../../services/event-emitter/event-emitter.service';
+import { inputmask } from 'inputmask';
 
 @Component({
   selector: 'app-cnpj-search',
@@ -18,6 +19,7 @@ export class CnpjSearchComponent implements OnInit {
       $('select').material_select();
       $('ul.tabs').tabs();
     });
+    
   }
 
   addValues() {

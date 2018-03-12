@@ -25,6 +25,9 @@ export class SavedGroupsComponent implements OnInit {
 
   ngOnInit() {
     this.getFilters();
+    $(document).ready(function(){
+      $('#modalSavedGroups').modal();
+    });
   }
 
   // Chama o Servico do método GET dos dados da tabela

@@ -6,7 +6,7 @@
     </div>
     <div class="col s2">
       <label>Conta</label>
-      <input type="text" name="conta">
+      <input type="text" name="account" ng-class="validate" pattern="[0-9]" minlength="4" maxlength="6">
     </div>
     <div class="col s1">
     </div>
@@ -22,7 +22,7 @@
     <div class="input-field col s4">
       <select>
         <option value="" disabled selected>Escolha um Módulo</option>
-        <option value="1" *ngFor="let channel of channels">{{channel}}</option>
+        <option value="i" *ngFor="let channel of channels">{{channel}}</option>
       </select>
       <label>Módulo</label>
     </div>
