@@ -8,7 +8,8 @@
         <div class="collapsible-body body-left bd-headers" >
           <ul class="collapsible" data-collapsible="accordion">
             <li *ngFor="let array of headerLevelOne; let i = index">
-              <div class="valign-wrapper collapsible-header" [ngClass]="{'hd-level2': !navBar, 'hd-level2-navbar': navBar}" (click)="abrir()" (click)="abrir()">
+              <div class="valign-wrapper collapsible-header" [ngClass]="{'hd-level2': !navBar, 'hd-level2-navbar': navBar}" (click)="abrir()">
+                <!-- <img style="width: 40px !important; padding-right: 10px !important" [src]="headerIconLevelOne[i]">          -->
                 <i class="material-icons">{{headerIconLevelOne[i]}}</i>
                 {{headerLevelOne[i]}}
               </div>

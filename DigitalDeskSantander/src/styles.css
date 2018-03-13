@@ -54,14 +54,14 @@ body {
 .btn-line {
   color: #20B2BB !important;
   border: 2px solid #20B2BB !important;
-  background: #FBFBFB !important;
+  background: transparent !important;
   height: 36px !important;
 }
 
 .btn-line:hover {
   color: #137E84 !important;
   border: 2px solid #137E84 !important;
-  background: #FBFBFB !important;
+  background: transparent !important;
 }
 
 .btn-line[disabled] {
@@ -70,6 +70,10 @@ body {
   background: white !important;
   font-size: 16px !important;
   height: 36px !important;
+}
+
+.btn-dark {
+  background: #263238 !important;
 }
 
 input:not([type]):focus:not([readonly]),

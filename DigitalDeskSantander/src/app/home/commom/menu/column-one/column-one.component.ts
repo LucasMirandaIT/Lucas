@@ -13,6 +13,7 @@ export class ColumnOneComponent implements OnInit, OnDestroy {
   header: any = "Gestão de Canais";
   headerIcon: any = "group";
   headerLevelOne: any = ['IBPF', 'IBPJ', 'Novo Front', 'Mobile PF', 'Mobile PJ', 'Way'];
+  // headerIconLevelOne: any = ['../../assets/img/IBPF.png', '../../assets/img/IBPJ.png', '../../assets/img/NovoFront.png', '../../assets/img/MobilePF.png', '../../assets/img/MobilePJ.png', '../../assets/img/Way.png'];
   headerIconLevelOne: any = ['keyboard_arrow_right', 'keyboard_arrow_right', 'keyboard_arrow_right', 'keyboard_arrow_right', 'keyboard_arrow_right', 'keyboard_arrow_right'];
   headerLevelTwo: any = [
     { options: ['Seleção de Público', 'Configurações dos Módulos'] },
