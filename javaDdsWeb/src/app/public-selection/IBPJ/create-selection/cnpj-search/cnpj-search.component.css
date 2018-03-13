@@ -2,6 +2,6 @@
     margin-top: 22px !important;
 }
 
-.input-field.col label {
-    top: -27px !important;
+.select-wrapper+label {
+    top: -30px !important;
 }

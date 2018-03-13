@@ -26,10 +26,6 @@ export class ChannelLogsComponent implements OnInit {
       this.channelTitle = query['channelTitle'];
     });
     this.getFilters();
-
-    $(document).ready(function(){
-      $('.modal').modal();
-    });
   }
 
   //Chama o Servico do método GET dos dados da tabela
@@ -37,7 +33,7 @@ export class ChannelLogsComponent implements OnInit {
     this.dataGeneral = [];
     this.total = 0;
 
-    this.getDatabaseService.getFilterData('arquivos')
+    this.getDatabaseService.getFilterData('agency')
       .subscribe(
         response => {
         this.dataGeneral = this.dataGeneral.concat(response.dados);

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   templateUrl: './column-four.component.html',
   styleUrls: ['./column-four.component.css']
 })
-export class ColumnFourComponent implements OnInit, OnDestroy {
+export class ColumnFourComponent implements OnInit {
   
   @Input() navBar: boolean = false;
 
@@ -78,16 +78,6 @@ export class ColumnFourComponent implements OnInit, OnDestroy {
   constructor( private router : Router) { }
 
   ngOnInit() {
-    $(document).ready(function(){
-      $('.collapsible').collapsible();
-      Materialize.updateTextFields();
-    });
-  }
-
-  ngOnDestroy() {
-    $(document).ready(function(){
-      $('.collapsible').collapsible('destroy');
-    });
   }
 
   goToRoute(route, channel) {
@@ -95,8 +85,5 @@ export class ColumnFourComponent implements OnInit, OnDestroy {
   }
 
   abrir (){
-    $(document).ready(function(){
-      $('.collapsible').collapsible();
-    });
   }
 }

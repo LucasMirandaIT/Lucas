@@ -6,13 +6,14 @@ import { Router } from '@angular/router';
   templateUrl: './column-one.component.html',
   styleUrls: ['./column-one.component.css']
 })
-export class ColumnOneComponent implements OnInit, OnDestroy {
+export class ColumnOneComponent implements OnInit {
   
   @Input() navBar: boolean = false;
 
   header: any = "Gestão de Canais";
   headerIcon: any = "group";
   headerLevelOne: any = ['IBPF', 'IBPJ', 'Novo Front', 'Mobile PF', 'Mobile PJ', 'Way'];
+  // headerIconLevelOne: any = ['../../assets/img/IBPF.png', '../../assets/img/IBPJ.png', '../../assets/img/NovoFront.png', '../../assets/img/MobilePF.png', '../../assets/img/MobilePJ.png', '../../assets/img/Way.png'];
   headerIconLevelOne: any = ['keyboard_arrow_right', 'keyboard_arrow_right', 'keyboard_arrow_right', 'keyboard_arrow_right', 'keyboard_arrow_right', 'keyboard_arrow_right'];
   headerLevelTwo: any = [
     { options: ['Seleção de Público', 'Configurações dos Módulos'] },
@@ -34,45 +35,45 @@ export class ColumnOneComponent implements OnInit, OnDestroy {
     ]},
     { options: [
       { subOptions: ['Criar Seleção', 'Visualizar/ Editar Seleção'] },
-      { subOptions: ['Gestão dos Módulos', 'Parametrização dos Módulos', 'Logs'] },
+      { subOptions: ['Gestão dos Módulos', 'Parametrização dos Módulos'] },
     ]},
     { options: [
       { subOptions: ['Criar Seleção', 'Visualizar/ Editar Seleção'] },
-      { subOptions: ['Gestão dos Módulos', 'Parametrização dos Módulos', 'Logs'] },
+      { subOptions: ['Gestão dos Módulos', 'Parametrização dos Módulos'] },
     ]},
     { options: [
       { subOptions: ['Criar Seleção', 'Visualizar/ Editar Seleção'] },
-      { subOptions: ['Gestão dos Módulos', 'Parametrização dos Módulos', 'Logs'] },
+      { subOptions: ['Gestão dos Módulos', 'Parametrização dos Módulos'] },
     ]},
     { options: [
       { subOptions: ['Criar Seleção', 'Visualizar/ Editar Seleção'] },
-      { subOptions: ['Gestão dos Módulos', 'Parametrização dos Módulos', 'Logs'] },
+      { subOptions: ['Gestão dos Módulos', 'Parametrização dos Módulos'] },
     ]},
   ];
   routers: any = [
     { options: [
       { subOptions: ['create-selection', 'saved-groups'] },
-      { subOptions: ['modules-turn', 'modules-settings', 'channel-logs'] },
+      { subOptions: ['modules-turn', 'modules-settings'] },
     ]},
     { options: [
       { subOptions: ['create-selection', 'saved-groups'] },
-      { subOptions: ['modules-turn', 'modules-settings', 'channel-logs'] },    
+      { subOptions: ['modules-turn', 'modules-settings'] },    
     ]},
     { options: [
       { subOptions: ['create-selection', 'saved-groups'] },
-      { subOptions: ['modules-turn', 'modules-settings', 'channel-logs'] },          
+      { subOptions: ['modules-turn', 'modules-settings'] },          
     ]},
     { options: [
       { subOptions: ['create-selection', 'saved-groups'] },
-      { subOptions: ['modules-turn', 'modules-settings', 'channel-logs'] },          
+      { subOptions: ['modules-turn', 'modules-settings'] },          
     ]},
     { options: [
       { subOptions: ['create-selection', 'saved-groups'] },
-      { subOptions: ['modules-turn', 'modules-settings', 'channel-logs'] },          
+      { subOptions: ['modules-turn', 'modules-settings'] },          
     ]},
     { options: [
       { subOptions: ['create-selection', 'saved-groups'] },
-      { subOptions: ['modules-turn', 'modules-settings', 'channel-logs'] },          
+      { subOptions: ['modules-turn', 'modules-settings'] },          
     ]},
 
   ];
@@ -82,16 +83,6 @@ export class ColumnOneComponent implements OnInit, OnDestroy {
   constructor( private router : Router) { }
 
   ngOnInit() {
-    $(document).ready(function(){
-      $('.collapsible').collapsible();
-      Materialize.updateTextFields();
-    });
-  }
-
-  ngOnDestroy() {
-    $(document).ready(function(){
-      $('.collapsible').collapsible('destroy');
-    });
   }
 
   goToRoute(route, channel) {
@@ -99,8 +90,5 @@ export class ColumnOneComponent implements OnInit, OnDestroy {
   }
 
   abrir (){
-    $(document).ready(function(){
-      $('.collapsible').collapsible();
-    });
   }
 }

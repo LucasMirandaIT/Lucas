@@ -8,22 +8,21 @@ import { EventEmitterService } from '../../../../services/event-emitter/event-em
 })
 export class CnpjSearchComponent implements OnInit {
 
-  channels: string [] = ['Real', 'Preservado', 'Oculto'];
   changeEmmit: boolean = false;
+  allModules = ['Oculto', 'Desenvolvimento', 'Preservado']
 
   constructor(private eventEmitterService : EventEmitterService) { }
 
   ngOnInit() {
-    $(document).ready(function() {
-      $('select').material_select();
-      $('ul.tabs').tabs();
-    });
-    
+    this.allModules = ['Oculto', 'Desenvolvimento', 'Preservado']
   }
 
   addValues() {
     this.changeEmmit = !this.changeEmmit;
     EventEmitterService.get('addClick').emit(this.changeEmmit);
+  }
+
+  clicar (){
   }
 
 }

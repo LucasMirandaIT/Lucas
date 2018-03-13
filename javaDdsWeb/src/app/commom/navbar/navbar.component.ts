@@ -18,22 +18,8 @@ export class NavbarComponent implements OnInit {
   constructor(private router : Router, private authService : AuthService) { }
 
   ngOnInit() {
-    $(document).ready(function(){
-      $(".btn_sidenav").sideNav({
-        closeOnClick: true,
-        hover:true
-      });
-      $('.collapsible').collapsible();
-      $('.dropdown-button').dropdown({
-        constrainWidth: false,
-        belowOrigin: true,
-        alignment: 'right',
-      });
-      $('.modal').modal();
-    });
-  }
 
-  
+  }
 
   ChangeRoute(){
     this.logout = true;

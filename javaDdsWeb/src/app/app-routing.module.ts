@@ -8,12 +8,10 @@ import { AuthGuardService } from './services/guard/auth-guard.service';
 import { HomeComponent } from './home/home.component';
 import { RootComponent } from './commom/root/root.component';
 import { ImportSearchComponent } from './public-selection/commom/import-search/import-search.component';
-import { CategorySearchComponent } from './public-selection/IBPJ/category-search/category-search.component';
 import { DashboardsComponent } from './modules-monitoring/dashboards/dashboards.component';
 import { ModulesTurnComponent } from './public-selection/commom/modules-turn/modules-turn.component';
 import { ModulesSettingsComponent } from './public-selection/commom/modules-settings/modules-settings.component';
 import { GeneralLogsComponent } from './commom/general-logs/general-logs.component';
-import { ChannelLogsComponent } from './public-selection/commom/channel-logs/channel-logs.component';
 import { DashModulesMonitoringComponent } from './modules-monitoring/dash-modules-monitoring/dash-modules-monitoring.component';
 import { CnpjSearchComponent } from './public-selection/IBPJ/create-selection/cnpj-search/cnpj-search.component';
 import { CreateSelectionComponent } from './public-selection/IBPJ/create-selection/create-selection.component';
@@ -37,14 +35,6 @@ const routes: Routes = [
         // canActivate:[AuthGuardService],
         data: {
           breadcrumb: 'Seleção por Agência e Conta'
-        },
-      },
-      {
-        path: 'category-search',
-        component: CategorySearchComponent,
-        // canActivate:[AuthGuardService],
-        data: {
-          breadcrumb: 'Seleção por Categoria'
         },
       },
       {
@@ -112,14 +102,6 @@ const routes: Routes = [
         }
       },      
       {
-        path: 'channel-logs',
-        component: ChannelLogsComponent,
-        // canActivate:[AuthGuardService],
-        data: {
-          breadcrumb: 'Log por Canal'
-        }
-      },      
-      {
         path: '',
         component: HomeComponent
       }
@@ -128,7 +110,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

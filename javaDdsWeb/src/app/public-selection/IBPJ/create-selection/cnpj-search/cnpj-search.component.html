@@ -2,31 +2,25 @@
   <div class="row">
     <div class="col s1">
       <label>Agência</label>
-      <input type="text">
+      <input type="text" placeholder="1111"  (click)="clicar()">
     </div>
     <div class="col s2">
       <label>Conta</label>
-      <input type="text" name="account" ng-class="validate" pattern="[0-9]" minlength="4" maxlength="6">
+      <input type="text" placeholder="11111-1">
     </div>
     <div class="col s1">
     </div>
     <div class="col s4">
       <label>Nome do Grupo</label>
-      <input type="text">
+      <input type="text" placeholder="Grupo Teste" required>
     </div>
-    <!-- <div class="col s4">
-       <label>Módulo de Destino</label>
-      <input type="text">
-    </div> -->
-
     <div class="input-field col s4">
-      <select>
-        <option value="" disabled selected>Escolha um Módulo</option>
-        <option value="i" *ngFor="let channel of channels">{{channel}}</option>
+      <select >
+        <option value="" disabled>Escolha uma Opção</option>
+        <option *ngFor="let modules of allModules">{{modules}}</option>
       </select>
-      <label>Módulo</label>
+      <label>Módulo de Destino</label>
     </div>
-
   </div>
 
   <div class="row">

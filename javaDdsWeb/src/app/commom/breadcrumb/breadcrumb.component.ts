@@ -43,16 +43,6 @@ export class BreadcrumbComponent implements OnInit {
       let root: ActivatedRoute = this.activatedRoute.root;
       this.breadcrumbs = this.getBreadcrumbs(root);
     });
-
-    $('.btn_filter').sideNav({
-      edge: 'right', // Choose the horizontal origin
-      closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor   
-    });
-
-    $(document).ready(function () {
-      $('select').material_select();
-    });
-
     this.activatedRoute.queryParams.subscribe(query => {
       this.channelTitle = query['channelTitle'];
     });

@@ -25,6 +25,7 @@ div.col {
 }
 
 .block-description {
+  /* font-weight: bold; */
 }
 
 .block-data {
@@ -34,8 +35,4 @@ div.col {
 
 blockquote {
   padding-left: 0px !important;
-}
-
-.left {
-  margin-right:25px !important;
 }

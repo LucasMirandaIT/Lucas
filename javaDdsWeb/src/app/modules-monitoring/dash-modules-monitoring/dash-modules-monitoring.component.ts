@@ -25,17 +25,17 @@ export class DashModulesMonitoringComponent implements OnInit {
 
     for (let i=0; i<this.channelDatas.length; i++){
       if(this.channelDatas[i].channel == "IBPF"){
-        this.iconsChannel[i] = "../../../assets/img/channels-icons/IBPF.svg";
+        this.iconsChannel[i] = "../../../assets/img/IBPF.png";
       } else if(this.channelDatas[i].channel == "IBPJ"){
-        this.iconsChannel[i] = "../../../assets/img/channels-icons/IBPJ.svg";
+        this.iconsChannel[i] = "../../../assets/img/IBPJ.png";
       } else if(this.channelDatas[i].channel == "Mobile PF"){
-        this.iconsChannel[i] = "../../../assets/img/channels-icons/MobilePF.svg";
+        this.iconsChannel[i] = "../../../assets/img/MobilePF.png";
       } else if(this.channelDatas[i].channel == "Mobile PJ"){
-        this.iconsChannel[i] = "../../../assets/img/channels-icons/MobilePJ.svg";
+        this.iconsChannel[i] = "../../../assets/img/MobilePJ.png";
       } else if(this.channelDatas[i].channel == "Novo Front"){
-        this.iconsChannel[i] = "../../../assets/img/channels-icons/NovoFrontTest.svg";
+        this.iconsChannel[i] = "../../../assets/img/NovoFront.png";
       } else if(this.channelDatas[i].channel == "Way"){
-        this.iconsChannel[i] = "../../../assets/img/channels-icons/Way.svg";
+        this.iconsChannel[i] = "../../../assets/img/Way.png";
       }
     }
    

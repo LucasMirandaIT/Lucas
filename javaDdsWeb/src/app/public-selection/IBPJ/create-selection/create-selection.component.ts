@@ -10,7 +10,7 @@ import { EventEmitterService } from '../../../services/event-emitter/event-emitt
   styleUrls: ['./create-selection.component.css']
 })
 export class CreateSelectionComponent implements OnInit {
-  
+
   channelActive: boolean = true;
   callTable: boolean = false;
   channelTitle: any = "";
@@ -30,9 +30,7 @@ export class CreateSelectionComponent implements OnInit {
 
     EventEmitterService.get('addClick').subscribe(data => {
       this.addValues();
-    });
-    
-
+    });  
   }
 
   //Chama o Servico do método GET dos dados da tabela
@@ -88,7 +86,7 @@ export class CreateSelectionComponent implements OnInit {
   };
 
   addValues () {
-    this.getDatabaseService.getFilterData('arquivos').subscribe(
+    this.getDatabaseService.getFilterData('agency').subscribe(
       response => {
       this.dataGeneral = this.dataGeneral.concat(response.dados);
       this.total = this.dataGeneral.length;
