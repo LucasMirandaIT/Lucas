@@ -1,0 +1,47 @@
+<nav class="nav-color">
+  <div class="nav-wrapper">
+    <ul id="nav-mobile" class="left hide-on-med-and-down">
+      <li><a href="#" data-activates="slide-out" class="btn_sidenav"><i class="material-icons" style=" height: 48px !important; line-height: 48px !important">menu</i></a></li>
+      <li class="headers"><a routerLink="" class="logos"><img src="../assets/img/logo.svg" class="navbar-logo"></a></li>
+      <li class="navbar-bar">|</li>
+      <li class="headers" ><a routerLink="" class="logos navbar-ddsantander">Digital Desk Santander</a></li>
+    </ul>
+    <ul class="right">
+      <li >
+        <a class='dropdown-button' data-activates='dropdown1'><i class="material-icons iDrop" style="margin-right: 1rem; font-size : 2rem" >account_box</i></a>
+        <!-- Dropdown Structure -->
+        <ul id='dropdown1' class='dropdown-content'>
+          <li><a style="color: #2B4651; font-weight: bold" class="disabled-hover">Logado como: </a></li>
+          <li  style="height: 38px"><a style="color: #787878" class="disabled-hover"><i class="material-icons" style="font-size: 35px">account_circle</i>{{usuario}}</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<ul id="slide-out" class="side-nav">
+
+<!-- Modal Structure -->
+<div id="modal3" class="modal">
+  <h5 style="padding-left : 2rem; padding-top: 7px">Logout</h5 >
+  <div class="modal-content">
+    Tem certeza que deseja finalizar esta seção?
+  </div>
+  <div class="modal-footer">
+    <a class="waves-effect modal-action modal-close btn" (click)="ChangeRoute()" routerLink="logout">Sim</a>
+    <a class="waves-effect modal-action modal-close btn btn-line">Não</a>
+  </div>
+</div>
+
+<div class="row side-logo">
+    <li  routerLink="">
+      <a routerLink="" class=" navpad-logo"><img src="../assets/img/logoSideBar.PNG" ></a>
+    </li>
+</div>
+
+<div>
+    <app-column-one [navBar]=true></app-column-one>
+    <app-column-two [navBar]=true></app-column-two>
+    <!-- <app-column-three [navBar]=true></app-column-three>
+    <app-column-four [navBar]=true></app-column-four> -->
+</div>

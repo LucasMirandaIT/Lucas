@@ -1,0 +1,41 @@
+div.col {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.row .col.s3 {
+  width: 25% !important;
+}
+
+.row .col.s6 {
+  padding-bottom: 15px !important;
+  padding-left: 7.5px !important;
+}
+
+.block {
+  background: #F0F0F0;
+  color: #787878;
+  font-size: 18px;
+}
+
+.block-title {
+  font-size: 24px !important;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.block-description {
+}
+
+.block-data {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+blockquote {
+  padding-left: 0px !important;
+}
+
+.left {
+  margin-right:25px !important;
+}
