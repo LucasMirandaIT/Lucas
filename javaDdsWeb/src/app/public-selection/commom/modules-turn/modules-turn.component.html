@@ -1,0 +1,60 @@
+<div class="white-background">
+  <p class="title">{{channelTitle}} - Gerenciamento dos Módulos</p>
+
+
+  <div class="row center">
+    <br>
+    <br>
+    <div class="col s12 table-scroll-turn z-depth-2" style="margin-top: 7px">
+      <table class="bordered">
+        <thead>
+          <tr>
+            <th class="center td2">Módulo</th>
+            <th class="center td2">Estado Atual</th>
+            <th class="center td2">Novo Estado</th>
+            <th class="center td2">URL</th>
+            <th class="center td2">Usuários Ativos</th>
+            <th class="center td1" style="width: 1%">Em Atendimento</th>
+            <th class="center td1" style="width: 1%">Editar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let module of modules; let i = index" (click)="switchModule(i)">
+            <td class="center td2">
+              <a>{{module.nome}}</a>
+            </td>
+            <td class="center td2">
+              <a>{{module.estado}}</a>
+            </td>
+            <td class="center td2">
+              <a>Novo Estado</a>
+            </td>
+            <td class="center td2">{{module.url}}</td>
+            <td class="center td2">1.000.000</td>
+            <td class="center td1">{{module.use}}</td>
+            <td class="center" style="width:10px">
+              <a><i class="center material-icons">mode-edit</i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal bottom-sheet">
+  <div class="modal-content">
+    <h4>Confirmação de Alteração do Módulo</h4>
+    <h6 style="font-size: 17px">Tem certeza que deseja alterar o estado do módulo
+      <b>{{activeModules.nome}}</b> de
+      <b>{{activeModules.estado}}</b> para
+      <b>{{modulos[selectedDropdown]}}</b>?</h6>
+  </div>
+  <div class="modal-footer">
+    <a class="btn modal-action modal-close waves-effect waves-green btn-flat">Confirmar</a>
+    <a class="btn btn-line modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+  </div>
+</div>

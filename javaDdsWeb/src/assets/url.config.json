@@ -1,0 +1,6 @@
+{
+	"url_hub_sso": "https://wastfcdvlbr01.bs.br.bsch/sso/authenticate/internal-basic?gw-app-key=INSIRA_AQUI_A_GW_APP_KEY",
+	"url_encryption": "https://esbapi.isbanbr.dev.corp/security/v1/key/public/js?gw-app-key=INSIRA_AQUI_A_GW_APP_KEY",
+	"system_code": "INSIRA AQUI A SIGLA RESPECTIVA A APLICAÇÃO SPA CADASTRADA NO HUB",
+	"url_front_log": "https://esbapi.isbanbr.dev.corp/COLOQUE_A_SUA_URL_DE_LOG_AQUIgw-app-key=INSIRA_AQUI_A_GW_APP_KEY"
+}
