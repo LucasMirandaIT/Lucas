@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { LowerCasePipe } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { ReturnStatement } from '@angular/compiler';
@@ -8,7 +8,7 @@ import { ReturnStatement } from '@angular/compiler';
   templateUrl: './modules-turn.component.html',
   styleUrls: ['./modules-turn.component.css']
 })
-export class ModulesTurnComponent implements OnInit {
+export class ModulesTurnComponent implements OnInit, AfterViewInit {
 
   activeModules: any = [];
   channelTitle: any;
@@ -28,6 +28,14 @@ export class ModulesTurnComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe(query => {
       this.channelTitle = query['channelTitle'];
+    });
+  }
+
+  ngAfterViewInit() {
+    $('.dropdown-button').dropdown({
+      constrainWidth: true, // Does not change width of dropdown to that of the activator
+      belowOrigin: true, // Displays dropdown below the button
+      alignment: 'left', // Displays dropdown with edge aligned to the left of button
     });
   }
 

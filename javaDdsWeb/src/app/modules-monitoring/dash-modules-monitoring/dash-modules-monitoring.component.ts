@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-dash-modules-monitoring',
   templateUrl: './dash-modules-monitoring.component.html',
@@ -17,35 +18,19 @@ export class DashModulesMonitoringComponent implements OnInit {
     {channel: 'Mobile PJ', dataProduction: '70.00', dataHidden: '0', dataPreserved: '0'},
     {channel: 'Way', dataProduction: '50.000', dataHidden: '2.000', dataPreserved: '100'},
   ];
-
+  
   constructor() { }
 
-  ngOnInit() {
-    
-
-    for (let i=0; i<this.channelDatas.length; i++){
-      if(this.channelDatas[i].channel == "IBPF"){
-        this.iconsChannel[i] = "../../../assets/img/IBPF.png";
-      } else if(this.channelDatas[i].channel == "IBPJ"){
-        this.iconsChannel[i] = "../../../assets/img/IBPJ.png";
-      } else if(this.channelDatas[i].channel == "Mobile PF"){
-        this.iconsChannel[i] = "../../../assets/img/MobilePF.png";
-      } else if(this.channelDatas[i].channel == "Mobile PJ"){
-        this.iconsChannel[i] = "../../../assets/img/MobilePJ.png";
-      } else if(this.channelDatas[i].channel == "Novo Front"){
-        this.iconsChannel[i] = "../../../assets/img/NovoFront.png";
-      } else if(this.channelDatas[i].channel == "Way"){
-        this.iconsChannel[i] = "../../../assets/img/Way.png";
+  ngOnInit() {    
+    for (let i=0, len = this.channelDatas.length; i<len; i++){
+      switch (this.channelDatas[i].channel){
+        case 'IBPF': this.iconsChannel[i] = '../../../assets/img/channels-icons/NovoFronts.svg#NovoFront';
+        case 'IBPJ': this.iconsChannel[i] = '../../../assets/img/channels-icons/NovoFronts.svg#NovoFront';
+        case 'Mobile PF': this.iconsChannel[i] = '../../../assets/img/channels-icons/NovoFronts.svg#NovoFront';
+        case 'Mobile PJ': this.iconsChannel[i] = '../../../assets/img/channels-icons/NovoFronts.svg#NovoFront';
+        case 'Novo Front': this.iconsChannel[i] = '../../../assets/img/channels-icons/NovoFronts.svg#NovoFront';
+        case 'Way': this.iconsChannel[i] = '../../../assets/img/channels-icons/NovoFronts.svg#NovoFront';
       }
-    }
-   
-  }
-
-  verify(value){    
-    if (value != '0'){
-      return true;
-    } else {
-      return false;
     }
   }
 
@@ -59,6 +44,5 @@ export class DashModulesMonitoringComponent implements OnInit {
       case 5: return sizeBorder+'px solid #C6291C';
     }
   }
-
 }
 

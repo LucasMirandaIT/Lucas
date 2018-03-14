@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+import ''
 
 @Component({
   selector: 'app-column-one',
@@ -89,6 +90,4 @@ export class ColumnOneComponent implements OnInit {
     this.router.navigate(['/', route], {queryParams : {channelTitle: this.headerLevelOne[channel]}});
   }
 
-  abrir (){
-  }
 }

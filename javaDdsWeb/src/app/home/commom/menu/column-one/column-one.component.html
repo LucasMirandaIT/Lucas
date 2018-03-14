@@ -1,14 +1,14 @@
 <div [ngClass]="{'row': !navBar}">
     <ul class="collapsible" data-collapsible="accordion">
       <li>
-        <div class="valign-wrapper collapsible-header active" [ngClass]="{'active': !navBar, 'hd-level1': !navBar, 'hd-level1-navbar': navBar}" (click)="abrir()">
+        <div class="valign-wrapper collapsible-header active" [ngClass]="{'active': !navBar, 'hd-level1': !navBar, 'hd-level1-navbar': navBar}">
           <i class="material-icons">{{headerIcon}}</i>
           {{header}}
         </div>
         <div class="collapsible-body body-left bd-headers" >
           <ul class="collapsible" data-collapsible="accordion">
             <li *ngFor="let array of headerLevelOne; let i = index">
-              <div class="valign-wrapper collapsible-header" [ngClass]="{'hd-level2': !navBar, 'hd-level2-navbar': navBar}" (click)="abrir()">
+              <div class="valign-wrapper collapsible-header" [ngClass]="{'hd-level2': !navBar, 'hd-level2-navbar': navBar}">
                 <!-- <img style="width: 40px !important; padding-right: 10px !important" [src]="headerIconLevelOne[i]">          -->
                 <i class="material-icons">{{headerIconLevelOne[i]}}</i>
                 {{headerLevelOne[i]}}

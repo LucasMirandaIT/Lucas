@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, AfterViewInit } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { GetDatabaseService } from '../../../services/get-database/get-database.service';
 import { PostDatabaseService } from '../../../services/post-database/post-database.service';
@@ -8,7 +8,7 @@ import { PostDatabaseService } from '../../../services/post-database/post-databa
   templateUrl: './saved-groups.component.html',
   styleUrls: ['./saved-groups.component.css']
 })
-export class SavedGroupsComponent implements OnInit {
+export class SavedGroupsComponent implements OnInit, AfterViewInit {
 
   actualPage: any;
   nPages = [];
@@ -24,6 +24,13 @@ export class SavedGroupsComponent implements OnInit {
 
   ngOnInit() {
     this.getFilters();
+  }
+
+  ngAfterViewInit() {
+    $('select').material_select();
+    $('ul.tabs').tabs();
+    $('.modal').modal();
+    $('.tooltipped').tooltip({delay: 50});     
   }
 
   // Chama o Servico do método GET dos dados da tabela
