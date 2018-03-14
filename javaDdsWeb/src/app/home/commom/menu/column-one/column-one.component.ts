@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import ''
 
 @Component({
   selector: 'app-column-one',
@@ -27,27 +26,27 @@ export class ColumnOneComponent implements OnInit {
   headerIconLevelTwo: any = ['keyboard_arrow_right', 'keyboard_arrow_right', 'keyboard_arrow_right', 'keyboard_arrow_right', 'keyboard_arrow_right', 'keyboard_arrow_right'];
   body: any = [
     { options: [
-      { subOptions: ['Criar Seleção', 'Visualizar/ Editar Seleção'] },
+      { subOptions: ['Criar Seleção', 'Visualizar e Editar Seleção'] },
       { subOptions: ['Gestão dos Módulos', 'Parametrização dos Módulos'] },
     ]},
     { options: [
-      { subOptions: ['Criar Seleção', 'Visualizar/ Editar Seleção'] },
+      { subOptions: ['Criar Seleção', 'Visualizar e Editar Seleção'] },
       { subOptions: ['Gestão dos Módulos', 'Parametrização dos Módulos'] },    
     ]},
     { options: [
-      { subOptions: ['Criar Seleção', 'Visualizar/ Editar Seleção'] },
+      { subOptions: ['Criar Seleção', 'Visualizar e Editar Seleção'] },
       { subOptions: ['Gestão dos Módulos', 'Parametrização dos Módulos'] },
     ]},
     { options: [
-      { subOptions: ['Criar Seleção', 'Visualizar/ Editar Seleção'] },
+      { subOptions: ['Criar Seleção', 'Visualizar e Editar Seleção'] },
       { subOptions: ['Gestão dos Módulos', 'Parametrização dos Módulos'] },
     ]},
     { options: [
-      { subOptions: ['Criar Seleção', 'Visualizar/ Editar Seleção'] },
+      { subOptions: ['Criar Seleção', 'Visualizar e Editar Seleção'] },
       { subOptions: ['Gestão dos Módulos', 'Parametrização dos Módulos'] },
     ]},
     { options: [
-      { subOptions: ['Criar Seleção', 'Visualizar/ Editar Seleção'] },
+      { subOptions: ['Criar Seleção', 'Visualizar e Editar Seleção'] },
       { subOptions: ['Gestão dos Módulos', 'Parametrização dos Módulos'] },
     ]},
   ];

@@ -62,3 +62,7 @@
   color: #787878;
   font-weight: bold;
 }
+
+i.material-icons {
+  margin-right: 0px;
+}
