@@ -29,3 +29,8 @@
     border: 2px solid #20B2BB;
     background-color: #20B2BB;
 }
+
+.add-text {
+    font-size: 14px;
+    padding-left: 5px;
+}

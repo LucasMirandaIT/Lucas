@@ -7,6 +7,7 @@ import { CommomRoutingModule } from './commom-routing.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeModule } from '../home/home.module';
 import { GeneralLogsComponent } from './general-logs/general-logs.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { GeneralLogsComponent } from './general-logs/general-logs.component';
     NavbarComponent,
     RootComponent,
     GeneralLogsComponent,
+    PageNotFoundComponent,
   ],
   exports: [
     BreadcrumbComponent,

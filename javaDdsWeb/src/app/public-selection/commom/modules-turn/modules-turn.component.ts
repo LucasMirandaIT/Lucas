@@ -6,7 +6,7 @@ import { ReturnStatement } from '@angular/compiler';
 @Component({
   selector: 'app-modules-turn',
   templateUrl: './modules-turn.component.html',
-  styleUrls: ['./modules-turn.component.css']
+  styleUrls: ['./modules-turn.component.scss']
 })
 export class ModulesTurnComponent implements OnInit, AfterViewInit {
 
@@ -32,11 +32,7 @@ export class ModulesTurnComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    $('.dropdown-button').dropdown({
-      constrainWidth: true, // Does not change width of dropdown to that of the activator
-      belowOrigin: true, // Displays dropdown below the button
-      alignment: 'left', // Displays dropdown with edge aligned to the left of button
-    });
+    $('select').material_select();
   }
 
   filter(filter){

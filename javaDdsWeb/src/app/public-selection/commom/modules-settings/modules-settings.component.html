@@ -11,8 +11,8 @@
             <th class="center td2">Módulo</th>
             <th class="center td2">URL</th>
             <th class="center td2" style="width: 500px !important">Estados Possíveis</th>
-            <th class="center td2">EDITAR/ CONFIRMAR</th>
-            <th class="center td2">EXCLUIR/ CANCELAR</th>
+            <th class="center close">EDITAR/ CONFIRMAR</th>
+            <th class="center close">EXCLUIR/ CANCELAR</th>
           </tr>
         </thead>
         <tbody>
@@ -34,11 +34,11 @@
                 <a>{{module.estadosPossiveis}}</a>
               </div>              
             </td>
-            <td class="center td2" (click)="editLine(i)">
-              <i class="material-icons">{{iconEdit[i]}}</i>
+            <td class="table-info-icon" [ngClass]="{'valign-wrapper': (iconEdit[i] == 'add_circle_outline')}" (click)="editLine(i)" style="text-align: center !important">
+              <i class="material-icons">{{iconEdit[i]}}</i><p *ngIf="iconEdit[i] == 'add_circle_outline'" class="add-text">Adicionar</p>
             </td>
-            <td class="center td2"(click)="deleteLine(i)">
-              <i class="material-icons">{{iconDelete[i]}}</i>
+            <td class="center"(click)="deleteLine(i)">
+              <i class="material-icons table-close-icon">{{iconDelete[i]}}</i>
             </td>
           </tr>
         </tbody>

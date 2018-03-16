@@ -14,15 +14,13 @@ import { CreateSelectionComponent } from './IBPJ/create-selection/create-selecti
 import { CnpjSearchComponent } from './IBPJ/create-selection/cnpj-search/cnpj-search.component';
 import { CreateSelection2Component } from './IBPJ/create-selection2/create-selection2.component';
 import { Cnpj2SearchComponent } from './IBPJ/create-selection2/cnpj2-search/cnpj2-search.component';
-import { FileDropModule } from 'ngx-file-drop';
 
 @NgModule({
   imports: [
     CommonModule,
     PublicSelectionRoutingModule,
     HttpModule,
-    FormsModule,
-    FileDropModule
+    FormsModule
   ],
   declarations: [
     ImportSearchComponent,

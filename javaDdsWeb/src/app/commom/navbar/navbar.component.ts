@@ -21,7 +21,7 @@ export class NavbarComponent implements AfterViewInit {
     $('.dropdown-button').dropdown({
       constrainWidth: true, // Does not change width of dropdown to that of the activator
       belowOrigin: true, // Displays dropdown below the button
-      alignment: 'left', // Displays dropdown with edge aligned to the left of button
+      //alignment: 'left', // Displays dropdown with edge aligned to the left of button
     });
     $(".btn_sidenav").sideNav({
         closeOnClick: true,

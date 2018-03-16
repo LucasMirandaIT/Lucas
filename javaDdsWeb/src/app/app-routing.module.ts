@@ -16,15 +16,19 @@ import { DashModulesMonitoringComponent } from './modules-monitoring/dash-module
 import { CnpjSearchComponent } from './public-selection/IBPJ/create-selection/cnpj-search/cnpj-search.component';
 import { CreateSelectionComponent } from './public-selection/IBPJ/create-selection/create-selection.component';
 import { CreateSelection2Component } from './public-selection/IBPJ/create-selection2/create-selection2.component';
+import { AuthMBSGuard } from 'angl-spawebbgrl/guards-module/guards/authMBS.guard';
+import { PageNotFoundComponent } from './commom/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
     path: '',
     component: RootComponent,
     children: [
+      //{ path: '**', component: PageNotFoundComponent },
       {
         path: 'create-selection2',
         component: CreateSelectionComponent,
+        canActivate: [ AuthMBSGuard ],
         // canActivate:[AuthGuardService],
         data: {
           breadcrumb: 'Criar Seleção de Público'
@@ -109,11 +113,16 @@ const routes: Routes = [
         data: {
           breadcrumb: 'Log Geral da Aplicação'
         }
-      },      
+      },     
       {
         path: '',
         component: HomeComponent
-      }
+      },
+      // { 
+      //   path: '', 
+      //   redirectTo: 'guard-fortress', 
+      //   pathMatch: 'full' 
+      // }, 
     ]
   },
 ];

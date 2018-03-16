@@ -25,6 +25,8 @@ import { AppComponent } from './app.component';
 
 import { MaterializeModule } from "angular2-materialize";
 
+import { GuardsModule } from 'angl-spawebbgrl/guards-module/guards.module';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -46,7 +48,9 @@ import { MaterializeModule } from "angular2-materialize";
     HomeModule,
     PublicSelectionModule,
     ModulesMonitoringModule,
-    MaterializeModule
+    MaterializeModule,
+    GuardsModule.forRoot('system_code', 'url_mbs_roles',
+    'url_mbs_menu_items', 'route_forbbiden')
   ],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },

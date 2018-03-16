@@ -1,28 +1,15 @@
-import {
-  Component,
-  OnInit
-} from '@angular/core';
-import {
-  Router,
-  ActivatedRoute,
-  NavigationEnd,
-  Params,
-  PRIMARY_OUTLET
-} from '@angular/router';
+import {  Component,  OnInit, AfterViewInit } from '@angular/core';
+import {  Router,  ActivatedRoute,  NavigationEnd,  Params,  PRIMARY_OUTLET} from '@angular/router';
 import 'rxjs/add/operator/filter';
 
-interface IBreadcrumb {
-  label: string;
-  params ? : Params;
-  url: string;
-}
+interface IBreadcrumb {  label: string;  params ? : Params;  url: string; }
 
 @Component({
   selector: 'breadcrumb',
   templateUrl: './breadcrumb.component.html',
   styleUrls: ['./breadcrumb.component.css']
 })
-export class BreadcrumbComponent implements OnInit {
+export class BreadcrumbComponent implements OnInit, AfterViewInit {
 
   public breadcrumbs: IBreadcrumb[];
   channelTitle;
@@ -47,6 +34,13 @@ export class BreadcrumbComponent implements OnInit {
       this.channelTitle = query['channelTitle'];
     });
 
+  }
+
+  ngAfterViewInit() {
+    $('.btn_filter').sideNav({
+      edge: 'right', // Choose the horizontal origin
+      closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor   
+    }); 
   }
 
   private getBreadcrumbs(route: ActivatedRoute, url: string = '', breadcrumbs: IBreadcrumb[] = []): IBreadcrumb[] {

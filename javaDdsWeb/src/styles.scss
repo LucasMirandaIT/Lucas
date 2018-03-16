@@ -1,5 +1,4 @@
 @import "~materialize-css/dist/css/materialize.css";
-@import "~mdi/css/materialdesignicons.min.css";
 
 body {
   background: #F0F0F0 !important;
@@ -213,7 +212,7 @@ thead th {
 }
 
 thead th.close {
-  width: 40px !important;
+  width: 100px !important;
 }
 
 tfoot th {
@@ -236,12 +235,11 @@ tbody td {
 }
 
 .table-close-icon {
-  font-size: 20px !important;
   padding-top: 5px !important;
 }
 
 .table-close-icon:hover {
-  color: red !important;
+  color: #CC362C !important;
   cursor: pointer !important;
 }
 
