@@ -10,7 +10,7 @@
           <th class="th1">Hora Modif.</th>
           <th class="th2">Usuário</th>
           <th class="th2">Canal Alterado</th>
-          <th class="info">Mais Infos</th>
+          <th class="center info">Info.</th>
         </tr>
       </thead>
       <tbody>
@@ -25,9 +25,9 @@
           <td>{{data.hourchange}}</td>
           <td>{{data.user}}</td>
           <td>{{data.module}}</td> -->
-          <td>
+          <td class="center">
             <!-- <button data-target="modal5" class="modal-trigger"  (click)="openModal(i)"><i class="info-icon material-icons">info</i></button> -->
-            <a class="modal-trigger" data-target="modal5" (click)="openModal(i)">
+            <a class="modal-trigger" data-target="modalLogs" (click)="openModal(i)">
               <i class="info-icon material-icons">info</i>
             </a>
 
@@ -87,3 +87,16 @@
   <br>
 
 </div>
+
+  <!-- Modal Structure -->
+  <div id="modalLogs" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Informações do Log #</h4>
+      <p> Canal Modificado: </p>
+      <p> Modificação Feita: </p>
+      <p> Hora da Modificação: </p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+    </div>
+  </div>

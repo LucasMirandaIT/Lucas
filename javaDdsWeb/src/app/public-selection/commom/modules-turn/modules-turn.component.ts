@@ -22,6 +22,7 @@ export class ModulesTurnComponent implements OnInit, AfterViewInit {
     { nome: 'M4', estado: 'Preservado', url: '/preservado', description: 'Módulo desativado', status: true },
 
   ]; 
+  selectChange: boolean = false;
 
   constructor(private activatedRoute : ActivatedRoute) { }
 
