@@ -1,0 +1,40 @@
+<div>
+  <div class="row">
+<div class="manualInsert">
+    <div class="col s2">
+      <label>Agência</label>
+      <input type="text" placeholder="1111">
+    </div>
+    <div class="col s3">
+      <label>Conta</label>
+      <input type="text" placeholder="11111-1">
+    </div>
+    <div class="col s6 click-text">
+      <b>Ou </b> <a id="btn-imports" (click)="tableChange(true)"> Clique aqui </a> para importar arquivos (.csv) 
+    </div>
+  </div>
+  </div>
+
+  <div class="row">
+  <div class="importInsert">
+    <div class="col s6">
+      <div class="round-button">
+        <div class="round-button-circle">
+          <label class="uploader" ondragover="return false;"
+            (dragenter)="handleDragEnter()" (dragleave)="handleDragLeave()" (drop)="handleDrop($event)">
+            <div class="browse-wrap">
+              <i class="material-icons" style="font-size: 60px">file_upload</i>
+              <div class="title">Clique ou Arraste o arquivo aqui</div>
+              <input type="file" name="upload" class="upload" accept=".csv, .txt" (change)="handleInputChange($event)" title="Choose a file to upload">
+            </div>
+            <span class="upload-path"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+      <div class="col s5 click-text">
+        <b>Ou </b> <a id="btn-manual" (click)="tableChange(false)"> Clique aqui </a> para seleção unitária 
+      </div>
+  </div>
+  </div>
+</div>  

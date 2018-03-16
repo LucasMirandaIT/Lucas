@@ -1,4 +1,6 @@
 @import "~materialize-css/dist/css/materialize.css";
+@import "~mdi/css/materialdesignicons.min.css";
+
 body {
   background: #F0F0F0 !important;
 }
@@ -390,7 +392,6 @@ p.title {
 }
 
 .collapsible-body.bd-last-navbar li {
-  margin-bottom: 7px !important;
   color: white !important;
 }
 
@@ -447,4 +448,27 @@ i {
 span.caret {
   color: white !important;
   font-size: 13px !important;
+}
+
+.content {
+  display: initial !important;
+}
+
+.drop-zone {
+  // height: 140px !important;
+  border: 2px dotted #bfbbbb !important;
+  border-radius: 20px !important;
+}
+
+.file-field .btn, .file-field .btn-large {
+  float: none !important;
+}
+
+.collapsible-body {
+  padding: 1rem;
+}
+
+.side-nav .collapsible-body li a,
+.side-nav.fixed .collapsible-body li a {
+  padding: 1rem;
 }

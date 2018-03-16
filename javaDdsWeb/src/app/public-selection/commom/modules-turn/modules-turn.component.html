@@ -16,12 +16,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let module of modules; let i = index" (click)="switchModule(i)">
+          <tr *ngFor="let module of modules; let i = index">
             <td class="center td2">
               <a>{{module.nome}}</a>
             </td>
             <td class="center td2">
-              <a class='dropdown-button btn' data-activates='listModules'>Alterar Módulo Para
+              <a class='dropdown-button' data-activates='listModules'>Alterar Módulo Para
                 <i class="material-icons right">arrow_drop_down</i>
               </a>
 

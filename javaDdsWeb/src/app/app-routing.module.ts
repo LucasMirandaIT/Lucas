@@ -15,6 +15,7 @@ import { GeneralLogsComponent } from './commom/general-logs/general-logs.compone
 import { DashModulesMonitoringComponent } from './modules-monitoring/dash-modules-monitoring/dash-modules-monitoring.component';
 import { CnpjSearchComponent } from './public-selection/IBPJ/create-selection/cnpj-search/cnpj-search.component';
 import { CreateSelectionComponent } from './public-selection/IBPJ/create-selection/create-selection.component';
+import { CreateSelection2Component } from './public-selection/IBPJ/create-selection2/create-selection2.component';
 
 const routes: Routes = [
   {
@@ -22,8 +23,16 @@ const routes: Routes = [
     component: RootComponent,
     children: [
       {
-        path: 'create-selection',
+        path: 'create-selection2',
         component: CreateSelectionComponent,
+        // canActivate:[AuthGuardService],
+        data: {
+          breadcrumb: 'Criar Seleção de Público'
+        },
+      },
+      {
+        path: 'create-selection',
+        component: CreateSelection2Component,
         // canActivate:[AuthGuardService],
         data: {
           breadcrumb: 'Criar Seleção de Público'

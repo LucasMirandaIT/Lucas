@@ -1,0 +1,55 @@
+.input-field {
+  margin-top: 22px !important;
+}
+
+.select-wrapper+label {
+  top: -30px !important;
+}
+
+div.browse-wrap {
+  cursor:pointer;
+  overflow:hidden;
+  // padding:20px 60px;
+  text-align:center;
+  position:relative;
+  background-color:#f0f0f0;
+  border: dotted 2px #d0d0d0;
+}
+
+div.title {
+  color:#9e9e9e ;
+  font-size:14px;
+  font-weight:bold;
+  font-family:tahoma, arial, sans-serif;
+}
+
+input.upload {
+  // opacity:0;
+  display: none; 
+}
+
+#btn-imports{
+  cursor: pointer !important;
+}
+
+#btn-manual {
+  cursor: pointer !important;
+}
+
+.click-text{
+  padding-top: 30px !important;
+  padding-left: 40px !important;
+}
+
+.importInsert, .manualInsert {
+  max-height: 90px !important;
+}
+
+.box.horizTranslate {
+  -webkit-transition: 3s;
+  -moz-transition: 3s;
+  -ms-transition: 3s;
+  -o-transition: 3s;
+  transition: 3s;
+  margin-left: 50% !important;
+}

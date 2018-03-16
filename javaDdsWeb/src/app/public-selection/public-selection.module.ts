@@ -12,7 +12,9 @@ import { ModulesTurnComponent } from './commom/modules-turn/modules-turn.compone
 import { ChannelLogsComponent } from './commom/channel-logs/channel-logs.component';
 import { CreateSelectionComponent } from './IBPJ/create-selection/create-selection.component';
 import { CnpjSearchComponent } from './IBPJ/create-selection/cnpj-search/cnpj-search.component';
-import "../../initialize.js";
+import { CreateSelection2Component } from './IBPJ/create-selection2/create-selection2.component';
+import { Cnpj2SearchComponent } from './IBPJ/create-selection2/cnpj2-search/cnpj2-search.component';
+import { FileDropModule } from 'ngx-file-drop';
 
 @NgModule({
   imports: [
@@ -20,6 +22,7 @@ import "../../initialize.js";
     PublicSelectionRoutingModule,
     HttpModule,
     FormsModule,
+    FileDropModule
   ],
   declarations: [
     ImportSearchComponent,
@@ -29,12 +32,15 @@ import "../../initialize.js";
     ModulesSettingsComponent,
     ModulesTurnComponent,
     ChannelLogsComponent,
-    CreateSelectionComponent
+    CreateSelectionComponent,
+    CreateSelection2Component,
+    Cnpj2SearchComponent
   ],
   exports: [
     CnpjSearchComponent, 
     TableResultComponent,
-    ChannelLogsComponent
+    ChannelLogsComponent,
+    Cnpj2SearchComponent
   ],
 })
 export class PublicSelectionModule { }
