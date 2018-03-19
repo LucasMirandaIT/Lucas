@@ -19,7 +19,7 @@
   <app-cnpj2-search [hidden]="!channelActive" (tableShow)="tableChange($event)"></app-cnpj2-search>
   <app-saved-groups [hidden]="channelActive"></app-saved-groups>
 </div>
-<div class="white-background table-div" [hidden]="!channelActive" *ngIf="!tableShow">
+<div class="white-background table-div" [hidden]="!channelActive" *ngIf="tableShow">
   <p class="title">Resultado da Seleção</p><br>
   <div class="table-scroll z-depth-2">
     <table class="bordered">

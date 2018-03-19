@@ -1,4 +1,4 @@
-<div>
+<div style="height: 94px !important">
   <div class="manualInsert">
     <div class="row">
     <div class="col s2">
@@ -10,14 +10,14 @@
       <input type="text" placeholder="11111-1" style="margin:0px">
     </div>
     <div class="col s2 click-text">
-        <button class="btn waves-effect">Adicionar</button>
+        <button class="btn waves-effect" (click)="tableChange(true); addValues()">Adicionar</button>
     </div>
     <div class="col s1" style="width:10px">
-      <img src="../../../../../assets/Linhas Programa.png" style="height:60px"/>
+      <img src="../../../../../assets/img/CNPJLine.png" style="height:88px; padding-left: 15px"/>
     </div>
 
     <div class="col s3 add-button">
-        <b class="or-text">Ou </b> <a id="btn-imports" (click)="tableChange(true)"> Clique aqui </a> para importar arquivos (.csv) 
+        <b class="or-text">Ou </b><a id="btn-imports" (click)="tableChange(false)"> Clique aqui </a> para importar arquivos (.csv) 
     </div>
   </div>
   </div>
@@ -41,12 +41,12 @@
     </div>
     <div class="col s1"></div>
     <div class="col s1" style="width:10px">
-        <img src="../../../../../assets/img/CNPJLine.png" style="height:60px"/>
-      </div>
-  
-      <div class="col s5 back-text">
-          <b class="or-text">Ou </b> <a id="btn-manual" (click)="tableChange(false)"> Clique aqui </a> para seleção unitária 
-      </div>
+      <img src="../../../../../assets/img/CNPJLine.png" style="height:88px; padding-left: 15px"/>
+    </div>
+
+    <div class="col s5 back-text">
+      <b class="or-text">Ou </b> <a id="btn-manual" (click)="tableChange(false)"> Clique aqui </a> para seleção unitária 
+    </div>
   </div>
   </div>
 </div>  

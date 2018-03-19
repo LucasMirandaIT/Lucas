@@ -11,11 +11,11 @@ export class DashModulesMonitoringComponent implements OnInit {
   iconsChannel: any = []
   channelDatas: any = 
   [
-    {channel: 'IBPF', dataProduction: '1.000.000', dataHidden: '10.000', dataPreserved: '0'},
+    {channel: 'IBPF', dataProduction: '10.000.000', dataHidden: '10.000', dataPreserved: '0'},
     {channel: 'IBPJ', dataProduction: '600.000', dataHidden: '8.000', dataPreserved: '0'},
-    {channel: 'Novo Front', dataProduction: '30.000', dataHidden: '900', dataPreserved: '0'},
+    {channel: 'Novo Front', dataProduction: '1.000', dataHidden: '900', dataPreserved: '0'},
     {channel: 'Mobile PF', dataProduction: '10.000', dataHidden: '10', dataPreserved: '0'},
-    {channel: 'Mobile PJ', dataProduction: '70.00', dataHidden: '0', dataPreserved: '0'},
+    {channel: 'Mobile PJ', dataProduction: '7.00', dataHidden: '0', dataPreserved: '0'},
     {channel: 'Way', dataProduction: '50.000', dataHidden: '2.000', dataPreserved: '100'},
   ];
   

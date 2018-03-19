@@ -21,8 +21,7 @@ export class ModulesTurnComponent implements OnInit, AfterViewInit {
     { nome: 'M3', estado: 'Real 2', url: '/real2', description: 'Módulo em Real datacenter B', status: true },
     { nome: 'M4', estado: 'Preservado', url: '/preservado', description: 'Módulo desativado', status: true },
 
-  ]; 
-  selectChange: boolean = false;
+  ];
 
   constructor(private activatedRoute : ActivatedRoute) { }
 

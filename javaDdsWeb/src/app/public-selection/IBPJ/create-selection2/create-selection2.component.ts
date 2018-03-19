@@ -35,7 +35,6 @@ export class CreateSelection2Component implements OnInit {
   }
 
   tableChange(event) {
-    console.log(event);
     this.tableShow = event;
   }
 

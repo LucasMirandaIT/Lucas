@@ -41,7 +41,6 @@ export class BreadcrumbComponent implements OnInit, AfterViewInit {
       edge: 'right', // Choose the horizontal origin
       closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor   
     }); 
-    $('select').material_select();
   }
 
   private getBreadcrumbs(route: ActivatedRoute, url: string = '', breadcrumbs: IBreadcrumb[] = []): IBreadcrumb[] {
@@ -90,7 +89,7 @@ export class BreadcrumbComponent implements OnInit, AfterViewInit {
   }
 
   verify(){
-    return !(this.channelTitle=="Relatórios/ Consultas");
+    return !(this.channelTitle!=undefined);
   }
 }
 

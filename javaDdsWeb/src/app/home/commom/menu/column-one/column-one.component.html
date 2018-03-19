@@ -16,8 +16,8 @@
               <div class="collapsible-body body-left bd-headers">
                 <ul class="collapsible" data-collapsible="accordion">
                   <li *ngFor="let arrayOne of headerLevelTwo[i].options; let k = index">                  
-                    <div class="valign-wrapper body-left collapsible-header" [ngClass]="{'hd-level3': !navBar, 'hd-level3-navbar': navBar}">
-                      <i class="material-icons">{{headerIconLevelTwo[k]}}</i>
+                    <div class="valign-wrapper body-left collapsible-header" [ngClass]="{'hd-level3': !navBar, 'hd-level3-navbar': navBar}" (click)="goToRoute(headerRoutersLevelTwo[i], i)">
+                      <i class="material-icons" >{{headerIconLevelTwo[k]}}</i>
                       {{arrayOne}}
                     </div>
                     <div class="valign-wrapper collapsible-body" [ngClass]="{'bd-last': !navBar, 'bd-last-navbar': navBar}" >

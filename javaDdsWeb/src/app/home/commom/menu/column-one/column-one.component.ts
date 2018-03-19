@@ -24,6 +24,7 @@ export class ColumnOneComponent implements OnInit {
     { options: ['Seleção de Público', 'Configurações dos Módulos'] },
   ];
   headerIconLevelTwo: any = ['keyboard_arrow_right', 'keyboard_arrow_right', 'keyboard_arrow_right', 'keyboard_arrow_right', 'keyboard_arrow_right', 'keyboard_arrow_right'];
+  headerRoutersLevelTwo: any = ['create-selection', 'create-selection', 'create-selection', 'create-selection', 'create-selection', 'create-selection'];
   body: any = [
     { options: [
       { subOptions: ['Criar Seleção', 'Visualizar e Editar Seleção'] },
@@ -86,6 +87,7 @@ export class ColumnOneComponent implements OnInit {
   }
 
   goToRoute(route, channel) {
+    console.log('Entrou');
     this.router.navigate(['/', route], {queryParams : {channelTitle: this.headerLevelOne[channel]}});
   }
 

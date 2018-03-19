@@ -151,3 +151,31 @@ tr {
   -ms-user-select: none !important;
   user-select: none !important;
 }
+
+select {
+  background-color: transparent;
+  width: 100%;
+  padding: 5px;
+  border: 0px solid transparent;
+  border-radius: 0px;
+  height: auto;
+  outline: 0 none;
+}
+
+select:focus {
+  background-color: transparent;
+  width: 100%;
+  padding: 5px;
+  border: 0px solid transparent;
+  border-radius: 0px;
+  height: auto;
+}
+
+select:hover {
+  background-color: transparent;
+  width: 100%;
+  padding: 5px;
+  border: 0px solid transparent;
+  border-radius: 0px;
+  height: auto;
+}
