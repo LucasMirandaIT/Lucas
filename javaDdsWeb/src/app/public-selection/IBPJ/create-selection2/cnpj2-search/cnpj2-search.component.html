@@ -1,16 +1,23 @@
 <div>
-  <div class="row">
-<div class="manualInsert">
+  <div class="manualInsert">
+    <div class="row">
     <div class="col s2">
       <label>Agência</label>
-      <input type="text" placeholder="1111">
+      <input type="text" placeholder="1111" style="margin:0px">
     </div>
     <div class="col s3">
       <label>Conta</label>
-      <input type="text" placeholder="11111-1">
+      <input type="text" placeholder="11111-1" style="margin:0px">
     </div>
-    <div class="col s6 click-text">
-      <b>Ou </b> <a id="btn-imports" (click)="tableChange(true)"> Clique aqui </a> para importar arquivos (.csv) 
+    <div class="col s2 click-text">
+        <button class="btn waves-effect">Adicionar</button>
+    </div>
+    <div class="col s1" style="width:10px">
+      <img src="../../../../../assets/Linhas Programa.png" style="height:60px"/>
+    </div>
+
+    <div class="col s3 add-button">
+        <b class="or-text">Ou </b> <a id="btn-imports" (click)="tableChange(true)"> Clique aqui </a> para importar arquivos (.csv) 
     </div>
   </div>
   </div>
@@ -32,8 +39,13 @@
         </div>
       </div>
     </div>
-      <div class="col s5 click-text">
-        <b>Ou </b> <a id="btn-manual" (click)="tableChange(false)"> Clique aqui </a> para seleção unitária 
+    <div class="col s1"></div>
+    <div class="col s1" style="width:10px">
+        <img src="../../../../../assets/Linhas Programa.png" style="height:60px"/>
+      </div>
+  
+      <div class="col s5 back-text">
+          <b class="or-text">Ou </b> <a id="btn-manual" (click)="tableChange(false)"> Clique aqui </a> para seleção unitária 
       </div>
   </div>
   </div>
