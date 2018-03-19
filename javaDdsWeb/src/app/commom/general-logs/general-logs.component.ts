@@ -26,6 +26,10 @@ export class GeneralLogsComponent implements OnInit {
       this.channelTitle = query['channelTitle'];
     });
     this.getFilters();
+
+    $(document).ready(function(){
+      $('.modal').modal();
+    });
   }
 
   //Chama o Servico do método GET dos dados da tabela
