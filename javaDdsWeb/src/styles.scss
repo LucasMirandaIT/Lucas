@@ -470,3 +470,11 @@ span.caret {
 .side-nav.fixed .collapsible-body li a {
   padding: 1rem;
 }
+
+.carousel .indicators {
+  display: none !important;
+}
+
+.dropdown-content {
+  min-height: 10px !important;
+}

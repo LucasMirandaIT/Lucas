@@ -24,32 +24,23 @@ export class Cnpj2SearchComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.allModules = ['Oculto', 'Desenvolvimento', 'Preservado'];
-
-      $(document).ready(function(){
-      $(".importInsert").hide();
-      $("#btn-imports").click(function(){
-        $(".manualInsert").hide();
-        $(".importInsert").animate({width: 'toggle'}); 
-        $(".importInsert").show();
-      });
-      $("#btn-manual").click(function(){
-        $(".importInsert").hide();
-        $(".manualInsert").animate({width: 'toggle'}); 
-        $(".manualInsert").show();
-      });
- });
-
-}
+    
+  }
 
   ngAfterViewInit() {
+    $('.carousel.carousel-slider').carousel({fullWidth: true});
     $('select').material_select();
     $('ul.tabs').tabs();
     $('.modal').modal();
     $('.tooltipped').tooltip({delay: 50});
   }
 
-  tableChange(bool) {
+  tableChange(bool, changeCarousel) {
     this.tableShow.emit(bool);
+    if (changeCarousel == true )
+      $('.carousel').carousel('next');
+    else
+      $('.carousel').carousel('prev');
   }
 
   addValues() {
@@ -97,6 +88,10 @@ export class Cnpj2SearchComponent implements OnInit, AfterViewInit {
     let reader = e.target;
     this.fileSrc = reader.result;
     this.loaded = true;
+  }
+
+  teste(){
+    alert('AAA');
   }
 
   // setActive() {

@@ -14,7 +14,7 @@ div.browse-wrap {
   position:relative;
   background-color:#f0f0f0;
   border: dotted 2px #d0d0d0;
-  height: 190px !important;
+  height: 180px !important;
 }
 
 .material-icons{ 
@@ -53,15 +53,18 @@ input.upload {
 .back-text{
   padding-top: 80px !important;
   margin-left: -18px !important;  
-  width:400px !important;
-  position: initial;
   max-height: 88px !important;
-  // margin-left: 610px !important;
+}
+
+.import-text{
+  padding-top: 80px !important;
+  margin-left: -47px !important;  
+  max-height: 88px !important;
 }
 
 .or-text {
   color: #9e9e9e !important;
-  margin-right: 50px !important;
+  margin-right: 12px !important;
 }
 
 .add-button{
@@ -80,4 +83,30 @@ input.upload {
   -o-transition: 3s;
   transition: 3s;
   margin-left: 50% !important;
+}
+
+.row .col.s7 {
+  width: 61.333333%;
+  margin-left: auto;
+  left: auto;
+  right: auto;
+}
+
+.row .col.s1 {
+  width: 5%;
+  margin-left: auto;
+  left: auto;
+  right: auto;
+  padding-right: 0px;
+  padding-left: 29px;
+}
+
+.row .col.s3 {
+  width: 35%;
+  margin-left: auto;
+  left: auto;
+  right: auto;
+  padding-left: 0px;
+  padding-right: 0px;
+
 }

@@ -14,12 +14,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let data of dataGeneral; let i = index">
-          <td>{{data.idlog}}</td>
-          <td>{{data.datechange}}</td>
-          <td>{{data.hourchange}}</td>
+        <tr *ngFor="let data of dataDisplay; let i = index">
+          <td>{{data.id}}</td>
+          <td>{{data.data}}</td>
+          <td>{{data.hora}}</td>
           <td>{{data.user}}</td>
-          <td>{{data.module}}</td>
+          <td>{{data.canal}}</td>
           <td class="center">
             <a class="modal-trigger" data-target="modalLogs" (click)="openModal(i)">
               <i class="info-icon material-icons">info</i>
