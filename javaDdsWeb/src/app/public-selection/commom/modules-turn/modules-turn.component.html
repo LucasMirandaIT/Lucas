@@ -58,4 +58,26 @@
 
   </div>
 
+  <!-- Modal Structure -->
+  <div id="modal-bottom" class="modal bottom-sheet">
+      <div class="modal-content">
+        <h4>Confirmar Alteração dos Módulos</h4>
+        <p>Deseja confirmar as alterações efetuadas nos módulos conforme solicitação Nº {{peticao}}.</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves waves-effect waves-green btn">Confirmar</a>
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat btn-line">Cancelar</a>        
+      </div>
+    </div>
+    <div class="row">
+      <table>
+        <td class="right col s3">
+      <label>Nº Petição Remedy para Alteração</label>
+      <input type="text" [(ngModel)]="peticao" required maxlength="11" placeholder="00000000000">
+    </td>
+    <td class="" style="width:100px">
+    <button data-target="modal-bottom" class="right btn modal-trigger">Aplicar</button>
+  </td>
+  </table>  
+  </div>
 </div>

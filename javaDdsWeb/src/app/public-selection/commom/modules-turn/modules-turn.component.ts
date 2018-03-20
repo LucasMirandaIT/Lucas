@@ -10,6 +10,7 @@ import { ReturnStatement } from '@angular/compiler';
 })
 export class ModulesTurnComponent implements OnInit, AfterViewInit {
 
+  peticao: any;
   activeModules: any = [];
   channelTitle: any;
   switchButton: boolean = true;
@@ -29,6 +30,11 @@ export class ModulesTurnComponent implements OnInit, AfterViewInit {
     this.activatedRoute.queryParams.subscribe(query => {
       this.channelTitle = query['channelTitle'];
     });
+    
+    $(document).ready(function(){
+      // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+      $('.modal').modal();
+    });  
   }
 
   ngAfterViewInit() {

@@ -14,6 +14,12 @@ div.browse-wrap {
   position:relative;
   background-color:#f0f0f0;
   border: dotted 2px #d0d0d0;
+  height: 190px !important;
+}
+
+.material-icons{ 
+  font-size: 60px !important;
+  padding-top: 40px !important;
 }
 
 div.title {
@@ -35,7 +41,7 @@ input.upload {
   cursor: pointer !important;
 }
 
-.add-button{
+.click-text{
   padding-top: 32px !important;
   padding-left: 0px !important;
   width:400px !important;
@@ -45,8 +51,8 @@ input.upload {
 }
 
 .back-text{
-  padding-top: 32px !important;
-  padding-left: 0px !important;  
+  padding-top: 80px !important;
+  margin-left: -18px !important;  
   width:400px !important;
   position: initial;
   max-height: 88px !important;
@@ -58,13 +64,13 @@ input.upload {
   margin-right: 50px !important;
 }
 
-.click-text{
+.add-button{
   padding-top: 15px !important;
   // padding-left: 40px !important;
 }
 
 .importInsert, .manualInsert {
-  max-height: 90px !important;
+  max-height: 200px !important;
 }
 
 .box.horizTranslate {

@@ -1,52 +1,72 @@
-<div style="height: 94px !important">
+<div style="height: 200px !important">
   <div class="manualInsert">
     <div class="row">
-    <div class="col s2">
-      <label>Agência</label>
-      <input type="text" placeholder="1111" style="margin:0px">
-    </div>
-    <div class="col s3">
-      <label>Conta</label>
-      <input type="text" placeholder="11111-1" style="margin:0px">
-    </div>
-    <div class="col s2 click-text">
-        <button class="btn waves-effect" (click)="tableChange(true); addValues()">Adicionar</button>
-    </div>
-    <div class="col s1" style="width:10px">
-      <img src="../../../../../assets/img/CNPJLine.png" style="height:88px; padding-left: 15px"/>
-    </div>
+      <table class="col s6" style="width:460px">
+        <tr>
+          <td style="width:220px; margin-right: 10px">
+            <label>Nome do Grupo</label>
+            <input type="text" placeholder="Digite o nome do grupo">
+          </td>
+          <td style="width:130px; margin-right: 10px">
+            <label>Nº Petição Remedy</label>
+            <input type="text" maxlength="11" placeholder="00000000000">
+          </td>
+          <td style="width:100px">
+            <label>Sigla</label>
+            <input type="text" disabled placeholder="X209302">
+          </td>
+        </tr>
+        <tr>
+          <td style="margin-right: 10px">
+            <label>Agência</label>
+            <input type="text" placeholder="1111" style="margin:0px">
+          </td>
+          <td style="margin-right: 30px">
+            <label>Conta</label>
+            <input type="text" placeholder="11111-1" style="margin:0px">
+          </td>
+          <td>
+            <button class="btn waves-effect" (click)="tableChange(true); addValues()">Adicionar</button>
+          </td>
+        </tr>
+      </table>
 
-    <div class="col s3 add-button">
-        <b class="or-text">Ou </b><a id="btn-imports" (click)="tableChange(false)"> Clique aqui </a> para importar arquivos (.csv) 
+      <div class="col s1" style="width:10px; margin-left:60px">
+          <img src="../../../../../assets/img/CNPJLine.png" style="height:180px" />
+        </div>
+
+        <div class="col s3 back-text" style="font-size:16px">
+            <b class="or-text">Ou </b>
+        <a id="btn-imports" (click)="tableChange(false)"> Clique aqui </a> para importar arquivos (.csv)
+      </div>
     </div>
-  </div>
   </div>
 
   <div class="row">
-  <div class="importInsert">
-    <div class="col s6">
-      <div class="round-button">
-        <div class="round-button-circle">
-          <label class="uploader" ondragover="return false;"
-            (dragenter)="handleDragEnter()" (dragleave)="handleDragLeave()" (drop)="handleDrop($event)">
-            <div class="browse-wrap">
-              <i class="material-icons" style="font-size: 60px">file_upload</i>
-              <div class="title">Clique ou Arraste o arquivo aqui</div>
-              <input type="file" name="upload" class="upload" accept=".csv, .txt" (change)="handleInputChange($event)" title="Choose a file to upload">
-            </div>
-            <span class="upload-path"></span>
-          </label>
+    <div class="importInsert">
+      <div class="col s6">
+        <div class="round-button">
+          <div class="round-button-circle">
+            <label class="uploader" ondragover="return false;" (dragenter)="handleDragEnter()" (dragleave)="handleDragLeave()" (drop)="handleDrop($event)">
+              <div class="browse-wrap">
+                <i class="material-icons">file_upload</i>
+                <div class="title">Clique ou Arraste o arquivo aqui</div>
+                <input type="file" name="upload" class="upload" accept=".csv, .txt" (change)="handleInputChange($event)" title="Choose a file to upload">
+              </div>
+              <span class="upload-path"></span>
+            </label>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col s1"></div>
-    <div class="col s1" style="width:10px">
-      <img src="../../../../../assets/img/CNPJLine.png" style="height:88px; padding-left: 15px"/>
-    </div>
+      <div class="col s1"></div>
+      <div class="col s1" style="width:10px">
+        <img src="../../../../../assets/img/CNPJLine.png" style="height:180px" />
+      </div>
 
-    <div class="col s5 back-text">
-      <b class="or-text">Ou </b> <a id="btn-manual" (click)="tableChange(false)"> Clique aqui </a> para seleção unitária 
+      <div class="col s5 back-text" style="font-size:16px">
+        <b class="or-text">Ou </b>
+        <a id="btn-manual" (click)="tableChange(false)"> Clique aqui </a> para seleção unitária
+      </div>
     </div>
   </div>
-  </div>
-</div>  
+</div>

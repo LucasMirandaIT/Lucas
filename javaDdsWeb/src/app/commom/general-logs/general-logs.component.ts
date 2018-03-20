@@ -37,7 +37,7 @@ export class GeneralLogsComponent implements OnInit {
     this.dataGeneral = [];
     this.total = 0;
 
-    this.getDatabaseService.getFilterData('agency')
+    this.getDatabaseService.getFilterData('logs')
       .subscribe(
         response => {
         this.dataGeneral = this.dataGeneral.concat(response.dados);
