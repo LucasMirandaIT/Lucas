@@ -5,37 +5,40 @@ import { FormsModule } from '@angular/forms';
 import { PublicSelectionRoutingModule } from './public-selection-routing.module';
 import { ImportSearchComponent } from './commom/import-search/import-search.component';
 import { TableResultComponent } from './commom/table-result/table-result.component';
-import { CnpjSearchComponent } from './IBPJ/cnpj-search/cnpj-search.component';
 import { HttpModule } from '@angular/http';
-import { CategorySearchComponent } from './IBPJ/category-search/category-search.component';
 import { SavedGroupsComponent } from './commom/saved-groups/saved-groups.component';
-import { PredefinedFiltersComponent } from './IBPJ/predefined-filters/predefined-filters.component';
 import { ModulesSettingsComponent } from './commom/modules-settings/modules-settings.component';
 import { ModulesTurnComponent } from './commom/modules-turn/modules-turn.component';
 import { ChannelLogsComponent } from './commom/channel-logs/channel-logs.component';
+import { CreateSelectionComponent } from './IBPJ/create-selection/create-selection.component';
+import { CnpjSearchComponent } from './IBPJ/create-selection/cnpj-search/cnpj-search.component';
+import { CreateSelection2Component } from './IBPJ/create-selection2/create-selection2.component';
+import { Cnpj2SearchComponent } from './IBPJ/create-selection2/cnpj2-search/cnpj2-search.component';
 
 @NgModule({
   imports: [
     CommonModule,
     PublicSelectionRoutingModule,
     HttpModule,
-    FormsModule,
+    FormsModule
   ],
   declarations: [
     ImportSearchComponent,
     TableResultComponent,
     CnpjSearchComponent,
-    CategorySearchComponent,
     SavedGroupsComponent,
-    PredefinedFiltersComponent,
     ModulesSettingsComponent,
     ModulesTurnComponent,
-    ChannelLogsComponent
+    ChannelLogsComponent,
+    CreateSelectionComponent,
+    CreateSelection2Component,
+    Cnpj2SearchComponent
   ],
   exports: [
     CnpjSearchComponent, 
     TableResultComponent,
-    ChannelLogsComponent
+    ChannelLogsComponent,
+    Cnpj2SearchComponent
   ],
 })
 export class PublicSelectionModule { }

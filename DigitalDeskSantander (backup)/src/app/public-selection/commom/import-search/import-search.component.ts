@@ -27,22 +27,15 @@ export class ImportSearchComponent implements OnInit {
           success: function(data)
           {
             this.layout_data = data.split(/\r?n|\r/);
-            console.log('dentro: '+this.layout_data);
           }
         });
         
       });
     });
 
-    console.log('fora: '+this.layout_data);
-
     this.activatedRoute.queryParams.subscribe(query => {
       this.channelTitle = query['channelTitle'];
     });
-  }
-
-  teste (){
-    console.log('fora: '+this.layout_data);
   }
 
 }

@@ -1,61 +1,88 @@
-<div class="white-background table-div">
-    <p class="title" id="div1">Grupos Salvos</p><br>
-    <div class="table-scroll z-depth-2" >
-      <table class="bordered" >
-        <thead>
-          <tr>
-            <th>Nome do Grupo</th>
-            <th>Canal</th>
-            <th>Proprietário</th>
-            <th>Ativar/Desativar</th>
-            <th>Editar</th>
-            <th class="center close">Cancelar</th>
-          </tr>
-        </thead>
+<div class="table-scroll z-depth-2">
+  <table class="bordered">
+    <thead>
+      <tr>
+        <th>Nome do Grupo</th>
+        <th>Canal</th>
+        <th>Criador</th>
+        <th>Ativar/Desativar Grupo</th>
+        <th class="center close">Editar Grupo</th>
+        <th class="center close">Excluir Grupo</th>
+      </tr>
+    </thead>
 
-        <tbody>
-          <tr *ngFor="let data of dataDisplay" >
-            <td>{{data.cpf}}</td>
-            <td>{{data.nome}}</td>
-            <td>{{data.nome}}</td>
-            <td>
-                <!-- Switch -->
-                <div class="switch" >
-                    <label class="enabled">
-                      Desativar
-                      <input type="checkbox" (click)="switchStatus()">
-                      <span class="lever"></span>
-                      Ativar
-                    </label>
-                  </div>
-            </td>
-            <td><i class="material-icons">mode_edit</i></td>
-            <td class="center"><i class="material-icons table-close-icon" >close</i></td>
-          </tr>
-        </tbody>
-
-        <!-- <tfoot>
-          <tr>
-            <th>Exibindo:  {{total}} clientes</th>
-            <th> </th>
-          </tr>
-        </tfoot> -->
-      </table>
-    </div>
-    <p style="color: #787878">Foram encontrados, um total de {{dataGeneral.length}} clientes para estes filtros</p>
-    <ul class="pagination">
-      <li class="waves-effect"><a (click)="pagination(1)" style="padding-left: 0px !important"><i class="material-icons" >first_page</i></a></li>
-      <li class="waves-effect"><a (click)="pagination(actualPage - 1)"><i class="material-icons">chevron_left</i></a></li>
-      <li class="waves-effect"><a (click)="pagination(actualPage - 1)">ANTERIOR</a></li>
-      <li class="waves-effect" [ngClass]="{'active': (actualPage == 1)}"><a (click)="pagination(1)">{{1}}</a></li>
-      <li class="waves-effect" [ngClass]="{'active': (actualPage == page)}" *ngFor="let page of nPages" ><a (click)="pagination(page)">{{page}}</a></li>
-      <li class="waves-effect"><a (click)="pagination(actualPage + 1)">PROXIMO</a></li>
-      <li class="waves-effect"><a (click)="pagination(actualPage + 1)"><i class="material-icons">chevron_right</i></a></li>
-      <li class="waves-effect"><a (click)="pagination(aux)"><i class="material-icons">last_page</i></a></li>
-      <li class="right">
-          <button class="waves-effect btn" (click)="postData(); showTable = false">Gravar</button>
-          <button class="waves-effect btn btn-line" (click)="showTable = false; close()">Cancelar</button>
-      </li>
-    </ul>
-    <br>
+    <tbody>
+      <tr *ngFor="let data of dataDisplay">
+        <td>{{data.nome}}</td>
+        <td>{{data.canal}}</td>
+        <td>{{data.criador}}</td>
+        <td>
+          <!-- Switch -->
+          <div class="switch">
+            <label class="enabled">
+              Desativar
+              <input type="checkbox" (click)="switchStatus()" [checked]="data.status">
+              <span class="lever"></span>
+              Ativar
+            </label>
+          </div>
+        </td>
+        <td class="center">
+          <i class="material-icons table-info-icon modal-trigger" data-target="modalClients">mode_edit</i>
+        </td>
+        <td class="center">
+          <i class="material-icons table-close-icon">delete</i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+<p style="color: #787878">Foram encontrados, um total de {{dataGeneral.length}} clientes para estes filtros</p>
+<ul class="pagination">
+  <li class="waves-effect">
+    <a (click)="pagination(1)" style="padding-left: 0px !important">
+      <i class="material-icons">first_page</i>
+    </a>
+  </li>
+  <li class="waves-effect">
+    <a (click)="pagination(actualPage - 1)">
+      <i class="material-icons">chevron_left</i>
+    </a>
+  </li>
+  <li class="waves-effect">
+    <a (click)="pagination(actualPage - 1)">ANTERIOR</a>
+  </li>
+  <li class="waves-effect" [ngClass]="{'active': (actualPage == 1)}">
+    <a (click)="pagination(1)">{{1}}</a>
+  </li>
+  <li class="waves-effect" [ngClass]="{'active': (actualPage == page)}" *ngFor="let page of nPages">
+    <a (click)="pagination(page)">{{page}}</a>
+  </li>
+  <li class="waves-effect">
+    <a (click)="pagination(actualPage + 1)">PROXIMO</a>
+  </li>
+  <li class="waves-effect">
+    <a (click)="pagination(actualPage + 1)">
+      <i class="material-icons">chevron_right</i>
+    </a>
+  </li>
+  <li class="waves-effect">
+    <a (click)="pagination(aux)">
+      <i class="material-icons">last_page</i>
+    </a>
+  </li>
+  <li class="right">
+    <button class="waves-effect btn" (click)="postData()">Gravar</button>
+    <button class="waves-effect btn btn-line">Cancelar</button>
+  </li>
+</ul>
+<br>
+
+<!-- Modal Structure -->
+<div id="modalClients" class="modal">
+  <div class="modal-content">
+    <h4>Lista de Clientes do Grupo</h4>
+    <app-table-result></app-table-result>
+  </div>
+</div>
+

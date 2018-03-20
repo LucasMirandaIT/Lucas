@@ -1,36 +1,67 @@
-<div class="white-background">
+<!-- <div>
+  <div class="row center">
+    <blockquote class="block" style="border-left: darkorange ;margin: 0px; height: 160px">
+      <div class="center">
+        <a class="block block-title" style="width: 100%">Importar Seleção</a>
+        <br>
+      </div>
 
-  <p class="title">{{channelTitle}} - Carga de Arquivo</p>
+      <div class="file-field input-field col s10">
+        <div class="btn valign-wrapper">
+          <span class="valign-wrapper">Importar
+            <i class="material-icons" style="padding-left: 5px">file_upload</i>
+          </span>
 
-  <br>
-  <br>
-  <div class="row">
-    <br>
-    <div class="row">
-
-      <div class="file-field input-field col s8">
-        <div class="btn">
-          <span>Importar e Consultar dados</span>
           <input type="file" id="fileUpload" accept=".csv">
         </div>
         <div class="file-path-wrapper">
           <input class="file-path validate" type="text">
         </div>
       </div>
-
-      <div class="file-field input-field">
-        <form method="get" action="">
-          <a class="waves-effect btn valign-wrapper" href="../../../assets/Layout.csv" download="Layout.csv">Download Layout Padrão</a>
+      <div class="file-field input-field col s2">
+        <form method="get" action="" class="center">
+          <a class="waves-effect btn tooltipped" data-position="top" data-delay="50" data-tooltip="Download do Layout Padrão" href="../../../assets/Layout.csv"
+            download="Layout.csv">
+            <i class="material-icons">file_download</i>
+          </a>
         </form>
       </div>
+    </blockquote>
 
-      <!-- <div class="file-field input-field col s5 right">
-        <button class="waves-effect btn" id="load_data">Load Data from CSV</button>
-        <button class="waves-effect btn" (click)="teste()">Load</button>
-      </div>     -->
+  </div>
+</div> -->
+
+<div class="row">
+  <div class="col s12">
+    <div class="card" style="font-size: 18px; font-weight: 350">
+      <div class="card-content white-text" style="background-color: #263238 !important">
+        <span class="card-title" style="font-size: 28px">Importar Seleção</span>
+        <br>
+        <p>Aqui você importa sua seleção de público de forma massiva. Assim que o arquivo for importado, o grupo criado estará disponível no menu <a routerLink="/saved-groups" style="color: #20B2BB">grupos salvos.</a></p>
+        <br>
+      </div>
+      <div class="card-action" style="background-color: #cfd8dc !important; padding: 23px 24px;">
+        <div class="file-field input-field col s10">
+          <div class="btn btn-dark valign-wrapper">
+            <span class="valign-wrapper">Importar
+              <i class="material-icons" style="padding-left: 5px">file_upload</i>
+            </span>  
+            <input type="file" id="fileUpload" accept=".csv">
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+          </div>
+        </div>
+        
+        <div class="">
+          <form method="get" action="" class="center">
+            <a class="waves-effect btn btn-dark tooltipped" data-position="top" data-delay="50" data-tooltip="Download do Layout Padrão" href="../../../assets/Layout.csv"
+              download="Layout.csv">
+              <i class="material-icons">file_download</i>
+            </a>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-
-<app-table-result *ngIf="callTable" (eventClose)="receiveEvent($event)" [showTable]="callTable"></app-table-result>
-

@@ -4,49 +4,42 @@
       <h5 class="title">{{channelData.channel}}</h5>
       <br>
       <div class="border-dash">
-        <div class="row" *ngIf="(i != 1)">
-          <div class="col s12 dashs">
-            <div class="dashs-fill" [ngClass]="{'dash-zero': !verify(channelData.dataProduction), 'dash-blur': verify(channelData.dataProduction)}">
-              <a class="title-dash">Real</a>
-              <br>
-              <a class="data-dash" >{{channelData.dataProduction}}</a>
-            </div>
-          </div>
-        </div>
-        <div class="row" *ngIf="(i == 1)">
+        <div class="row">
           <div class="col s6 dashs">
-            <div class="dashs-fill" [ngClass]="{'dash-zero': !verify(channelData.dataProduction), 'dash-blur': verify(channelData.dataProduction)}">
-              <a class="title-dash">Real 1</a>
+            <div class="dashs-fill" [ngClass]="{'dash-zero': !verify(channelData.dataM1), 'dash-blur': verify(channelData.dataM1)}">
+              <a class="title-dash">M1</a>
               <br>
-              <a class="data-dash" >25.000</a>
+              <a class="data-dash" >{{channelData.dataM1}}</a>
             </div>
           </div>
           <div class="col s6 dashs">
-            <div class="dashs-fill" [ngClass]="{'dash-zero': !verify(channelData.dataProduction), 'dash-blur': verify(channelData.dataProduction)}">
-              <a class="title-dash">Real 2</a>
+            <div class="dashs-fill" [ngClass]="{'dash-zero': !verify(channelData.dataM2), 'dash-blur': verify(channelData.dataM2)}">
+              <a class="title-dash">M2</a>
               <br>
-              <a class="data-dash" >30.000</a>
+              <a class="data-dash" >{{channelData.dataM2}}</a>
             </div>
           </div>
         </div>
         <div class="row ">
           <div class="col s6 dashs">
-            <div class="dashs-fill" [ngClass]="{'dash-zero': !verify(channelData.dataHidden), 'dash-blur': verify(channelData.dataHidden)}">
-              <a class="title-dash">Oculto</a>
+            <div class="dashs-fill" [ngClass]="{'dash-zero': !verify(channelData.dataM3), 'dash-blur': verify(channelData.dataM3)}">
+              <a class="title-dash">M3</a>
               <br>
-              <a class="data-dash" >{{channelData.dataHidden}}</a>
+              <a class="data-dash">{{channelData.dataM3}}</a>
             </div>
           </div>
           <div class="col s6 dashs">
-            <div class="dashs-fill" [ngClass]="{'dash-zero': !verify(channelData.dataPreserved), 'dash-blur': verify(channelData.dataPreserved)}">
-              <a class="title-dash">Preservado</a>
+            <div class="dashs-fill" [ngClass]="{'dash-zero': !verify(channelData.dataM4), 'dash-blur': verify(channelData.dataM4)}">
+              <a class="title-dash">M4</a>
               <br>
-              <a class="data-dash" >{{channelData.dataPreserved}}</a>
+              <a class="data-dash">{{channelData.dataM4}}</a>
             </div>
           </div>
         </div>
       </div>
-      <br>
+      <div>
+        <p class="refresh-time">Última atualização às: {{hora}}:{{min}}:{{sec}}</p>
+      </div>
     </div>
   </div>
 </div>

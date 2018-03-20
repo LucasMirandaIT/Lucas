@@ -11,7 +11,6 @@ export class GetDatabaseService {
   constructor(private http : Http) { }
 
   getFilterData (path) {
-    console.log(path);
     return this.http.get('http://localhost:8081/'+path)
       .map(response => response.json())
       .catch(err => Observable.throw(err.message));

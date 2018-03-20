@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, AfterViewInit } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { GetDatabaseService } from '../../../services/get-database/get-database.service';
 import { PostDatabaseService } from '../../../services/post-database/post-database.service';
@@ -8,9 +8,7 @@ import { PostDatabaseService } from '../../../services/post-database/post-databa
   templateUrl: './saved-groups.component.html',
   styleUrls: ['./saved-groups.component.css']
 })
-export class SavedGroupsComponent implements OnInit {
-  @Input() showTable: boolean = false;
-  @Output() eventClose = new EventEmitter<boolean>();
+export class SavedGroupsComponent implements OnInit, AfterViewInit {
 
   actualPage: any;
   nPages = [];
@@ -20,6 +18,7 @@ export class SavedGroupsComponent implements OnInit {
   aux : number;
   switchButton: boolean = true;
   serverStatus: boolean = false;
+  openTable: boolean = false;
 
   constructor(private getDatabaseService : GetDatabaseService, private postDatabaseService : PostDatabaseService) { }
 
@@ -27,12 +26,19 @@ export class SavedGroupsComponent implements OnInit {
     this.getFilters();
   }
 
+  ngAfterViewInit() {
+    $('select').material_select();
+    $('ul.tabs').tabs();
+    $('.modal').modal();
+    $('.tooltipped').tooltip({delay: 50});     
+  }
+
   // Chama o Servico do método GET dos dados da tabela
   getFilters(){
     this.dataGeneral = [];
     this.total = 0;
 
-    this.getDatabaseService.getFilterData('arquivos')
+    this.getDatabaseService.getFilterData('listGroup')
       .subscribe(
         response => {
         this.dataGeneral = response.dados;
@@ -59,11 +65,6 @@ export class SavedGroupsComponent implements OnInit {
 
       }, error => {
         alert('Erro ao acessar servidor!');
-        this.eventClose.emit(false);
-        this.showTable = false;
-        // $(document).ready(function() {
-        //   $('#modalSelecao').modal('close');
-        // });
       });
   };
 
@@ -98,12 +99,12 @@ export class SavedGroupsComponent implements OnInit {
   };
 
   close () {
-    this.eventClose.emit(false);
+    // this.eventClose.emit(false);
   }
 
   switchStatus(returnStatus) {
     this.switchButton = returnStatus;
-}
+  }
 
 }
 

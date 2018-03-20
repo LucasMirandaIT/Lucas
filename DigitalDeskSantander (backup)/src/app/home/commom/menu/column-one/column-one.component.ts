@@ -6,73 +6,82 @@ import { Router } from '@angular/router';
   templateUrl: './column-one.component.html',
   styleUrls: ['./column-one.component.css']
 })
-export class ColumnOneComponent implements OnInit, OnDestroy {
+export class ColumnOneComponent implements OnInit {
   
   @Input() navBar: boolean = false;
 
   header: any = "Gestão de Canais";
   headerIcon: any = "group";
   headerLevelOne: any = ['IBPF', 'IBPJ', 'Novo Front', 'Mobile PF', 'Mobile PJ', 'Way'];
+  // headerIconLevelOne: any = ['../../assets/img/IBPF.png', '../../assets/img/IBPJ.png', '../../assets/img/NovoFront.png', '../../assets/img/MobilePF.png', '../../assets/img/MobilePJ.png', '../../assets/img/Way.png'];
   headerIconLevelOne: any = ['keyboard_arrow_right', 'keyboard_arrow_right', 'keyboard_arrow_right', 'keyboard_arrow_right', 'keyboard_arrow_right', 'keyboard_arrow_right'];
   headerLevelTwo: any = [
-    { options: ['Seleção de Público', 'Configurações'] },
-    { options: ['Seleção de Público', 'Configurações'] },
-    { options: ['Seleção de Público', 'Configurações'] },
-    { options: ['Seleção de Público', 'Configurações'] },
-    { options: ['Seleção de Público', 'Configurações'] },
-    { options: ['Seleção de Público', 'Configurações'] },
+    { options: ['Seleção de Público', 'Configurações dos Módulos'] },
+    { options: ['Seleção de Público', 'Configurações dos Módulos'] },
+    { options: ['Seleção de Público', 'Configurações dos Módulos'] },
+    { options: ['Seleção de Público', 'Configurações dos Módulos'] },
+    { options: ['Seleção de Público', 'Configurações dos Módulos'] },
+    { options: ['Seleção de Público', 'Configurações dos Módulos'] },
   ];
   headerIconLevelTwo: any = ['keyboard_arrow_right', 'keyboard_arrow_right', 'keyboard_arrow_right', 'keyboard_arrow_right', 'keyboard_arrow_right', 'keyboard_arrow_right'];
+  headerRoutersLevelTwo: any = [
+    { options: ['create-selection', ''] },
+    { options: ['create-selection', ''] },
+    { options: ['create-selection', ''] },
+    { options: ['create-selection', ''] },
+    { options: ['create-selection', ''] },
+    { options: ['create-selection', ''] },
+  ];
   body: any = [
     { options: [
-      { subOptions: ['Busca por CPF', 'Carga de Arquivo', 'Grupos Salvos'] },
-      { subOptions: ['Gerenciamento de Módulos', 'Parametrização de Módulos', 'Logs'] },
+      { subOptions: [] },
+      { subOptions: ['Gestão dos Módulos', 'Parametrização dos Módulos'] },
     ]},
     { options: [
-      { subOptions: ['Busca por CNPJ', 'Busca por Categoria', 'Carga de Arquivo', 'Grupos Salvos'] },
-      { subOptions: ['Gerenciamento de Módulos', 'Parametrização de Módulos', 'Logs'] },      
+      { subOptions: [] },
+      { subOptions: ['Gestão dos Módulos', 'Parametrização dos Módulos'] },
     ]},
     { options: [
-      { subOptions: ['Body'] },
-      { subOptions: ['Gerenciamento de Módulos', 'Parametrização de Módulos', 'Logs'] }, 
+      { subOptions: [] },
+      { subOptions: ['Gestão dos Módulos', 'Parametrização dos Módulos'] },
     ]},
     { options: [
-      { subOptions: ['Body'] },
-      { subOptions: ['Gerenciamento de Módulos', 'Parametrização de Módulos', 'Logs'] }, 
+      { subOptions: [] },
+      { subOptions: ['Gestão dos Módulos', 'Parametrização dos Módulos'] },
     ]},
     { options: [
-      { subOptions: ['Body'] },
-      { subOptions: ['Gerenciamento de Módulos', 'Parametrização de Módulos', 'Logs'] }, 
+      { subOptions: [] },
+      { subOptions: ['Gestão dos Módulos', 'Parametrização dos Módulos'] },
     ]},
     { options: [
-      { subOptions: ['Body'] },
-      { subOptions: ['Gerenciamento de Módulos', 'Parametrização de Módulos', 'Logs'] }, 
+      { subOptions: [] },
+      { subOptions: ['Gestão dos Módulos', 'Parametrização dos Módulos'] },
     ]},
   ];
   routers: any = [
     { options: [
-      { subOptions: ['cnpj-search', 'import-search', 'saved-groups'] },
-      { subOptions: ['modules-turn', 'modules-settings', 'channel-logs'] },
+      { subOptions: [] },
+      { subOptions: ['modules-turn', 'modules-settings'] },
     ]},
     { options: [
-      { subOptions: ['cnpj-search', 'category-search', 'import-search', 'saved-groups'] },
-      { subOptions: ['modules-turn', 'modules-settings', 'channel-logs'] },      
+      { subOptions: [] },
+      { subOptions: ['modules-turn', 'modules-settings'] },
     ]},
     { options: [
-      { subOptions: ['modules-settings'] },
-      { subOptions: ['modules-turn', 'modules-settings', 'channel-logs'] },            
+      { subOptions: [] },
+      { subOptions: ['modules-turn', 'modules-settings'] },          
     ]},
     { options: [
-      { subOptions: ['modules-settings'] },
-      { subOptions: ['modules-turn', 'modules-settings', 'channel-logs'] },            
+      { subOptions: [] },
+      { subOptions: ['modules-turn', 'modules-settings'] },          
     ]},
     { options: [
-      { subOptions: ['modules-settings'] },
-      { subOptions: ['modules-turn', 'modules-settings', 'channel-logs'] },            
+      { subOptions: [] },
+      { subOptions: ['modules-turn', 'modules-settings'] },          
     ]},
     { options: [
-      { subOptions: ['modules-settings'] },
-      { subOptions: ['modules-turn', 'modules-settings', 'channel-logs'] },            
+      { subOptions: [] },
+      { subOptions: ['modules-turn', 'modules-settings'] },          
     ]},
 
   ];
@@ -82,26 +91,10 @@ export class ColumnOneComponent implements OnInit, OnDestroy {
   constructor( private router : Router) { }
 
   ngOnInit() {
-    $(document).ready(function(){
-      $('.collapsible').collapsible();
-      Materialize.updateTextFields();
-    });
-  }
-
-  ngOnDestroy() {
-    $(document).ready(function(){
-      $('.collapsible').collapsible('destroy');
-    });
   }
 
   goToRoute(route, channel) {
-    console.log(route);
     this.router.navigate(['/', route], {queryParams : {channelTitle: this.headerLevelOne[channel]}});
   }
 
-  abrir (){
-    $(document).ready(function(){
-      $('.collapsible').collapsible();
-    });
-  }
 }

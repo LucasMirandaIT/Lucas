@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { AuthService } from './../../services/auth/auth.service';
 import { Router } from '@angular/router';
 
@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements AfterViewInit {
 
   usuario : any;
   logado : any = false;
@@ -17,20 +17,16 @@ export class NavbarComponent implements OnInit {
 
   constructor(private router : Router, private authService : AuthService) { }
 
-  ngOnInit() {
-    $(document).ready(function(){
-      $(".btn_sidenav").sideNav({
-        closeOnClick: true,
-      });
-      $('.collapsible').collapsible();
-      $('.dropdown-button').dropdown({
-        constrainWidth: false,
-        belowOrigin: true,
-        alignment: 'right',
-      });
-      $('.modal').modal();
+  ngAfterViewInit() {
+    $('.dropdown-button').dropdown({
+      constrainWidth: true, // Does not change width of dropdown to that of the activator
+      belowOrigin: true, // Displays dropdown below the button
+      //alignment: 'left', // Displays dropdown with edge aligned to the left of button
     });
-
+    $(".btn_sidenav").sideNav({
+        closeOnClick: true,
+        hover:true
+    });
   }
 
   ChangeRoute(){

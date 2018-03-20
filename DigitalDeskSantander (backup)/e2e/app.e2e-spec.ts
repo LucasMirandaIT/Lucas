@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('digital-desk-santander App', () => {
+describe('javaDdsweb App', () => {
   let page: AppPage;
 
   beforeEach(() => {

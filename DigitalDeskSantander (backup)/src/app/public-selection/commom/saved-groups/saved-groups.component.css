@@ -5,3 +5,8 @@
 .disabled {
   color: #CC362C;
 }
+
+.modal {
+  width: 80% !important;
+  max-height: 85% !important;
+}

@@ -14,6 +14,6 @@ export class HomeComponent implements AfterViewInit {
   constructor() { }
 
   ngAfterViewInit() {
-    $('.collapsible').collapsible();    
+    $('.collapsible').collapsible();
   }
 }
