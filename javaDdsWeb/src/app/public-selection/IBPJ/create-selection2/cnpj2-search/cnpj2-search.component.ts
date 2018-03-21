@@ -20,16 +20,22 @@ export class Cnpj2SearchComponent implements OnInit, AfterViewInit {
   constructor(private eventEmitterService : EventEmitterService) { }
 
   ngOnInit() {
-    this.allModules = ['Oculto', 'Desenvolvimento', 'Preservado'];    
+    this.allModules = ['Oculto', 'Desenvolvimento', 'Preservado'];
+    // Materialize.updateTextFields();
   }
 
   ngAfterViewInit() {
     $('.carousel.carousel-slider').carousel({fullWidth: true});
+    $('.stepper').activateStepper({
+      linearStepsNavigation: true, //allow navigation by clicking on the next and previous steps on linear steppers 
+      autoFocusInput: true, //since 2.1.1, stepper can auto focus on first input of each step 
+      autoFormCreation: true, //control the auto generation of a form around the stepper (in case you want to disable it) 
+      showFeedbackLoader: true //set if a loading screen will appear while feedbacks functions are running 
+   });
     $('select').material_select();
     $('ul.tabs').tabs();
     $('.modal').modal();
     $('.tooltipped').tooltip({delay: 50});
-    $('.stepper').activateStepper();
   }
 
   tableChange(bool, changeCarousel) {

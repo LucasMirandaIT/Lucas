@@ -10,10 +10,9 @@ div.browse-wrap {
   cursor:pointer;
   overflow:hidden;
   text-align:center;
-  position:relative;
   background-color:#ffff;
   border: dotted 3px #d0d0d0;
-  height: 100px !important;
+  // height: 400px !important;
   width: 400px !important;
 }
 
@@ -49,15 +48,15 @@ input.upload {
 }
 
 .back-text{
-  padding-top: 80px !important;
-  margin-left: -18px !important;  
-  max-height: 88px !important;
+  padding-top: 27px !important;
+  margin-left: 9px !important;  
+  // max-height: 88px !important;
 }
 
 .import-text{
-  padding-top: 80px !important;
-  margin-left: -47px !important;  
-  max-height: 88px !important;
+  padding-top: 27px !important;
+  margin-left: 9px !important;   
+  // max-height: 88px !important;
 }
 
 .or-text {
@@ -70,7 +69,7 @@ input.upload {
 }
 
 .importInsert, .manualInsert {
-  max-height: 200px !important;
+  // max-height: 200px !important;
 }
 
 .box.horizTranslate {
@@ -82,12 +81,12 @@ input.upload {
   margin-left: 50% !important;
 }
 
-.row .col.s7 {
-  width: 61.333333%;
-  margin-left: auto;
-  left: auto;
-  right: auto;
-}
+// .row .col.s7 {
+//   width: 61.333333%;
+//   margin-left: auto;
+//   left: auto;
+//   right: auto;
+// }
 
 .row .col.s1 {
   width: 5%;
@@ -98,12 +97,8 @@ input.upload {
   padding-left: 29px;
 }
 
-.row .col.s3 {
+.row .col.s4 {
   width: 35%;
-  margin-left: auto;
-  left: auto;
-  right: auto;
   padding-left: 0px;
   padding-right: 0px;
-
 }

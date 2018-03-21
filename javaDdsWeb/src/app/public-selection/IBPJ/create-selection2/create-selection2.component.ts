@@ -35,7 +35,6 @@ export class CreateSelection2Component implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    $('ul.tabs').tabs();
   }
 
   tableChange(event) {

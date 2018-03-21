@@ -108,118 +108,102 @@
 </div> -->
 
 <ul class="stepper linear">
-    <li class="step active">
-       <div class="step-title waves-effect">Informações Gerais da Seleção</div>
-       <div class="step-content">
-          <div class="row">
-             <div class="input-field col s3">
-                <label>Nome do Grupo</label>
-                <input type="text" placeholder="Digite o nome do grupo">
-             </div>
-             <div class="input-field col s2">
-                <label>Nº Petição Remedy</label>
-                <input type="text" placeholder="00000000000">
-             </div>
-             <div class="input-field col s2">
-                <select>
-                    <option disabled selected>Escolha uma Opção</option>
-                    <option *ngFor="let modules of allModules" (click)="teste()">{{modules}}</option>
-                  </select>
-                  <label>Destinar Grupo para Módulo</label>
-             </div>
-             <div class="input-field col s2">
-                <label>Sigla</label>
-                <input type="text" disabled value="X209302">
-             </div>
-          </div>
-          <div class="step-actions">
-             <button class="waves-effect waves-dark btn next-step">CONTINUE</button>
-          </div>
-       </div>
-    </li>
-    <li class="step">
-       <div class="step-title waves-effect">Modo de Seleção</div>
-       <div class="step-content">
-         
-          <div class="carousel carousel-slider center" data-indicators="true">
-              <!-- <div class="carousel-item" id="div1">
-
-                  <div class="row">
-                      <div class="input-field col s12">
-         
-                         <div class="input-field col s2">
-                             <label>Agência</label>
-                             <input type="text" placeholder="1111">
-                         </div>
-                         <div class="input-field col s2">
-                             <label>Conta</label>
-                             <input type="text" placeholder="11111-1">
-                           </div>
-                           <div class="col s2" style="">
-                             <button class="btn waves-effect" (click)="tableChange(true, false); addValues()">Adicionar</button>
-                           </div>
-                 
-                       <div class="col s1" style="height:50px">
-                         <img src="../../../../../assets/img/CNPJLine.png" />
-                       </div>
-                 
-                       <div class="col s3 back-text" style="font-size:16px">
-                         <b class="or-text">Ou </b>
-                         <a id="btn-imports" (click)="tableChange(false, 'next')"> Clique aqui </a> para importar arquivos (.csv)
-                       </div>
-         
-                      </div>
-                   </div>
-
-                </div> -->
-
-
-<div class="carousel-item" id="div2">
-
-    <div class="row">
-
-                <div class="round-button" colspan="12">
-                    <div class="round-button-circle">
-                      <label class="uploader" ondragover="return false;" (dragenter)="handleDragEnter()" (dragleave)="handleDragLeave()" (drop)="handleDrop($event)">
-                        <div class="browse-wrap">
-                          <i class="material-icons">file_upload</i>
-                          <div class="title">{{fileName}}</div>
-                          <input type="file" name="upload" class="upload" accept=".csv, .txt" (change)="handleInputChange($event)" title="Choose a file to upload">
-                        </div>
-                        <span class="upload-path"></span>
-                      </label>
-                    </div>
-                  </div>
-      
-      <!-- <div class="col s1" style="height:100px !important">
-        <img src="../../../../../assets/img/CNPJLine.png" />
-  
-      </div> -->
-
-      <div class="col s3 import-text" style="font-size:16px">
-        <b class="or-text">Ou </b>
-        <a id="btn-manual" (click)="tableChange(false, 'prev')"> Clique aqui </a> para seleção unitária
+  <li class="step active">
+    <div class="step-title waves-effect">Informações Gerais da Seleção</div>
+    <div class="step-content">
+      <div class="row">
+        <div class="input-field col s3">
+          <label>Nome do Grupo</label>
+          <input type="text" placeholder="Digite o nome do grupo">
+        </div>
+        <div class="input-field col s2">
+          <label>Nº Petição Remedy</label>
+          <input type="text" placeholder="00000000000">
+        </div>
+        <div class="input-field col s2">
+          <select>
+            <option disabled selected>Escolha uma Opção</option>
+            <option *ngFor="let modules of allModules" (click)="teste()">{{modules}}</option>
+          </select>
+          <label>Destinar Grupo para Módulo</label>
+        </div>
+        <div class="input-field col s2">
+          <label>Sigla</label>
+          <input type="text" disabled value="X209302">
+        </div>
+      </div>
+      <div class="step-actions">
+        <button class="waves-effect waves-dark btn next-step">CONTINUE</button>
       </div>
     </div>
+  </li>
 
-  </div>
-  </div>
+  <li class="step">
+    <div class="step-title waves-effect">Modo de Seleção</div>
+    <div class="step-content">
 
+      <div class="carousel carousel-slider" data-indicators="true">
 
-          <div class="step-actions">
-             <button class="waves-effect waves-dark btn next-step">CONTINUE</button>
-             <button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
+        <div class="carousel-item" id="div1">
+          <div class="row">
+
+            <div class="input-field col s2">
+              <label>Agência</label>
+              <input type="text" placeholder="1111">
+            </div>
+
+            <div class="input-field col s2">
+              <label>Conta</label>
+              <input type="text" placeholder="11111-1">
+            </div>
+
+            <div class="col s3">
+              <button class="btn waves-effect" (click)="tableChange(true, false); addValues()">Adicionar</button>
+            </div>
+
+            <div class="col s1" >
+              <img src="../../../../../assets/img/CNPJLine.png" style="height: 112px"/>
+            </div>
+
+            <div class="col s4 back-text" style="font-size:16px">
+              <b class="or-text">Ou </b>
+              <a id="btn-imports" (click)="tableChange(false, 'next')"> Clique aqui </a> para importar arquivos (.csv)
+            </div>
+
           </div>
-       </div>
-    </li>
-    <li class="step">
-       <div class="step-title waves-effect">Fim!</div>
-       <div class="step-content">
-          Finish!
-          <div class="step-actions">
-             <button class="waves-effect waves-dark btn" type="submit">SUBMIT</button>
+        </div>
+
+
+        <div class="carousel-item" id="div2">
+          <div class="row">
+
+            <div class="round-button col s7" >
+              <div class="round-button-circle">
+                <label class="uploader" ondragover="return false;" (dragenter)="handleDragEnter()" (dragleave)="handleDragLeave()" (drop)="handleDrop($event)">
+                  <div class="browse-wrap">
+                    <i class="material-icons">file_upload</i>
+                    <div class="title">{{fileName}}</div>
+                    <input type="file" name="upload" class="upload" accept=".csv, .txt" (change)="handleInputChange($event)" title="Choose a file to upload">
+                  </div>
+                  <span class="upload-path"></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="col s1">
+              <img src="../../../../../assets/img/CNPJLine.png" style="height: 112px"/>
+            </div>
+
+            <div class="col s4 import-text" style="font-size:16px">
+              <b class="or-text">Ou </b>
+              <a id="btn-manual" (click)="tableChange(false, 'prev')"> Clique aqui </a> para seleção unitária
+            </div>
+
           </div>
-       </div>
-    </li>
- </ul>
+        </div>
+
+      </div>
+    </div>
+  </li>
+</ul>
 
