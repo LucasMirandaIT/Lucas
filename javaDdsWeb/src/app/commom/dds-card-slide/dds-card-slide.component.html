@@ -1,0 +1,7 @@
+<mat-card class="cardMaterial">
+    <mat-card-title *ngIf="titulo">{{titulo}}</mat-card-title>
+    <div class="panes" [ngClass]="activePane ? 'animation-left' : 'animation-right' ">
+        <div class="left"><ng-content select="[leftPane]"></ng-content></div>
+        <div class="right"><ng-content select="[rightPane]"></ng-content></div>
+    </div>
+</mat-card>

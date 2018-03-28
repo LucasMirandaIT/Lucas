@@ -1,6 +1,60 @@
-<navbar></navbar>
-<breadcrumb></breadcrumb>
+<div class="container alternate-theme">
+  <dds-sidenav [(show)]="show" lado="start">
+    <content>
+      <mat-toolbar color="accent">
+        <mat-toolbar-row>
+          <img style="margin: 0 23px 0 10px" src="../assets/img/logo.png">
+          <span class="fill-space"></span>
+        </mat-toolbar-row>
+      </mat-toolbar>
 
-<div class="container">
-    <router-outlet></router-outlet>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              IBPF
+            </mat-panel-title>
+            <mat-panel-description>
+              Internet bank pessoa fisica
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              IBPF
+            </mat-panel-title>
+            <mat-panel-description>
+              Internet bank pessoa fisica
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p>Outros menus</p>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </content>
+
+    <body>
+      <dds-page>
+        <dds-page-header>
+          <mat-toolbar color="accent">
+            <mat-toolbar-row>
+              <!-- <button mat-icon-button > -->
+                <mat-icon (click)="showSideNav()">menu</mat-icon>
+              <!-- </button> -->
+              <img style="margin: 0 23px 0 15px" src="../assets/img/logo.png">
+              <span class="fill-space"></span>
+              <button mat-button>
+                <label class="xb-text">XB207768</label>
+              </button>
+            </mat-toolbar-row>
+          </mat-toolbar>
+        </dds-page-header>
+        <dds-page-body>
+          <dds-breadcrumb></dds-breadcrumb>
+          <router-outlet></router-outlet>
+        </dds-page-body>
+      </dds-page>
+      <dds-notification-area></dds-notification-area>
+    </body>
+  </dds-sidenav>
 </div>

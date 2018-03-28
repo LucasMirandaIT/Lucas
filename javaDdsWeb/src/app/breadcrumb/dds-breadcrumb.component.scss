@@ -1,0 +1,47 @@
+.breadcrumb {
+  height: 17px;
+  padding-top: 17px;
+  padding-bottom: 1px;
+  padding-left: 19.25px;
+  padding-right: 19.25px;
+  color: rgba(39, 38, 38, 0.41);
+  li {
+    display: inline;
+  }
+
+  label.nav {
+    font-size: 20px;
+    font-weight: bold;    
+  }
+
+  
+}
+
+ol {
+  padding: 0px;
+  margin: 0px;
+}
+
+hr {
+  border: 0.5px solid rgba(39, 38, 38, 0.06);
+  margin-top: 7.5px;
+  margin-bottom: 20px;
+}
+
+mat-icon {
+  color: rgba(39, 38, 38, 0.41) !important;
+  text-align: center;
+  font-size: 14px;
+  padding-left: 14px; 
+  padding-right: 8px;
+}
+
+.child {
+  font-weight: bold;
+  color: #787878 !important;
+}
+
+.icons{
+  float: right !important;
+  font-size: 20px !important;
+}

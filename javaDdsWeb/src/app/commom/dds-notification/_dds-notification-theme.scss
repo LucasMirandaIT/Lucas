@@ -1,0 +1,47 @@
+@import '~@angular/material/theming';
+
+@mixin dds-notification-color($color, $default: 500, $darker: 700) {
+  color: mat-contrast($color, $default);
+  background: mat-color($color, $default);
+
+  .dds-notification-item-buttons {
+    background: mat-color($color, $darker);
+  }
+
+  .dds-notification-button-close {
+    &:hover {
+      background-color: mat-color($color, $darker + 200);
+    }
+  }
+
+  mat-progress-bar {
+    .mat-progress-bar-fill {
+      &::after {
+        background-color: mat-color($color, $darker) !important;
+      }
+    }
+  }
+}
+
+
+@mixin dds-notification-theme($theme) {
+  dds-notification-area {
+    dds-notification-item {
+      &.dds-success {
+        @include dds-notification-color($mat-green);
+      }
+
+      &.dds-error {
+        @include dds-notification-color($mat-red);
+      }
+
+      &.dds-warn {
+        @include dds-notification-color($mat-amber, 300, 500);
+      }
+
+      &.dds-info {
+        @include dds-notification-color($mat-blue);
+      }
+    }
+  }
+}

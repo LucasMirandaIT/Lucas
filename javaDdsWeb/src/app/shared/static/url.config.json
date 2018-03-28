@@ -1,7 +1,0 @@
-{
-    "system_code":"<APP CODE REGISTERED IN MBS>",
-    "url_log": "<APP URL>",
-    "url_mbs_roles": "https://esbapi.isbanbr.dev.corp/seguranca/v1/permissoes/grupo?gw-app-key=<INSERT HERE YOUR APP-KEY>",
-    "url_mbs_menu_items": "https://esbapi.isbanbr.dev.corp/seguranca/v1/permissionamento/#perfil#?gw-app-key=<INSERT HERE YOUR APP-KEY>",
-    "route_forbbiden": "<APP ROUTE IN CASE OF ACCESS FORBIDDEN>"
-}

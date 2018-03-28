@@ -1,0 +1,8 @@
+<div class="area-upload">
+    <div class="content-upload" ondragover="return false;" (dragenter)="onDragEnter()" (dragleave)="onDragLeave()" (drop)="onDrop($event)">
+        <mat-icon class="colorIcon">backup</mat-icon>
+        <div class="title">{{arquivo?.nome ? arquivo?.nome : 'Clique ou Arraste o arquivo aqui'}}</div>
+        <input type="file" name="upload" class="upload" accept=".csv, .txt" (change)="onArquivoSelecionado($event)" title="escolha um arquivo para upload">
+        <span class="upload-path"></span>
+    </div>
+</div>

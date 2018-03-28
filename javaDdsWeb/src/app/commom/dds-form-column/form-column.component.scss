@@ -1,0 +1,19 @@
+:host {
+  &.dds-responsive {
+    flex: 1 0 200px;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  :host {
+    padding: 0 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  :host {
+    &:not(.dds-responsive) {
+      width: 100% !important;
+    }
+  }
+}

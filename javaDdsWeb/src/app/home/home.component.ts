@@ -1,19 +1,13 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
-  selector: 'app-home',
+  selector: 'home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
-export class HomeComponent implements AfterViewInit {
-
-  arrayThree: any;
-  arrayTwo: any;
-  arrayOne: any;
+export class HomeComponent {
 
   constructor() { }
 
-  ngAfterViewInit() {
-    $('.collapsible').collapsible();
-  }
 }

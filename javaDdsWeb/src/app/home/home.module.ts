@@ -1,30 +1,24 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
+// modules
+import { ImportsAngularMaterialModule } from '../shared/imports-angular-material/imports-angular-material.module';
+
+// router
 import { HomeRoutingModule } from './home-routing.module';
+
+// components
 import { HomeComponent } from './home.component';
-import { ColumnOneComponent } from './commom/menu/column-one/column-one.component';
-import { ColumnTwoComponent } from './commom/menu/column-two/column-two.component';
-import { ColumnThreeComponent } from './commom/menu/column-three/column-three.component';
-import { ColumnFourComponent } from './commom/menu/column-four/column-four.component';
 
 @NgModule({
   imports: [
-    CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    ImportsAngularMaterialModule,
   ],
   declarations: [
     HomeComponent,
-    ColumnOneComponent,
-    ColumnTwoComponent,
-    ColumnThreeComponent,
-    ColumnFourComponent,
   ],
   exports: [
-    ColumnOneComponent,
-    ColumnTwoComponent,
-    ColumnThreeComponent,
-    ColumnFourComponent,
-  ]
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class HomeModule { }

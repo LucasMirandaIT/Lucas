@@ -2,5 +2,8 @@
 	"url_hub_sso": "https://wastfcdvlbr01.bs.br.bsch/sso/authenticate/internal-basic?gw-app-key=INSIRA_AQUI_A_GW_APP_KEY",
 	"url_encryption": "https://esbapi.isbanbr.dev.corp/security/v1/key/public/js?gw-app-key=INSIRA_AQUI_A_GW_APP_KEY",
 	"system_code": "INSIRA AQUI A SIGLA RESPECTIVA A APLICAÇÃO SPA CADASTRADA NO HUB",
-	"url_front_log": "https://esbapi.isbanbr.dev.corp/COLOQUE_A_SUA_URL_DE_LOG_AQUIgw-app-key=INSIRA_AQUI_A_GW_APP_KEY"
+	"url_front_log": "https://esbapi.isbanbr.dev.corp/COLOQUE_A_SUA_URL_DE_LOG_AQUIgw-app-key=INSIRA_AQUI_A_GW_APP_KEY",
+    "url_mbs_roles": "https://esbapi.isbanbr.dev.corp/seguranca/v1/permissoes/grupo?gw-app-key=<INSERT HERE YOUR APP-KEY>",
+    "url_mbs_menu_items": "https://esbapi.isbanbr.dev.corp/seguranca/v1/permissionamento/#perfil#?gw-app-key=HMR>",
+    "route_forbbiden": "<APP ROUTE IN CASE OF ACCESS FORBIDDEN>"
 }

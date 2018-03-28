@@ -1,0 +1,14 @@
+<ol class="breadcrumb">
+  <li>
+    <a routerLink="" class="home">Home</a>
+  </li>
+  <li class="child" *ngFor="let breadcrumb of breadcrumbs">
+    <mat-icon>keyboard_arrow_right</mat-icon>
+    <a [routerLink]="[breadcrumb.url, breadcrumb.parametros]">{{breadcrumb.titulo}}</a>
+  </li>
+  <li class="icons">
+    <mat-icon class="icons" (click)="toggleFullScreen()">zoom_out_map</mat-icon>    
+    <mat-icon class="icons">tune</mat-icon>
+  </li>
+</ol>
+<hr>

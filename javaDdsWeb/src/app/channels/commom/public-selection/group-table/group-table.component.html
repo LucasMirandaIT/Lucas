@@ -1,0 +1,51 @@
+<div class="table-container">
+  <div class="table-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.checked)" placeholder="Pesquisar na Tabela">
+    </mat-form-field>
+  </div>
+
+  <mat-table #table [dataSource]="dataSource" matSort class="mat-elevation-z1">
+
+    <ng-container matColumnDef="nome">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Nome do Grupo </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.nome}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="canal">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Canal </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.canal}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="criador">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Criador </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.criador}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="switch">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Ativar/Desativar Grupo </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <mat-slide-toggle [checked]="element.status"></mat-slide-toggle>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="edit">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Editar Grupo </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <mat-icon>mode_edit</mat-icon>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Excluir Grupo </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <mat-icon>delete</mat-icon>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-paginator #paginator [pageSize]="5" [pageSizeOptions]="[10, 15, 20]" [showFirstLastButtons]="true">
+  </mat-paginator>
+</div>

@@ -1,0 +1,109 @@
+<mat-card>
+  <mat-card-title>IBPJ - Seleção de público</mat-card-title>
+  <mat-card-content>
+    <mat-tab-group>
+      <mat-tab label="Adicionar dados">
+        <form id="myForm" #myForm="ngForm" (submit)="testeSubmit()">
+          <mat-vertical-stepper>
+            <ng-template matStepperIcon="edit">
+              <mat-icon>done</mat-icon>
+            </ng-template>
+            <mat-step label="Informações Gerais do Grupo">
+              <form>
+                <mat-form-field class="example-full-width" style="width:20%">
+                  <input psNumeric type="text" ngModel matInput placeholder="Nome do grupo" #nomeGrupo="ngModel" name="grupo" required>
+                  <dds-error-messages [control]="nomeGrupo"></dds-error-messages>
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width" style="width:15%">
+                  <input psNumeric type="text" ngModel matInput placeholder="Nº Petição Remedy" #peticaoRemedy="ngModel" name="peticao" required>
+                  <dds-error-messages [control]="peticaoRemedy"></dds-error-messages>
+                </mat-form-field>
+
+                <mat-form-field style="width:20%">
+                  <mat-select ngModel placeholder="Destinar Grupo para Módulo" disableRipple #moduloDestino="ngModel" name="modulo" required>
+                    <mat-option *ngFor="let options of modules; let i = index" [value]="options">{{options}}</mat-option>
+                  </mat-select>
+                  <dds-error-messages [control]="moduloDestino"></dds-error-messages>
+                </mat-form-field>
+
+                <div style="margin-top: 20px">
+                  <button type="submit" mat-raised-button color="primary" matStepperNext>Continuar </button>
+                </div>
+              </form>
+            </mat-step>
+            <mat-step label="Seleção de Clientes">
+              <dds-card-slide [activePane]="isLeftVisible">
+                <div leftPane>
+                  <dds-form-container>
+                    <dds-form-line>
+                      <dds-form-column>
+                        <dds-upload-csv class="upload-files" formatos=".csv, .txt"></dds-upload-csv>
+                      </dds-form-column>
+                      <dds-form-column>
+                        <img src="../../../../../assets/img/CNPJLine.png" />
+                      </dds-form-column>
+                      <dds-form-column>
+                        <b>Ou </b>
+                        <a (click)="isLeftVisible = !isLeftVisible"> Clique aqui </a> para seleção unitária
+                      </dds-form-column>
+                    </dds-form-line>
+                  </dds-form-container>
+                </div>
+                <div rightPane>
+                  <dds-form-container>
+                    <dds-form-line>
+                      <dds-form-column>
+                        <mat-form-field style="width: 100px">
+                          <input psNumeric type="text" ngModel matInput placeholder="Agencia" #agenciaModel="ngModel" name="agencia" required>
+                          <dds-error-messages [control]="agenciaModel"></dds-error-messages>
+                        </mat-form-field>
+                      </dds-form-column>
+                      <dds-form-column>
+                        <mat-form-field>
+                          <input psNumeric type="text" ngModel matInput placeholder="Conta" #contaModel="ngModel" name="conta" required>
+                          <dds-error-messages [control]="contaModel">
+                            <ng-template ddsErrorMessage type="required">Favor informar a conta</ng-template>
+                          </dds-error-messages>
+                        </mat-form-field>
+                      </dds-form-column>
+                      <dds-form-column>
+
+                          <button type="submit" mat-raised-button color="primary">Adicionar Cliente</button>
+                          <!-- <button type="submit" mat-raised-button color="warn">Cancelar</button> -->
+                      </dds-form-column>
+
+
+                      <dds-form-column class="img-bar">
+                        <img src="../../../../../assets/img/CNPJLine.png" />
+                      </dds-form-column>
+                      <dds-form-column class="import-text">
+                        <b>Ou </b>
+                        <a style="padding-left: 100px" (click)="isLeftVisible = !isLeftVisible"> Clique aqui </a> para importar arquivos (.csv)
+                      </dds-form-column>
+                    </dds-form-line>
+                  </dds-form-container>
+                </div>
+              </dds-card-slide>
+            </mat-step>
+          </mat-vertical-stepper>
+
+
+        </form>
+      </mat-tab>
+      <mat-tab label="Grupos">
+        <form id="ngFormTabela" #ngFormTabela="ngForm">
+          <mat-card class="intern">
+            <mat-card-content>
+              <group-table></group-table>
+            </mat-card-content>
+            <mat-card-actions>
+              <button type="submit" mat-raised-button color="primary">Salvar</button>
+              <button type="submit" mat-raised-button color="warn">Cancelar</button>
+            </mat-card-actions>
+          </mat-card>
+        </form>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card-content>
+</mat-card>
