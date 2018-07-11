@@ -1,0 +1,209 @@
+$page-padding : 55px;
+
+body {
+    background-color: rgb(240, 240, 240) !important;
+    margin: 0px !important;
+    padding-top: 0px !important;
+  }
+  .intoDivEsquerda {
+    position: absolute;
+    float: left;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(to bottom right, #3f0101, #bb0000) !important;
+  }
+  
+  .intoDivDireita {
+    position: absolute;
+    left: 40%;
+    float: right;
+    width: 60%;
+    height: 100%;
+    background-color: #FFF !important;
+    // background: linear-gradient(to bottom, #d6d6d6, #fdfdfd);
+  }
+  
+  .centered-field {
+    width: 53.44vw !important;
+    margin-left: calc(50% - 26.7vw) !important;
+  }
+  
+  mat-card {
+      border-radius: 10px !important;
+      width: 55% !important;
+      // width: 70% !important;
+      margin-left: 22% !important;
+      margin-top: calc(36% - 400px) !important;
+      vertical-align:middle;
+      height: 400px !important;
+  }
+  
+  .tools-logo {
+    height: 3.1vw !important;
+    margin-right: 1vw;
+    padding-bottom: 15px;
+  }
+  
+  .btnNext {
+    float: right !important;
+    // margin-right: 40px !important;
+    margin-right: 2.92vw !important;
+  }
+  
+  .forgotText {
+    font-weight:400; 
+    float:right; 
+    margin-right: 15px; 
+    margin-top: 10px; 
+    cursor: pointer;
+  }
+  
+  .forgotText:hover {
+    color: blue;
+  }
+  
+  .confirmation-div {
+    padding: 15px;
+  }
+  p { 
+      font-size: 1.5vw;
+      // float: right;
+      vertical-align: bottom !important;
+  }
+  
+      .img-logo {
+      width: 36vw;  
+      margin-left: calc(50% - 18vw);      
+      }
+      .img-logo-alm {
+      width: 7vw;
+      }
+  
+            
+                            /* Styles DDS */
+  .import-text {
+      margin-left: 250px !important;
+    }
+    
+    .cadastro-class {
+      float: right;
+      width: 50%;
+      text-align: center;
+      margin-top: 29px;
+    }
+    
+    // .mat-icon {
+    //   line-height: 38px !important;
+    // }
+    
+    a > .mat-icon {
+      height: 24px !important;
+      line-height: 22px !important;
+      vertical-align: middle !important;
+      color: white !important;
+    }
+    
+    .left {
+      padding-top: 50px !important;
+    }
+    
+    @media screen and (max-width: 960px) {
+      .unit-line {
+        left: 53.9vw !important;
+      }
+      .back-line {
+        left: 115vw !important;
+      }
+      b.back-text {
+        left: 118vw !important;
+      }
+      span.back-text {
+        left: 122vw !important;
+      }
+    }
+    
+    @media screen and (max-width: 1366px) {
+      // Unit Selection Text on Small Screens
+      .unit-line{
+        position: absolute !important;
+        top: 14% !important;
+        left: 33% !important;
+      }
+      b.unit-text {
+        position: absolute !important;
+        top: 36% !important;
+        left: 34.1% !important;
+      }
+      span.unit-text{
+        position: absolute !important;
+        top: 36% !important;
+        left: 36% !important;
+      }
+      // File Import Text on Small Screens
+      .back-line{
+        position: absolute !important;
+        top: 10% !important;
+        left: 83% !important;
+      }
+      b.back-text {
+        position: absolute !important;
+        top: 32% !important;
+        left: 84.1% !important;
+      }
+      span.back-text{
+        position: absolute !important;
+        top: 32% !important;
+        left: 86% !important;
+      }
+    }
+    
+    @media screen and (min-width: 1367px) {
+      //  Unit Selection Text on Bigger Screens 
+      .unit-line{
+        position: absolute !important;
+        top: 14% !important;
+        left: 33% !important;
+      }
+      b.unit-text {
+        position: absolute !important;
+        top: 36% !important;
+        left: 33.9% !important;
+      }
+      span.unit-text{
+        position: absolute !important;
+        top: 36% !important;
+        left: 36% !important;
+      }
+        // File Import Text on Bigger Screens
+      .back-line{
+        position: absolute !important;
+        top: 10% !important;
+        left: 83% !important;
+      }
+      b.back-text {
+        position: absolute !important;
+        top: 31% !important;
+        left: 83.9% !important;
+      }
+      span.back-text{
+        position: absolute !important;
+        top: 31% !important;
+        left: 86% !important;
+      }
+    }
+    
+    .img-bar {
+      position: absolute !important;
+      margin-top: -8px !important;
+      margin-left: 225px !important;
+    }
+    
+    .body-upload,
+    .body-cadastro {
+      width: 100% !important;
+      padding-top: 10px;
+    }
+  
+    .noclick {
+      pointer-events: none;
+    }
