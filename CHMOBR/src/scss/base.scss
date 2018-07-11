@@ -1,5 +1,5 @@
 body {
-  padding-top: calc($header-height-lg - $page-padding);
+  padding-top: calc($header-height-lg - $page-top-position);
   font-family: $font-default;
   color: #545454;
   background-color: $bg-color;
@@ -7,6 +7,7 @@ body {
   letter-spacing: -.02em;
   line-height: 1.8;
   width: 100%;
+  margin: 0px !important;
 
   @media (max-width: $screen-md-max) {
     padding-top: $header-height-sm;

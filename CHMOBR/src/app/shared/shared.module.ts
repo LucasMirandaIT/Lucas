@@ -11,14 +11,14 @@ import { ImportsMaterialModule } from './imports-material/imports-material.modul
     ImportsMaterialModule
   ],
   declarations: [
-    LoginComponent, 
     HeaderComponent, 
-    LogoSantanderComponent
+    LogoSantanderComponent,
+    LoginComponent
   ],
   exports: [
-    LoginComponent,
     HeaderComponent,
-    LogoSantanderComponent
+    LogoSantanderComponent,
+    LoginComponent
   ]
 })
 export class SharedModule { }

@@ -1,19 +1,15 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { CdkTableModule } from '@angular/cdk/table';
-import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 
 import {
   MatAutocompleteModule,
   MatButtonModule,
-  MatButtonToggleModule,
   MatCardModule,
   MatCheckboxModule,
   MatChipsModule,
@@ -51,14 +47,11 @@ import {
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
-    HttpClientModule,
     MatNativeDateModule,
     ReactiveFormsModule,
     CommonModule,
-    CdkTableModule,
     MatAutocompleteModule,
     MatButtonModule,
-    MatButtonToggleModule,
     MatCardModule,
     MatCheckboxModule,
     MatChipsModule,
@@ -88,7 +81,6 @@ import {
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    ScrollDispatchModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

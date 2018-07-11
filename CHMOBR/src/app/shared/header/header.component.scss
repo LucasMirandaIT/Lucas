@@ -1,3 +1,5 @@
+@import "../../../scss/index.scss";
+
 .wrapper-header{
     .main-nav{
       z-index: 5;
@@ -52,10 +54,16 @@
               width: 19px;
               height: 22px;
               &.home{
-                background: url(./assets/img/icon_home.svg) no-repeat center center/contain;
+                background: url(/assets/img/icon_home.svg) no-repeat center center/contain;
               }
-              &.admin{
-                background: url(./assets/img/icon_setting.svg) no-repeat center center/contain;
+              &.play{
+                background: url(/assets/img/menu_icons/BM_play.png) no-repeat center center/contain;
+              }
+              &.look{
+                background: url(/assets/img/menu_icons/BM_look.png) no-repeat center center/contain;
+              }
+              &.tasks{
+                background: url(/assets/img/menu_icons/BM_tasks.png) no-repeat center center/contain;
               }
             }
             .title{
@@ -121,7 +129,7 @@
       .nav-btn{
         vertical-align: middle;
         padding: 0.5em 1em;
-        background: url(./assets/img/icon_menu.svg) no-repeat center/contain;
+        background: url(/assets/img/icon_menu.svg) no-repeat center/contain;
         @media (max-width: $screen-md-max ){
           &{
             display: none;
@@ -186,7 +194,7 @@
         height: 15px;
         display: inline-block;
         margin-left: 0.7em;
-        background: url(./assets/img/refresh-arrow.svg) no-repeat center center/contain;
+        background: url(/assets/img/refresh-arrow.svg) no-repeat center center/contain;
       }
     }
   
