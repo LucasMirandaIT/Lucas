@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { AuthGuardService } from '../services/guards/auth-guard.service';
 
 @Component({
   selector: 'app-login',
@@ -9,12 +10,17 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService: AuthService, public router: Router) { }
+  @Output() userLogged: EventEmitter<any> = new EventEmitter();
 
+  _voltar;
+
+  constructor(private authService: AuthService, public router: Router, public authGuardService: AuthGuardService) { }
+  login;
+  senha;
   ngOnInit() {
   }
 
-  login (login, senha) {
+  logar (login, senha) {
     let temp = {};
     temp = { 
       logged: true,
@@ -23,7 +29,7 @@ export class LoginComponent implements OnInit {
     this.authService.getLogado(login, senha).toPromise().then(retorno => {
     if (retorno.status === 200) {
       localStorage.setItem('LoginDetails', JSON.stringify(temp));
-      this.router.navigate[('/home')];
+      this.authGuardService.isLogged(true);
     }
     }).catch(error => {
 

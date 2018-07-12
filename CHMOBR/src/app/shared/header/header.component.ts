@@ -1,21 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { LogoSantanderComponent } from "../logo-santander/logo-santander.component";
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styles: [`
+  :host{
+    display: block;
+    position: relative;
+  }
+    `]
 })
 export class HeaderComponent implements OnInit {
-
   logoColor: string;
   navStatus : boolean;
 
-  constructor(private router : Router) { }
-
-  ngOnInit() {
+  constructor() {
     this.logoColor = "#f00"; 
     this.navStatus = false;
+  }
+
+  ngOnInit() {
   }
 
   toggleNav(status = null){
@@ -24,4 +29,5 @@ export class HeaderComponent implements OnInit {
     }
     this.navStatus = !this.navStatus;
   }
+
 }

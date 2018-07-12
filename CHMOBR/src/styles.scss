@@ -1,3 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+@import './assets/bootstrap/bootstrap.min.css';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import './assets/scss/global/index';
+@import './assets/scss/components/index';
 
-@import "scss/index.scss";
+body .page {
+    padding-left: 55px;
+    padding-top: 55px;
+}

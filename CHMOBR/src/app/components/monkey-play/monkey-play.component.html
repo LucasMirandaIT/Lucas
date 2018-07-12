@@ -1,0 +1,59 @@
+<card-slide [activePane]="!isLeftVisible" [backWhite]=true>
+    <div leftPane>
+      <div>
+        <mat-card *ngFor="let macaco of macacos">
+          <mat-card-title>{{macaco.nome}}</mat-card-title>
+          <mat-card-content>
+            <span>{{macaco.descricao}}</span>
+          </mat-card-content>
+          <mat-divider></mat-divider>
+          <mat-card-actions>
+            <button mat-button mat-raised-button color="primary" (click)="selecionarMacaco(macaco.nome, macaco.descricao)"> Selecionar Macaco </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+    <div rightPane>
+        <button mat-button mat-raised-button color="primary" (click)="isLeftVisible = !isLeftVisible"> Voltar para o Lado Esquerdo </button>
+        <mat-card>
+          <mat-card-title>Execução do <b> {{nomeMacaco}} </b> </mat-card-title>
+          <mat-card-content>
+            <table>
+              <tr>
+                <td style="border: 1px solid black; width:70%; padding: 40px; justify-content: center">
+                    <mat-form-field>
+                        <mat-select [(value)]="cpdSelected" placeholder="Data Center">
+                          <mat-option value="cmps">Sul</mat-option>
+                          <mat-option value="cmpn">Norte</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                      <div>
+                      <span>Projeto OC</span>
+                      <button mat-button>CH_Mon</button>
+                      </div>
+                      <div>
+                      <span>APP OC</span>
+                      <button mat-button>Backend</button>
+                      </div>
+                      <mat-form-field>
+                          <mat-select [(value)]="levelSelected" placeholder="Nível do Ataque">
+                            <mat-option value="1">Leve</mat-option>
+                            <mat-option value="2">Moderado</mat-option>
+                            <mat-option value="3">Intenso</mat-option>
+                            <mat-option value="4">Insano</mat-option>
+                          </mat-select>
+                      </mat-form-field> <br>
+                      <button mat-button mat-raised-button>Executar Macaco</button>
+                </td>
+                <td style="width: 30%; background-color: rgb(223, 223, 74); border-radius: 5%">
+                  <div>
+                  <p style="font-size: 1.2vw; font-weight: 600; color: rgb(189, 189, 0)"> <mat-icon>info</mat-icon> Mais Informações sobre o Macaco</p>
+                  <p>{{descricaoMacaco}}</p>
+                </div>
+                </td>
+              </tr>
+            </table>
+          </mat-card-content>
+        </mat-card>
+    </div>
+</card-slide>

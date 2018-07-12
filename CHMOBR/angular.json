@@ -3,28 +3,23 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "painelCHMOBR": {
+    "interface": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
-      "prefix": "app",
-      "schematics": {
-        "@schematics/angular:component": {
-          "styleext": "scss"
-        }
-      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/painelCHMOBR",
+            "outputPath": "html",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
+            "polyfills": "src/polyfills.ts",
             "assets": [
+              "src/assets",
               "src/favicon.ico",
-              "src/assets"
+              "src/favicon.png"
             ],
             "styles": [
               "src/styles.scss"
@@ -33,12 +28,6 @@
           },
           "configurations": {
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -47,41 +36,48 @@
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "painelCHMOBR:build"
+            "browserTarget": "interface:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "painelCHMOBR:build:production"
+              "browserTarget": "interface:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "painelCHMOBR:build"
+            "browserTarget": "interface:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "src/test.ts",
+            "karmaConfig": "./karma.conf.js",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
-            "karmaConfig": "src/karma.conf.js",
+            "scripts": [],
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [],
             "assets": [
+              "src/assets",
               "src/favicon.ico",
-              "src/assets"
+              "src/favicon.png"
             ]
           }
         },
@@ -99,26 +95,24 @@
         }
       }
     },
-    "painelCHMOBR-e2e": {
-      "root": "e2e/",
+    "interface-e2e": {
+      "root": "",
+      "sourceRoot": "e2e",
       "projectType": "application",
       "architect": {
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "painelCHMOBR:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "painelCHMOBR:serve:production"
-            }
+            "protractorConfig": "./protractor.conf.js",
+            "devServerTarget": "interface:serve"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": "e2e/tsconfig.e2e.json",
+            "tsConfig": [
+              "e2e/tsconfig.e2e.json"
+            ],
             "exclude": [
               "**/node_modules/**"
             ]
@@ -127,13 +121,16 @@
       }
     }
   },
-  "defaultProject": "painelCHMOBR",
+  "defaultProject": "interface",
   "schematics": {
     "@schematics/angular:component": {
       "inlineStyle": false,
       "inlineTemplate": false,
       "prefix": "app",
       "styleext": "scss"
+    },
+    "@schematics/angular:directive": {
+      "prefix": "app"
     }
   }
 }

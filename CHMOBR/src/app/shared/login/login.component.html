@@ -2,22 +2,22 @@
 <div class="intoDivDireita">
 
     <img class="img-logo" class="brand-santander" src="assets/img/santander.svg" />
-    <p style="text-align:center"> Faça Login no Painel do CHMONBR </p>
+    <p style="text-align:center; font-size: 1.4vw"> Faça Login no Painel do CHMONBR </p>
     <mat-divider></mat-divider>
 
     <div>
         <mat-form-field class="centered-field" style="padding-top: 20px;">
-          <input matInput placeholder="Digite aqui o seu Login" [(ngModel)]="username" value="">
+          <input matInput placeholder="Digite aqui o seu Login" [(ngModel)]="username" name="usrname">
         </mat-form-field>
 
         <mat-form-field class="centered-field" style="padding-top: 10px;">
-          <input matInput type="password" [(ngModel)]="senha" placeholder="Digite aqui a sua senha" value="" (keydown.enter)="login(username,senha)">
+          <input matInput type="password" [(ngModel)]="senha" name="passwd" placeholder="Digite aqui a sua senha" (keydown.enter)="logar(username,senha)">
         </mat-form-field>
 
         <br>
         
         <div style="margin-left: calc(50% - 4vw)">
-        <button mat-button mat-raised-button class="login-btn" color="primary" (click)="login(username, senha)">
+        <button mat-button mat-raised-button class="login-btn" color="primary" (click)="logar(username, senha)">
           Avançar
         </button>
       </div>

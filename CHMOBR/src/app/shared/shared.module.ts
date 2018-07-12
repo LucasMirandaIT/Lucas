@@ -4,11 +4,17 @@ import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { LogoSantanderComponent } from './logo-santander/logo-santander.component';
 import { ImportsMaterialModule } from './imports-material/imports-material.module';
+import { HttpModule } from '@angular/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material';
 
 @NgModule({
   imports: [
     CommonModule,
-    ImportsMaterialModule
+    ImportsMaterialModule,
+    HttpModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   declarations: [
     HeaderComponent, 
@@ -18,7 +24,7 @@ import { ImportsMaterialModule } from './imports-material/imports-material.modul
   exports: [
     HeaderComponent,
     LogoSantanderComponent,
-    LoginComponent
+    LoginComponent,
   ]
 })
 export class SharedModule { }
