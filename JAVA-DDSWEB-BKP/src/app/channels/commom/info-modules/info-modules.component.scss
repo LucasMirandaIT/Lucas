@@ -1,0 +1,48 @@
+.detail-right,
+.detail-left,
+.peticao-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.detail-right {
+  float: left;
+}
+
+.detail-left {
+  float: right;
+}
+
+// .info-peticao,
+// .info-group {
+//   margin: 20px;
+// }
+
+.info-group {
+  margin: 20px 20px 0 20px;
+  height: 70px;
+  width: calc(100% - 40px);
+}
+
+.info-text {
+  color: #20B2BB;
+  font-weight: bold;
+  font-size: 15px;
+  width: calc(100% - 40px);
+}
+
+.info-peticao {
+  min-height: 70px;
+  display: inline-table;
+  margin: 0 20px;
+  width: calc(100% - 40px);
+}
+
+.div-chips {
+  width: calc(100% - 40px);
+}
+
+.md-chips {
+  margin-right: 10px;
+}
+

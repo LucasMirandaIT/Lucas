@@ -6,6 +6,8 @@ import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatSliderModule} from '@angular/material/slider';
 
 import {
   MatAutocompleteModule,
@@ -30,7 +32,6 @@ import {
   MatRippleModule,
   MatSelectModule,
   MatSidenavModule,
-  MatSliderModule,
   MatSlideToggleModule,
   MatSnackBarModule,
   MatSortModule,
@@ -74,15 +75,18 @@ import {
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
+    MatButtonToggleModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    MatSliderModule,
     BrowserAnimationsModule,
     NoopAnimationsModule
   ],
   exports: [
     MatAutocompleteModule,
     MatButtonModule,
+    MatButtonToggleModule,
     MatCardModule,
     MatCheckboxModule,
     MatChipsModule,
@@ -112,6 +116,7 @@ import {
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
+    MatSliderModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

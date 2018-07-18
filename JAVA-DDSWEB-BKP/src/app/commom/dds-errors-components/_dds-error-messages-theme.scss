@@ -1,0 +1,8 @@
+
+@mixin dds-error-message-theme($theme) {
+    $warn: map-get($theme, warn);
+
+    dds-error-messages {
+        color: mat-color($warn);
+    }
+}

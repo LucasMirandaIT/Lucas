@@ -6,6 +6,7 @@ import { LogoSantanderComponent } from './logo-santander/logo-santander.componen
 import { ImportsMaterialModule } from './imports-material/imports-material.module';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { MatInputModule } from '@angular/material';
 
 @NgModule({
@@ -15,6 +16,7 @@ import { MatInputModule } from '@angular/material';
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterModule
   ],
   declarations: [
     HeaderComponent, 

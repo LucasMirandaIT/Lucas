@@ -1,8 +1,9 @@
-$page-padding : 55px;
+$page-padding: 0px;
 
-body {
+body .page {
     background-color: rgb(240, 240, 240) !important;
     margin: 0px !important;
+    padding-left: 0px !important;
     padding-top: 0px !important;
   }
   .intoDivEsquerda {

@@ -1,0 +1,23 @@
+<h1 mat-dialog-title class="title-modal">Alterar Release e Codinome</h1>
+<div class="content-modal">
+  <p>Informe a Release e o Codinome: </p>
+  <div>
+    <form id="formRelease" #formRelease="ngForm">
+      <mat-form-field>
+        <input autocomplete="off" [(ngModel)]="version.release" type="text" ngModel matInput placeholder="Release" #campoaModel="ngModel"
+          name="campoa" required>
+        <dds-error-messages [control]="campoaModel"></dds-error-messages>
+      </mat-form-field>
+      <mat-form-field>
+        <input autocomplete="off" [(ngModel)]="version.similarName" type="text" ngModel matInput placeholder="Codinome" #codinomeModel="ngModel"
+          name="codinome" required>
+        <dds-error-messages [control]="codinomeModel"></dds-error-messages>
+      </mat-form-field>
+    </form>
+  </div>
+</div>
+<mat-divider></mat-divider>
+<div>
+  <button mat-raised-button color="primary"  [mat-dialog-close]="changeRelease(formRelease.valid)">{{data.buttonOk[1]}}</button>
+  <button mat-raised-button color="warn" [mat-dialog-close]="false" cdkFocusInitial>{{data.buttonCancel[1]}}</button>
+</div>

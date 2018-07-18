@@ -1,0 +1,155 @@
+<div class="welcome ibpf">
+  <img class="image ibpf" src="assets/img/logo2.svg">
+  <h1 class="title ibpf">IBE - Seleção de Público</h1>
+</div>
+<mat-tab-group [(selectedIndex)]="indexTab" (selectedTabChange)="changeTab()">
+  <mat-tab *ngIf="ctrlCriarGrupo">
+    <ng-template mat-tab-label>Criar Grupos</ng-template>
+    <mat-card style="margin: 24px !important">
+      <mat-card-title>Cadastro</mat-card-title>
+      <mat-card-content>
+        <dds-step-navigation>
+          <dds-step-item [(stepOption)]="Step" [index]="0" [expand]="Step[0].expand">
+            <form id="formInfo" #formInfo="ngForm">
+              <mat-form-field class="example-full-width" style="width:20%">
+                <input autocomplete="off" type="text" [(ngModel)]="nmGrupoSelecao" ngModel matInput placeholder="Nome do Grupo" #nomeGrupoSelecao="ngModel"
+                  name="grupo" required>
+                <dds-error-messages [control]="nomeGrupoSelecao"></dds-error-messages>
+              </mat-form-field>
+              <mat-form-field class="example-full-width" style="width:15%">
+                <input maxlength="15" autocomplete="off" type="text" [(ngModel)]="numeroRemedyPeticao" ngModel matInput placeholder="Nº Petição"
+                  #peticao="ngModel" name="remedy" required>
+                <dds-error-messages [control]="peticao"></dds-error-messages>
+              </mat-form-field>
+              <mat-form-field style="width:25%">
+                <mat-select ngModel placeholder="Destinar Grupo para Ambiente" [(ngModel)]="cdModuloAmbiente" disableRipple #moduloDestino="ngModel"
+                  name="modulo" required>
+                  <mat-option *ngFor="let modulo of moduloAmbienteCanal" [value]="modulo?.cdModuloAmbienteCanal">{{modulo.nmModuloAmbiente}}</mat-option>
+                </mat-select>
+                <dds-error-messages [control]="moduloDestino"></dds-error-messages>
+              </mat-form-field>
+              <div style="margin-top: 24px !important; margin-bottom: 24px !important;">
+                <button mat-raised-button color="primary" (click)="stepChange(0, 1, formInfo.valid)" style="margin-right: 0px !important">
+                  Continuar </button>
+              </div>
+            </form>
+          </dds-step-item>
+
+          <dds-step-item [(stepOption)]="Step" [index]="1" [expand]="Step[1].expand">
+            <dds-card-slide [activePane]="isLeftVisible" [backWhite]=true>
+              <div leftPane>
+                <form id="formClientes" #formClientes="ngForm">
+                  <div class="body-upload">
+                    <div class="upload-class" style="width: 59%">
+                      <dds-upload-file [(file)]="grupoSelecao" class="upload-files" formatos=".csv, .txt"></dds-upload-file>
+                    </div>
+                    <div class="next" style="width: 30%">
+                      <b class="unit-text">Ou </b>
+                      <img class="unit-line" src="assets/img/CNPJLine.png" />
+                      <span class="unit-text">
+                        <a (click)="isLeftVisible = !isLeftVisible"> Clique aqui</a> para seleção unitária</span>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div rightPane>
+                <form id="formCadastro" #formCadastro="ngForm">
+                  <div class="body-cadastro">
+                    <div>
+                      <div style="float: left">
+                        <mat-form-field>
+                          <input ddsMask="9999" autocomplete="off" [(ngModel)]="groupPublicSelection.agencia" type="text" ngModel matInput placeholder="Agência"
+                            #agenciaModel="ngModel" name="agencia" required>
+                          <dds-error-messages [control]="agenciaModel"></dds-error-messages>
+                        </mat-form-field>
+                        <mat-form-field>
+                          <input ddsMask="9999999" autocomplete="off" [(ngModel)]="groupPublicSelection.conta" type="text" ngModel matInput placeholder="Conta"
+                            #contaModel="ngModel" name="conta" required (keydown.enter)="addCliente(formCadastro.valid)">
+                          <dds-error-messages [control]="contaModel"></dds-error-messages>
+                        </mat-form-field>
+                      </div>
+                      <div class="back" style="width: 30%">
+                        <b class="back-text">Ou </b>
+                        <img class="back-line" src="assets/img/CNPJLine.png" />
+                        <span class="back-text">
+                          <a (click)="isLeftVisible = !isLeftVisible"> Clique aqui </a> para importar arquivos (.csv) </span>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </dds-card-slide>
+            <span style="width: 30%">
+              <button name="addClient" mat-raised-button color="primary" style="margin-right: 0px !important" *ngIf="!isLeftVisible" (click)="addCliente(formCadastro.valid)">Adicionar Cliente(s)</button>
+              <button mat-raised-button color="primary" style="margin-right: 0px !important" *ngIf="isLeftVisible" (click)="uploadClientes()">Criar Grupo</button>
+              <button type="button" mat-raised-button color="warn" (click)="stepChange(1, 0, formInfo.valid)">Editar Informações do Grupo</button>
+              <button type="button" mat-raised-button color="primary" matTooltip="Download Layout Padrão"
+              *ngIf="isLeftVisible" (click)="downloadLayout()">
+                <mat-icon> file_download </mat-icon>
+              </button>
+            </span>
+          </dds-step-item>
+        </dds-step-navigation>
+      </mat-card-content>
+    </mat-card>
+
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>Exibir Grupos</ng-template>
+
+    <dds-card-slide [activePane]="verDetalhes" class="slid-grupos" *ngIf="!ctrlCriarGrupo || indexTab === 1">
+      <div leftPane class="grupos-detalhes">
+        <form id="formClientes" #formClientes="ngForm">
+          <groups [(voltar)]="verDetalhes" #groups [cdCanal]="2"></groups>
+        </form>
+      </div>
+      <div rightPane>
+        <form id="formCadastro" #formCadastro="ngForm" *ngIf="verDetalhes === false">
+            <info-group [grupo]="clients?.grupo" [(detalhes)]="groups.tabelaDetalhesGrupo"></info-group>
+            <clients #clients [isCPF]=false [channel]=2 [(voltar)]="verDetalhes" [(cdPublicoSelecionado)]="groups.tabelaDetalhesGrupo"
+              [(grupoDetalhes)]="groups.totalPublicoSelecionado"></clients>
+        </form>
+      </div>
+    </dds-card-slide>
+
+  </mat-tab>
+</mat-tab-group>
+
+<div [hidden]="showTable === false || listaTableClientes?.length === 0">
+  <mat-card class="intern" style="margin: 24px !important">
+    <mat-card-title>Clientes do Grupo</mat-card-title>
+    <mat-card-content>
+      <div class="table-container">
+        <mat-form-field class="dds-col s12">
+          <input style="float: right" #gb autocomplete="off" pInputText matInput placeholder="Pesquisar na Tabela">
+        </mat-form-field>
+
+        <p-dataTable [(value)]="listaTableClientes" [globalFilter]="gb" [rows]="5" [paginator]="true" [rowsPerPageOptions]="[5,10,15,20,25,30]"
+          [sortField]="sortF" [sortOrder]="sortO" (onSort)="changeSort($event)" sortMode="multiple">
+          <p-column field="agencia" header="Agência" [sortable]="true">
+            <ng-template let-i="rowIndex" let-dataRow="rowData" pTemplate="body">
+              <input class="cpf-table-clients" [readonly]="true" ddsMask="9999" [(ngModel)]="dataRow.agencia" type="text">
+            </ng-template>
+          </p-column>
+          <p-column field="conta" header="Conta" [sortable]="true">
+            <ng-template let-i="rowIndex" let-dataRow="rowData" pTemplate="body">
+              <input class="cpf-table-clients" [readonly]="true" ddsMask="9999999" [(ngModel)]="dataRow.conta" type="text">
+            </ng-template>
+          </p-column>
+          <p-column header="Excluir Cliente">
+            <ng-template let-i="rowIndex" let-col let-dataRow="rowData" pTemplate="body">
+              <button mat-icon-button>
+                <mat-icon (click)="removeClient(i)" class="danger">delete</mat-icon>
+              </button>
+            </ng-template>
+          </p-column>
+        </p-dataTable>
+
+        <div style="min-height: 48px !important">
+          <button type="button" mat-raised-button color="primary" (click)="submited()">Criar Grupo</button>
+          <button type="button" mat-raised-button color="warn" (click)="clearSelection()">Limpar Grupo</button>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

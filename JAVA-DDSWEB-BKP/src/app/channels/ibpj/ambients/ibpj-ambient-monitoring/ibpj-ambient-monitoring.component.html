@@ -1,0 +1,83 @@
+<div class="welcome ibpf">
+  <img class="image ibpf" src="assets/img/logo2.svg">
+  <h1 class="title ibpf">IBE - Gestão dos Módulos</h1>
+</div>
+<mat-tab-group *ngIf="true" [(selectedIndex)]="indexTab">
+  <mat-tab>
+    <ng-template mat-tab-label> Solicitar Alterações </ng-template>
+    <dds-card-rotate *ngFor="let mod of modules; let h = index" [title]="mod.nomeModulo" [indexModules]="indexModules[h]" [(flippedCard)]="indexChange"
+      [(alterou)]="flipar" [(version)]="mod.version" (voltarChange)="voltarFront($event)">
+      <div front>
+        <mat-card *ngFor="let pet of mod.ambients; let l = index">
+          <mat-card-content class="list-ambients" (click)="openModulesConfig(h, l)" style="cursor: pointer !important;">
+            <mat-icon class="indicator" [ngClass]="{'success-status': pet.statusMod[0].actualStatus === 'Online'}" style="line-height: 50px; padding: 0 10px" matTooltip="Configurar URL">brightness_1</mat-icon>
+            <span class="texto vip">
+              <b class="texto title">URL: </b> {{pet.urlAmbiente}}</span>
+            <span class="texto conexoes">
+              <b class="texto title">&nbsp; Conexões: &nbsp;</b>{{pet.statusMod[0].activeConections | number}}&nbsp;<span matTooltip="Balanceamento" class="texto" *ngIf="pet.balance > 0">({{pet.balance | percent}})</span></span>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div back>
+        <div *ngFor="let pet of mod.ambients; let l = index">
+          <div *ngIf="pet.clicked === true">
+            <div style="margin-bottom: .52vw">
+              <span class="texto">
+                <b class="texto title">URL Selecionada: </b>{{pet.urlAmbiente}}</span>
+              <br>
+            </div>
+            <div style="margin-bottom: 1.04vw">
+              <span class="texto">
+                <b class="texto title">Conexões Ativas: </b>{{pet.statusMod[0].activeConections | number}} (Ultima atualização: {{data | date: 'dd/MM/yyyy HH:mm:ss'}})
+              </span>
+              <br>
+            </div>
+            <mat-divider></mat-divider>
+            <mat-horizontal-stepper [linear]="isLinear" #stepper *ngIf="pet.urlAmbiente === 'pj.santandernetibe.com.br' && aux[h] !== 'Online'">
+              <mat-step [stepControl]="firstFormGroup">
+                <form id="firstFormGroup" #firstFormGroup="ngForm">
+                  <ng-template matStepLabel class="texto" style="pointer-events: none; cursor: default;">Informe o Público</ng-template>
+                  <section class="example-section">
+                    <mat-checkbox class="example-margin" [(ngModel)]="modules[h].ambients[l].public[0].int" name="first">Interno</mat-checkbox>
+                    <mat-checkbox class="example-margin" [(ngModel)]="modules[h].ambients[l].public[0].ext" name="second">Externo</mat-checkbox>
+                  </section>
+                  <button mat-raised-button color="primary" (click)="savedPrevious(modules[h].ambients[l].public[0].int, modules[h].ambients[l].public[0].ext, h, l); stepper.next()"
+                    style="margin: 0px !important" [disabled]="modules[h].ambients[l].public[0].int === false && modules[h].ambients[l].public[0].ext === false">Continuar</button>
+                </form>
+              </mat-step>
+              <mat-step [stepControl]="secondFormGroup">
+                <form id="secondFormGroup" #secondFormGroup="ngForm">
+                  <ng-template matStepLabel class="texto" style="pointer-events: none; cursor: default;">Informe o novo estado para esta URL: </ng-template>
+                  <mat-radio-group [(ngModel)]="modules[h].ambients[l].statusMod[0].actualStatus" [name]="modules[h].nomeModulo">
+                    <mat-radio-button [value]="state.name" [checked]="modules[h].ambients[l].statusMod[0].actualStatus === state.name" *ngFor="let state of states">
+                      <span [matTooltip]="state.desc">
+                        <span class="texto">{{state.name}}</span>
+                      </span>
+                    </mat-radio-button>
+                  </mat-radio-group>
+                  <button mat-raised-button color="primary" style="margin: 0px !important" (click)="changeState(h, l)">Confirmar Alteração</button>
+                  <button mat-raised-button color="warn" style="margin: 0 10px 0 0 !important" (click)="stepper.previous()"> Voltar </button>
+                </form>
+              </mat-step>
+            </mat-horizontal-stepper>
+            <div *ngIf="pet.urlAmbiente !== 'pj.santandernetibe.com.br' || aux[h] === 'Online'" style="padding: 24px 0 16px 0 !important;">
+              <b class="texto title" style="padding-bottom: 10px !important;">Informe o novo Estado para esta URL: </b><br><br>
+              <mat-radio-group [(ngModel)]="modules[h].ambients[l].statusMod[0].actualStatus" [name]="modules[h].nomeModulo">
+                <mat-radio-button [value]="state.name" [checked]="modules[h].ambients[l].statusMod[0].actualStatus === state.name" *ngFor="let state of states">
+                  <span [matTooltip]="state.desc">
+                    <span class="texto">{{state.name}}</span>
+                  </span>
+                </mat-radio-button>
+              </mat-radio-group>
+              <button mat-raised-button color="primary" style="margin: 0px !important" (click)="changeState(h, l)">Confirmar Alteração</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </dds-card-rotate>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label> Exibir Solicitações </ng-template>
+    <ambient-monitoring-log *ngIf="indexTab === 1" [(data)]="modulesLogData"> </ambient-monitoring-log>
+  </mat-tab>
+</mat-tab-group>

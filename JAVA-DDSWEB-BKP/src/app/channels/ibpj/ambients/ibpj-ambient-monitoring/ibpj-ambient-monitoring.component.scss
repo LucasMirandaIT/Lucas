@@ -1,0 +1,33 @@
+.indicator {
+  color: #ccc;
+  float: left;
+  width: 3%;
+}
+
+.texto {
+  font-weight: 550;
+  font-size: 1vw;
+  &.conexoes {
+    float: right;
+    padding-right: 10px;
+    width: 35%;
+  }
+  &.vip {
+    float: left;
+    width: 55%;
+  }
+  &.title {
+    color: #20B2BB;
+  }
+}
+
+.list-ambients {
+  height: 50px;
+  line-height: 50px;
+  margin-bottom: 10px !important;
+}
+
+section.example-section {
+  margin: 10px 0 10px 10px;
+  float: left;
+}

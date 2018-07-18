@@ -1,0 +1,37 @@
+<h1 mat-dialog-title class="title-modal">Incluir Cliente</h1>
+<div class="content-modal">
+  <p>Informe o cliente a ser inserido no Grupo: </p>
+  <div>
+    <form id="formibpj" #formibpj="ngForm" [hidden]="data.isCPF">
+      <mat-form-field>
+        <input ddsMask="9999" autocomplete="off" [(ngModel)]="agencia" type="text" ngModel matInput placeholder="Agência" #agenciaModel="ngModel"
+          name="agencia" required>
+        <dds-error-messages [control]="agenciaModel"></dds-error-messages>
+      </mat-form-field>
+      <mat-form-field>
+        <input ddsMask="999999-9" autocomplete="off" [(ngModel)]="conta" type="text" ngModel matInput placeholder="Conta" #contaModel="ngModel"
+          name="conta" required>
+        <dds-error-messages [control]="contaModel"></dds-error-messages>
+      </mat-form-field>
+    </form>
+    <form id="formibpf" #formibpf="ngForm" [hidden]="!data.isCPF">
+      <mat-form-field>
+        <input ddsMask="999.999.999-99" autocomplete="off" [(ngModel)]="credencial" type="text" ngModel matInput placeholder="CPF"
+          #credentialModel="ngModel" name="credencial" required>
+        <dds-error-messages [control]="credentialModel"></dds-error-messages>
+      </mat-form-field>
+    </form>
+  </div>
+</div>
+<mat-divider></mat-divider>
+<div>
+  <form id="dataForm" #dataForm="ngForm">
+    <mat-form-field style="padding-top: 20px; width: 35%; float: left; padding-left: 20px;">
+      <input minlength="5" maxlength="15" autocomplete="off" type="text" [(ngModel)]="numeroPeticao" ngModel matInput placeholder="Nº Petição"
+        #peticao="ngModel" name="peticao" required>
+      <dds-error-messages [control]="peticao"></dds-error-messages>
+    </mat-form-field>
+  </form>
+  <button mat-raised-button color="primary" *ngIf="data?.buttonOk[0]" [mat-dialog-close]="addClient(dataForm.valid, formibpf.valid, formibpj.valid)">{{data.buttonOk[1]}}</button>
+  <button mat-raised-button color="warn" *ngIf="data.buttonCancel[0]" [mat-dialog-close]="false" cdkFocusInitial>{{data.buttonCancel[1]}}</button>
+</div>

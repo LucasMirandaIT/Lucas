@@ -1,0 +1,11 @@
+<div class="area-upload" >
+  <div [class.dragging]="dragging" class="content-upload" (ondragover)="onDragEnter()" (dragenter)="onDragEnter()" (dragleave)="onDragLeave()" (drop)="onDrop($event)">
+    <mat-icon class="colorIcon">file_upload</mat-icon>
+    <div *ngIf="arquivo?.nome" class="title" [class.file-attached]="arquivo?.nome">{{arquivo?.nome}}</div>
+    <div *ngIf="!arquivo?.nome" class="title">Clique ou arraste o arquivo aqui</div>
+    <div class="file-permissions">Formato permitido ({{formatos}}) - Tamanho max. (10mb)</div>
+    <input autocomplete="off" type="file" name="upload" class="upload" [attr.accept]="formatos" (change)="onArquivoSelecionado($event)"
+      title="ESCOLHA UM ARQUIVO PARA UPLOAD">
+    <span class="upload-path"></span>
+  </div>
+</div>

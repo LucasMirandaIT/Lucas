@@ -1,0 +1,28 @@
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="sidenav" opened mode="over" (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()"
+    disableClose *ngIf="userAuth?.logado">
+    <div [hidden]="showFiller" style="text-align: center" class="mat-elevation-z1">
+      <mat-toolbar color="accent" class="mat-elevation-z1">
+        <mat-toolbar-row style="padding: 0px">
+          <img style="margin: 0 10px; width: 30px" src="assets/img/logo.svg">
+          <span class="fill-space"></span>
+        </mat-toolbar-row>
+      </mat-toolbar>
+      <br>
+      <div *ngFor="let menu of userAuth?.permissoes?.hierarquiaPerfil; let i = index">
+        <div *ngIf="menu.nomeTransacao === 'DDS-COLUNA-UM'">
+          <mat-icon style="color: rgba(255,255,255,.5)!important">remove</mat-icon>
+          <div *ngFor="let submenu of userAuth?.permissoes?.hierarquiaPerfil">
+            <div class="background-icons" *ngIf="submenu.nomeTransacaoSuperior == menu.nomeTransacao">
+              <mat-icon>{{submenu.icons}}</mat-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div [hidden]="!showFiller">
+      <ng-content select="content"></ng-content>
+    </div>
+  </mat-drawer>
+  <ng-content select="body"></ng-content>
+</mat-drawer-container>

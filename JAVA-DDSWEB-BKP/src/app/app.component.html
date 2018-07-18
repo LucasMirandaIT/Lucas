@@ -1,0 +1,44 @@
+<!-- <dds-request-load requestLoadMessage="Aguardando importação de arquivo . . ."></dds-request-load> -->
+<div class="alternate-theme" >
+  <dds-sidenav>
+    <content *ngIf="userAuth?.logado">
+      <div>
+        <mat-toolbar color="accent" >
+          <mat-toolbar-row style="cursor: pointer; outline: none" routerLink="">
+            <img style="margin: 0 10px; width: 30px" src="assets/img/logo.svg">
+            <span class="separator" style="color: #fff; padding-right: 10px">Digital Desk Santander</span>
+            <span class="fill-space"></span>
+          </mat-toolbar-row>
+        </mat-toolbar><br>
+        <dds-expansion-panel [side]=true [column]="'DDS-COLUNA-UM'"></dds-expansion-panel>
+        <dds-expansion-panel [side]=true [column]="'DDS-COLUNA-DOIS'"></dds-expansion-panel>
+      </div>
+    </content>
+    <body>      
+      <dds-page>
+        <dds-page-header *ngIf="userAuth?.logado">
+          <mat-toolbar color="accent" class="mat-elevation-z1">
+            <mat-toolbar-row style="background-color: #fff !important; position: fixed; z-index: 4;">
+              <dds-breadcrumb></dds-breadcrumb>
+              <span class="fill-space"></span>
+              <button mat-button class="right" [matTooltip]="userAuth?.user" [matMenuTriggerFor]="menu">
+                <img class="icon-sidenav" src="../assets/img/profile2.png">
+              </button>
+            <mat-menu #menu="matMenu" overlapTrigger="false">
+              <p style="margin: 5px 13px; font-weight: bold;">Usuário Logado:</p>
+              <span style="padding: 0 14px; height: 48px !important; color: #20b2bb; font-weight: bold;">{{userAuth?.user}}</span>
+              <mat-divider></mat-divider>
+              <button mat-menu-item (click)="logout()">Logout</button>
+            </mat-menu>
+            </mat-toolbar-row>
+          </mat-toolbar>
+        </dds-page-header>
+        <dds-page-body>
+          <router-outlet></router-outlet>
+        </dds-page-body>
+      </dds-page>
+      <dds-notification-area></dds-notification-area>
+    </body>
+  </dds-sidenav>
+</div>
+

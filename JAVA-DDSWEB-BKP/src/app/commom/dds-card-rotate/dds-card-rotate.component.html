@@ -1,0 +1,25 @@
+<div class="scene">
+  <div class="card" [class.is-flipped]="flip">
+    <mat-card class="card__face card__face--front">
+      <mat-card-content>
+          <h1 mat-dialog-title class="title-modal">
+            {{title}}
+              <mat-chip-list style="float: right">
+                <mat-chip [ngClass]="{'dds-disabled' : !ctrlReleaseModulo}" (click)="moduleReleaseModal()">Release: {{version[0].release}} - {{version[0].similarName}}</mat-chip>
+              </mat-chip-list>
+          </h1>
+          <div class="content">
+            <ng-content select="[front]"></ng-content>
+          </div>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="card__face card__face--back">
+      <mat-card-content>
+        <h1 mat-dialog-title class="title-modal">{{title}} - Configurar URL do Módulo<mat-icon class="menu" (click)="change()" matTooltip="Voltar">close</mat-icon></h1>
+        <div class="content" style="background-color: #fff !important">
+          <ng-content select="[back]"></ng-content>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

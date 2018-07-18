@@ -1,0 +1,107 @@
+<dds-card-slide [activePane]="voltar" class="slid-grupos">
+  <div leftPane class="grupos-detalhes">
+    <mat-card style="margin: 24px !important">
+      <mat-card-title>Acompanhar Alteração dos Módulos</mat-card-title>
+      <mat-card-content>
+        <div class="dataEmpty" *ngIf="_data === null">
+          <mat-spinner></mat-spinner>
+        </div>
+        <div class="dataEmpty" *ngIf="_data === null" style="padding: 0 0 50px 0 !important;">
+          <span>Carregando dados...</span>
+        </div>
+        <div class="dataEmpty" *ngIf="_data?.length === 0" style="padding: 50px 0 50px 0 !important;">
+          <span>Não existem logs cadastrados.</span>
+        </div>
+
+        <div *ngIf="_data !== null &&  _data?.length !== 0" class="table-container">
+          <mat-form-field class="dds-col s12">
+            <input style="float: right" #gb autocomplete="off" pInputText matInput placeholder="Pesquisar na Tabela">
+          </mat-form-field>
+
+          <p-dataTable [(value)]="_data" [globalFilter]="gb" [rows]="5" [paginator]="true" [rowsPerPageOptions]="[5,10,15,20,25,30]"
+            (onLazyLoad)="loadCarsLazy($event)" [sortField]="sortF" [sortOrder]="sortO" (onSort)="changeSort($event)" sortMode="multiple">
+
+            <p-headerColumnGroup>
+              <p-row>
+                <p-column header="ID" rowspan="2" [style]="{'width':'72px'}" [sortable]="false"></p-column>
+                <p-column header="Data" rowspan="2" [style]="{'width':'160px'}" [sortable]="false"></p-column>
+                <p-column header="Solicitante" rowspan="2" [style]="{'width':'100px'}" [sortable]="false"></p-column>
+                <p-column header="Módulo" rowspan="2" [style]="{'width':'100px'}" [sortable]="false"></p-column>
+                <p-column header="URL" rowspan="2" [sortable]="false"></p-column>
+                <p-column header="Status Rundeck" [style]="{'width':'250px'}" colspan="3"></p-column>
+                <p-column header="Detalhes" rowspan="2" [style]="{'width':'90px'}"></p-column>
+              </p-row>
+              <p-row>
+                <p-column header="URL BKS" colspan="1"></p-column>
+                <p-column header="Restart" colspan="1"></p-column>
+                <p-column header="Alteração VIP" colspan="1"></p-column>
+              </p-row>
+            </p-headerColumnGroup>
+
+            <p-column field="execid"></p-column>
+            <p-column field="timestamp">
+              <ng-template let-rD="rowData" pTemplate="body">
+                <span>{{rD.timestamp | date: 'dd/MM/yyyy HH:mm:ss'}}</span>
+              </ng-template>
+            </p-column>
+            <p-column field="username"></p-column>
+            <p-column field="modulo"></p-column>
+
+            <p-column field="vip">
+              <ng-template let-rD="rowData" pTemplate="body">
+                <span [matTooltip]="rD.ambient">{{rD.vip}}</span>
+              </ng-template>
+            </p-column>
+
+
+            <p-column field="status">
+              <ng-template let-rD="rowData" pTemplate="body">
+                <mat-icon *ngIf="rD.status === 'NORMAL'" class="success-status" matTooltip="Concluído!">done</mat-icon>
+                <mat-icon *ngIf="rD.status === 'ANDAMENTO'" class="info-status" matTooltip="Em Andamento!">autorenew</mat-icon>
+                <mat-icon *ngIf="rD.status === 'PENDENTE'" class="warning-status" matTooltip="Pendente!">warning</mat-icon>
+              </ng-template>
+            </p-column>
+
+            <p-column field="status">
+              <ng-template let-rD="rowData" pTemplate="body">
+                <mat-icon *ngIf="rD.status === 'NORMAL'" class="success-status" matTooltip="Concluído!">done</mat-icon>
+                <mat-icon *ngIf="rD.status === 'ANDAMENTO'" class="info-status" matTooltip="Em Andamento!">autorenew</mat-icon>
+                <mat-icon *ngIf="rD.status === 'PENDENTE'" class="warning-status" matTooltip="Pendente!">warning</mat-icon>
+              </ng-template>
+            </p-column>
+
+            <p-column field="status">
+              <ng-template let-rD="rowData" pTemplate="body">
+                <mat-icon *ngIf="rD.status === 'NORMAL'" class="success-status" matTooltip="Concluído!">done</mat-icon>
+                <mat-icon *ngIf="rD.status === 'ANDAMENTO'" class="info-status" matTooltip="Em Andamento!">autorenew</mat-icon>
+                <mat-icon *ngIf="rD.status === 'PENDENTE'" class="warning-status" matTooltip="Pendente!">warning</mat-icon>
+              </ng-template>
+            </p-column>
+
+            <p-column [style]="{'width':'200px'}">
+              <ng-template let-rD="rowData" pTemplate="body">
+                <mat-icon class="info-status" matTooltip="Detalhes" (click)="detalhesDaExecucao(rD)">info</mat-icon>
+              </ng-template>
+            </p-column>
+
+          </p-dataTable>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div rightPane>
+    <mat-card class="intern" style="margin: 24px !important" >
+      <mat-card-title>Mais Detalhes do Log de Execução</mat-card-title>
+      <mat-card-content>
+        <div class="table-container">
+          <info-modules  [(detalhes)]="detalhesLog"></info-modules>
+          <div style="min-height: 48px !important">
+              <mat-divider></mat-divider>
+            <!-- <button type="button" mat-raised-button color="primary" (click)="submited()">Criar Grupo</button> -->
+            <button type="button" mat-raised-button color="warn" (click)="detalhesDaExecucao()" style="margin: 24px 24px 24px 0 !important;">Voltar</button>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</dds-card-slide>

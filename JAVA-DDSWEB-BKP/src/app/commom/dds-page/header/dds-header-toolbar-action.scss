@@ -1,0 +1,56 @@
+@mixin dds-header-visible() {
+  position: relative;
+  visibility: visible;
+  opacity: 1;
+
+  transition-property: opacity;
+  transition-duration: 0.3s;
+  transition-timing-function: 'easy-in';
+  transition-delay: 0.15s;
+}
+
+@mixin dds-header-hidden() {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+}
+
+:host {
+  button[disabled] {
+    color: rgba(255, 255, 255, 0.8);
+    cursor: not-allowed;
+  }
+
+  .dds-header-toolbar-action {
+    @include dds-header-visible();
+
+    button:not(:last-child) {
+      margin: 0 5px;
+    }
+
+    button:last-child {
+      margin: 0 0 0 5px;
+    }
+  }
+
+  .dds-header-toolbar-action-responsive {
+    @include dds-header-hidden();
+  }
+
+}
+
+@media screen and (max-width: 960px) {
+  :host {
+    button[disabled] {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .dds-header-toolbar-action {
+      @include dds-header-hidden();
+    }
+
+    .dds-header-toolbar-action-responsive {
+      @include dds-header-visible();
+    }
+  }
+}

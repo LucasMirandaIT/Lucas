@@ -12,7 +12,7 @@
             <div class="extra-actions"> 
               <div class="options">
                 <div class="item app_name">
-                  <h1 class="title">Painel de Monitoração de Serviços</h1> 
+                  <h1 class="title">Painel do CHMOBR</h1> 
                 </div>
               </div>
             </div>
@@ -21,8 +21,10 @@
       </div>
       <nav role="nav" class="main-nav" [ngClass]="{ 'active': navStatus } ">
         <ul>
-          <li><a routerLink="" (click)="toggleNav('F')"  aria-label="dashboaard page "><span class="icon home "></span><span class="title">Home</span></a></li>
-          <li><a routerLink="services" (click)="toggleNav('F')" aria-label="services page"><span class="icon admin"></span><span class="title">Admin</span></a></li>
+          <li><a routerLink="" [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="toggleNav('F')"  aria-label="dashboaard page "><span class="icon home "></span><span class="title">Home</span></a></li>
+          <li><a routerLink="services" [routerLink]="['/monkeyPlay']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="toggleNav('F')" aria-label="services page"><span class="icon m-play"></span><span class="title">Execução de Macacos</span></a></li>
+          <li><a routerLink="services" [routerLink]="['/monkeyMonitoring']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="toggleNav('F')" aria-label="services page"><span class="icon m-look"></span><span class="title">Monitoração de Macacos</span></a></li>
+          <li><a routerLink="services" [routerLink]="['/monkeyPanel']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="toggleNav('F')" aria-label="services page"><span class="icon m-tasks"></span><span class="title">Painel de Execuções</span></a></li>
         </ul>
     </nav>
   </header>

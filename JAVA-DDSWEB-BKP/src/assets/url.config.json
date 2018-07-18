@@ -1,0 +1,9 @@
+{
+	"url_hub_sso": "https://wastfcdvlbr01.bs.br.bsch/sso/authenticate/internal-basic?gw-app-key=4404bfb01c0f013600bd005056902ae3",
+	"url_encryption": "https://esbapi.isbanbr.dev.corp/security/v1/key/public/js?gw-app-key=4404bfb01c0f013600bd005056902ae3",
+	"system_code": "DDSBR",
+	"url_front_log": "https://esbapi.isbanbr.dev.corp/COLOQUE_A_SUA_URL_DE_LOG_AQUIgw-app-key=4404bfb01c0f013600bd005056902ae3",
+    "url_mbs_roles": "https://esbapi.isbanbr.dev.corp/seguranca/v1/permissoes/grupo?gw-app-key=4404bfb01c0f013600bd005056902ae3",
+    "url_mbs_menu_items": "https://esbapi.isbanbr.dev.corp/seguranca/v1/permissionamento/#perfil#?gw-app-key=4404bfb01c0f013600bd005056902ae3",
+    "route_forbbiden": "https://dds.paas.isbanbr.dev.corp/#/no-access"
+}

@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card style="padding:0px !important">
     <mat-card-title *ngIf="titulo">{{titulo}}</mat-card-title>
     <div class="panes" [ngClass]="activePane ? 'animation-left' : 'animation-right' ">
         <div [class.left]="backWhite === false">

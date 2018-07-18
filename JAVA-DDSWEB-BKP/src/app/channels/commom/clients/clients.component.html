@@ -1,0 +1,114 @@
+<mat-card class="intern" style="margin: 24px !important">
+  <mat-card-title>Clientes do Grupo</mat-card-title>
+  <mat-card-content>
+    <div class="table-container">
+      <div class="dataEmpty" *ngIf="groupPublicSelectionClient === null">
+        <mat-spinner ></mat-spinner>
+      </div>
+      <div class="dataEmpty" *ngIf="groupPublicSelectionClient === null" style="padding: 0 0 50px 0 !important;">
+        <span>Carregando dados...</span>
+      </div>
+      <div class="dataEmpty" *ngIf="groupPublicSelectionClient?.length === 0" style="padding: 50px 0 50px 0 !important;">
+        <span>Não existem públicos cadastrados.</span>
+      </div>
+
+      <div *ngIf="groupPublicSelectionClient !== null &&  groupPublicSelectionClient?.length !== 0" class="table-container">
+        <mat-form-field class="dds-col s12">
+          <input style="float: right" #gb autocomplete="off" pInputText matInput placeholder="Pesquisar na Tabela">
+        </mat-form-field>
+
+        <p-dataTable *ngIf="isCPF" [(value)]="groupPublicSelectionClient" [globalFilter]="gb" [rows]="5" [paginator]="true" [rowsPerPageOptions]="[5,10,15,20,25,30]"
+          (onLazyLoad)="loadCarsLazy($event)" exportFilename="Clientes" #dt [sortField]="sortF" [sortOrder]="sortO" (onSort)="changeSort($event)"
+          sortMode="multiple">
+          <!-- <p-header>
+            <div class="ui-helper-clearfix">
+              <button type="button" mat-raised-button color="primary" (click)="dt.exportCSV()" matTooltip="Download da Lista de Clientes"
+                style="margin: 0px !important">
+                <mat-icon>file_download</mat-icon>
+              </button>
+            </div>
+          </p-header> -->
+          <p-column field="cdCredencial" header="CPF" [sortable]="true">
+            <ng-template let-i="rowIndex" let-dataRow="rowData" pTemplate="body">
+              <input *ngIf="isCPF" class="cpf-table-clients" [readonly]="true" ddsMask="999.999.999-99" [(ngModel)]="dataRow.cdCredencial"
+                type="text">
+            </ng-template>
+          </p-column>
+          <p-column field="ativoOracle" header="Ativar Cliente" [sortable]="true" *ngIf="ctrlAtivarCliente">
+            <ng-template let-i="rowIndex" let-dataRow="rowData" pTemplate="body">
+              <mat-slide-toggle [name]="dataRow.cdGrupoSelecao" [(ngModel)]="dataRow.ativoOracle" (click)="changeClientStatus(dataRow, i)"></mat-slide-toggle>
+            </ng-template>
+          </p-column>
+          <p-column field="ativoRedis" header="Sincronização" [sortable]="true">
+            <ng-template let-i="rowIndex" let-dataRow="rowData" pTemplate="body">
+              <mat-icon *ngIf="cdPublicoSelecionado.indAtivo === true && dataRow.ativoRedis === true && dataRow.ativoOracle === true" class="success-status"
+                matTooltip="Sincronizado!">done</mat-icon>
+              <mat-icon *ngIf="cdPublicoSelecionado.indAtivo === true && dataRow.ativoRedis === false && dataRow.ativoOracle === true"
+                class="warning-status" matTooltip="Sincronizando...">autorenew</mat-icon>
+              <mat-icon *ngIf="(cdPublicoSelecionado.indAtivo === false && dataRow.ativoOracle === false) || (cdPublicoSelecionado.indAtivo === false && dataRow.ativoOracle === true) || (cdPublicoSelecionado.indAtivo === true && dataRow.ativoOracle === false)"
+                [matTooltip]="cdPublicoSelecionado.indAtivo === false ? 'Grupo Inativo!' : 'Cliente Inativo!'">remove</mat-icon>
+            </ng-template>
+          </p-column>
+          <p-column field="ativoOracle" header="Excluir Cliente" *ngIf="ctrlExcluirCliente">
+            <ng-template let-i="rowIndex" let-col let-dataRow="rowData" pTemplate="body">
+              <button mat-icon-button>
+                <mat-icon (click)="removeClients(dataRow, i)" class="danger">delete</mat-icon>
+              </button>
+            </ng-template>
+          </p-column>
+        </p-dataTable>
+
+        <p-dataTable *ngIf="!isCPF" [(value)]="groupPublicSelectionClient" [globalFilter]="gb" [rows]="5" [paginator]="true" [rowsPerPageOptions]="[5,10,15,20,25,30]"
+          (onLazyLoad)="loadCarsLazy($event)" [sortField]="sortF" [sortOrder]="sortO" (onSort)="changeSort($event)" sortMode="multiple"
+          #dt>
+          <!-- <p-header>
+            <div class="ui-helper-clearfix">
+              <button type="button" mat-raised-button color="primary" (click)="dt.exportCSV()" matTooltip="Download da Lista de Clientes"
+                style="margin: 0px !important">
+                <mat-icon>file_download</mat-icon>
+              </button>
+            </div>
+          </p-header> -->
+          <p-column field="agencia" header="Agência" [sortable]="true">
+            <ng-template let-i="rowIndex" let-dataRow="rowData" pTemplate="body">
+              <input class="cpf-table-clients" [readonly]="true" ddsMask="9999" [(ngModel)]="dataRow.agencia" type="text">
+            </ng-template>
+          </p-column>
+          <p-column field="conta" header="Conta" [sortable]="true">
+            <ng-template let-i="rowIndex" let-dataRow="rowData" pTemplate="body">
+              <input class="cpf-table-clients" [readonly]="true" ddsMask="999999-9" [(ngModel)]="dataRow.conta" type="text">
+            </ng-template>
+          </p-column>
+          <p-column field="ativoOracle" header="Ativar Cliente" [sortable]="true" *ngIf="ctrlAtivarCliente">
+            <ng-template let-i="rowIndex" let-dataRow="rowData" pTemplate="body">
+              <mat-slide-toggle [name]="dataRow.cdGrupoSelecao" [(ngModel)]="dataRow.ativoOracle" (click)="changeClientStatus(dataRow, i)"></mat-slide-toggle>
+            </ng-template>
+          </p-column>
+          <p-column field="ativoRedis" header="Sincronização" [sortable]="true">
+            <ng-template let-i="rowIndex" let-dataRow="rowData" pTemplate="body">
+              <mat-icon *ngIf="cdPublicoSelecionado.indAtivo === true && dataRow.ativoRedis === true && dataRow.ativoOracle === true" class="success-status"
+                matTooltip="Sincronizado!">done</mat-icon>
+              <mat-icon *ngIf="cdPublicoSelecionado.indAtivo === true && dataRow.ativoRedis === false && dataRow.ativoOracle === true"
+                class="warning-status" matTooltip="Sincronizando...">autorenew</mat-icon>
+              <mat-icon *ngIf="(cdPublicoSelecionado.indAtivo === false && dataRow.ativoOracle === false) || (cdPublicoSelecionado.indAtivo === false && dataRow.ativoOracle === true) || (cdPublicoSelecionado.indAtivo === true && dataRow.ativoOracle === false)"
+                [matTooltip]="cdPublicoSelecionado.indAtivo === false ? 'Grupo Inativo!' : 'Cliente Inativo!'">remove</mat-icon>
+            </ng-template>
+          </p-column>
+          <p-column field="ativoOracle" header="Excluir Cliente" *ngIf="ctrlExcluirCliente">
+            <ng-template let-i="rowIndex" let-col let-dataRow="rowData" pTemplate="body">
+              <button mat-icon-button>
+                <mat-icon (click)="removeClients(dataRow, i)" class="danger">delete</mat-icon>
+              </button>
+            </ng-template>
+          </p-column>
+        </p-dataTable>
+      </div>
+      <div>
+        <mat-divider></mat-divider>
+        <button *ngIf="ctrlInserirCliente" type="submit" mat-raised-button color="primary" (click)="addClient()">Adicionar Novo Cliente</button>
+        <button [class.one-button]="!ctrlInserirCliente" type="submit" mat-raised-button color="warn" (click)="onVoltarParaGrupos()">Voltar</button>
+        <br>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

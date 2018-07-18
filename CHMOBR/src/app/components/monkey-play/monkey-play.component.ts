@@ -7,16 +7,66 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MonkeyPlayComponent implements OnInit {
   macacos = [
-    {nome: 'Latency Monkey', descricao:'O objetivo dessa frente é criar mecanismos artificiais que aumentam a latência na comunicação client-server, simulando uma degradação do serviço'},
-    {nome: 'Conformity Monkey', descricao:'Essa frente visa localizar instâncias que não estão aderentes às políticas de melhores práticas, e eliminá-las. Por exemplo, a localização de instâncias que não estão em grupos de auto scaling dando assim, ao usuário, a oportunidade para reinicia-las e fazer as configurações corretas'},
-    {nome: 'Security Monkey', descricao:'O Security Monkey é uma extensão de Conformity Monkey. Através dela será possível  procurar vulnerabilidades ou falhas de segurança, como por exemplo, configurações incorretas de grupos e ambientes'},
-    {nome: 'Doctor Monkey', descricao:'Para essa frente, o objetivo é detectar instâncias que estão degradadas através de health checks gerados por cada uma das instâncias, ou outros sinais de degradação (CPU, carga, etc). Uma vez detectado, essa instância é isolada, não fazendo mais parte do serviço ativo, dando a oportunidade para o administrador do sistema analisar o problema'},
-    {nome: 'Janitor Monkey', descricao:'Iremos criar mecanismos para garantir que nossas contas na cloud sejam mantidas livres de máquinas que não estão sendo utilizadas'},
-    {nome: 'Chaos Monkey', descricao:'Nessa frente especifica iremos criar procedimentos para que os nossos servidores sejam “derrubados” intencionalmente como forma de testar a tolerância a falhas do nosso ambiente em cloud. Desativaremos instâncias e serviços aleatoriamente dentro da nossa arquitetura com objetivo de avaliar nossa habilidade de lidar bem com falhas, e preparamos a nossa equipe para atuar no caso de uma indisponibilidade inesperada.'},
-    {nome: 'Chaos Gorilla', descricao:'Semelhante ao Chaos Monkey, no Chaos Gorilla iremos simular a queda de todo o ambiente ativo, testando a alta disponibilidade e a forma com que o serviço será restabelecido em outro ambiente/site (automaticamente).'},
+    {
+    nome: 'Chaos Monkey', 
+      descricao:'O objetivo dessa frente é criar mecanismos artificiais para simular a queda do Data Center escolhido (Norte ou Sul).',
+      dataCenter: ['Sul', 'Norte'],
+      projetoOc: [],
+      appOc: [],
+      attackLevel: ['Leve', 'Moderado', 'Intenso', 'Insano'],
+    },
+    {
+    nome: 'Chaos Gorilla', 
+    descricao:'Semelhante ao Chaos Monkey, no Chaos Gorilla iremos simular a queda de apenas uma zona do Data Center escolhido, não ele inteiro.',
+    dataCenter: ['Sul', 'Norte'],
+    projetoOc: [],
+    appOc: [],
+    attackLevel: ['Leve', 'Moderado', 'Intenso', 'Insano'],
+    },
+    {
+    nome: 'Shift Monkey', 
+    descricao:'Esta frente visa atacar projetos do PaaS, derrubando seus Pods e verificando o comportamento da aplicação',
+    dataCenter: ['Sul', 'Norte'],
+    projetoOc: [],
+    appOc: [],
+    attackLevel: ['Leve', 'Moderado', 'Intenso', 'Insano'],
+  },
+    {
+    nome: 'Ape Cage', 
+    descricao:'Esta frente trata 4 macacos que trabalham com ataques na Camada de Rede.',
+    dataCenter: ['Sul', 'Norte'],
+    projetoOc: [],
+    appOc: [],
+    attackLevel: ['Leve', 'Moderado', 'Intenso', 'Insano'],
+  },
+    {
+    nome: 'Memory Burn Monkey', 
+    descricao:'Esta frente visa acessar o Host/Container indicado e criar um processo que ocupe a quantidade indicada de memória, testando assim o comportamento da aplicação',
+    dataCenter: ['Sul', 'Norte'],
+    projetoOc: [],
+    appOc: [],
+    attackLevel: ['Leve', 'Moderado', 'Intenso', 'Insano'],
+  },
+    {
+    nome: 'CPU Burn Monkey', 
+    descricao:'Esta frente visa acessar o Host/Container indicado e criar um processo que ocupe a quantidade indicada de processamento, testando assim o comportamento da aplicação',
+    dataCenter: ['Sul', 'Norte'],
+    projetoOc: [],
+    appOc: [],
+    attackLevel: ['Leve', 'Moderado', 'Intenso', 'Insano'],
+  },
+    {
+    nome: 'Shutdown Monkey', 
+    descricao:'Esta frente visa atacar projetos que estão no IaaS e derrubar o Host.',
+    dataCenter: ['Sul', 'Norte'],
+    projetoOc: [],
+    appOc: [],
+    attackLevel: ['Leve', 'Moderado', 'Intenso', 'Insano'],
+  },
   ]
   nomeMacaco: string;
   descricaoMacaco: string;
+  monkeyId;
   constructor() { }
   isLeftVisible = false;
   
@@ -26,7 +76,24 @@ export class MonkeyPlayComponent implements OnInit {
   selecionarMacaco(nomeMacaco, descricaoMacaco){
     this.isLeftVisible = !this.isLeftVisible;
     this.nomeMacaco = nomeMacaco;
+    window.scrollTo(0, 0);
     this.descricaoMacaco = descricaoMacaco;
+    if (this.nomeMacaco === 'Chaos Monkey') {
+      this.monkeyId = 1;
+    } else if (this.nomeMacaco === 'Chaos Gorilla') {
+      this.monkeyId = 2;
+    } else if (this.nomeMacaco === 'Shift Monkey') {
+      this.monkeyId = 3;
+    } else if (this.nomeMacaco === 'Ape Cage') {
+      this.monkeyId = 4;
+    } else if (this.nomeMacaco === 'Memory Burn Monkey') {
+      this.monkeyId = 5;
+    } else if (this.nomeMacaco === 'CPU Burn Monkey') {
+      this.monkeyId = 6;
+    } else if (this.nomeMacaco === 'Shutdown Monkey') {
+      this.monkeyId = 7;
+    } else {
+      this.monkeyId == null;
+    }
   }
-
 }

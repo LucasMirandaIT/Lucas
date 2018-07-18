@@ -1,0 +1,56 @@
+<mat-card class="intern" style="margin: 24px !important">
+  <mat-card-title>Detalhes do grupo</mat-card-title>
+  <mat-card-content>
+    <div class="info-group">
+      <div class="detail-right">
+        <span>Grupo:
+          <span class="info-text">{{grupo?.nomeGrupoSelecao}}</span>
+        </span>
+        <br>
+        <span>Usuário criador:
+          <span class="info-text">{{grupo?.cdUsuarioInclusao}}</span>
+        </span>
+        <br>
+        <span *ngIf="grupo?.cdUsuarioUltimaAtualizacao != null">Usuário ultima atualização:
+          <span class="info-text">{{grupo?.cdUsuarioUltimaAtualizacao}}</span>
+        </span>
+        <span>
+            Status do grupo:
+          <span class="info-text">{{grupo?.indAtivo === 'S' ? 'Ativo' : 'Inativo'}}</span>
+        </span>
+        <br>
+        <span>
+            Grupo sincronizado:
+          <span class="info-text">{{grupo?.indAtivoRedis === 'S' ? 'Sim' : 'Não'}}</span>
+        </span>
+        <br>
+      </div>
+      <div class="detail-left">
+        <span *ngIf="grupo?.dtInclusao != null">Data criação:
+          <span class="info-text">{{grupo?.dtInclusao | date: 'dd/MM/yyyy HH:mm'}}</span>
+        </span>
+        <br *ngIf="grupo?.dtUltimaAtualizacao != null">
+        <span *ngIf="grupo?.dtUltimaAtualizacao != null">Data ultima atualização:
+          <span class="info-text">{{grupo?.dtUltimaAtualizacao | date: 'dd/MM/yyyy HH:mm'}}</span>
+        </span>
+        <br *ngIf="detalhes?.totalPublicoSelecionado != 0 && detalhes?.totalPublicoSelecionado != null && detalhes?.totalPublicoSelecionado != undefined">
+        <span *ngIf="detalhes?.totalPublicoSelecionado != 0 && detalhes?.totalPublicoSelecionado != null && detalhes?.totalPublicoSelecionado != undefined">Público:
+          <span class="info-text">{{detalhes?.totalPublicoSelecionado}}</span>
+        </span>
+      </div>
+    </div>
+    <br>
+    <div *ngIf="grupo?.remedyPeticoes?.length > 0" class="info-peticao">
+      <div class="peticoes">
+        <span class="peticao-title">Petições</span>
+      </div>
+      <div class="div-chips">
+        <div class="md-chips" *ngFor="let pet of grupo?.remedyPeticoes">
+          <div class="md-chip md-chip-clickable" (click)="showPeticao(pet)" style="margin-right: 10px">
+            <a class="peticao-text">{{pet?.numeroRemedyPeticao}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

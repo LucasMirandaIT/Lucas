@@ -1,0 +1,11 @@
+<div style="padding-left: 60px">
+  <ol class="breadcrumb">
+      <li>
+        <mat-icon routerLink="" class="child" [ngClass]="{'last' : breadcrumbs.length == 0}" style="font-size: 16px">home</mat-icon>
+      </li>
+      <li *ngFor="let breadcrumb of breadcrumbs; let i = index">
+        <mat-icon class="arrow">keyboard_arrow_right</mat-icon>
+        <span class="child" [ngClass]="{'last' : breadcrumbs.length == (i+1)}" [routerLink]="[breadcrumb.url, breadcrumb.parametros]">{{breadcrumb.titulo}}</span>
+      </li>
+  </ol>
+</div>

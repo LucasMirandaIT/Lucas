@@ -17,9 +17,10 @@ import { MonkeyMonitoringComponent } from './components/monkey-monitoring/monkey
 import { MonkeyPanelComponent } from './components/monkey-panel/monkey-panel.component';
 import { SharedModule } from './shared/shared.module';
 import { CardSlideComponent } from './commom/card-slide/card-slide.component';
-import { AuthService } from './shared/services/auth.service';
 import { RouterModule } from '@angular/router';
-import { AuthGuardService } from './shared/services/guards/auth-guard.service';
+import { AuthGuard } from './shared/guards/auth.guard';
+import { AuthService } from './services/auth.service';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { AuthGuardService } from './shared/services/guards/auth-guard.service';
     CardSlideComponent,
   ],
   exports:[
-    ImportsMaterialModule
+    ImportsMaterialModule,
+    FormsModule
   ],
   imports: [
     BrowserModule,
@@ -45,8 +47,9 @@ import { AuthGuardService } from './shared/services/guards/auth-guard.service';
     AppRoutingModule,
     ImportsMaterialModule,
     SharedModule,
+    FormsModule
   ],
-  providers: [AuthService, AuthGuardService],
+  providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

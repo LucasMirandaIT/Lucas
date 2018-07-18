@@ -1,0 +1,21 @@
+<mat-card-title class="mat-elevation-z2"> Conexões Ativas </mat-card-title>
+<mat-card class="dds-col s4" style="margin-top: 20px" *ngFor="let channelData of dados; let i = index">
+  <mat-card-title>{{channelData.channel}} </mat-card-title>
+  <mat-card-content>
+    <div class="dds-col s12 dashs-fill" [ngClass]="{'dash-zero': !verify(channelData.realData), 'dash-blur': verify(channelData.realData)}">
+      <p>Real</p>
+      <p class="conexoes">{{channelData.realData | number}}</p>
+    </div>
+    <div class="dds-col s6 dashs-fill" [ngClass]="{'dash-zero': !verify(channelData.hiddenData), 'dash-blur': verify(channelData.hiddenData)}">
+      <p>Oculto</p>
+      <p class="conexoes">{{channelData.hiddenData | number}}</p>
+    </div>
+    <div class="dds-col s6 dashs-fill" [ngClass]="{'dash-zero': !verify(channelData.desenvolvimento), 'dash-blur': verify(channelData.desenvolvimento)}">
+      <p>Desenvolvimento</p>
+      <p class="conexoes">{{channelData.desenvolvimento | number}}</p>
+    </div>
+    <div class="dds-col s12">
+      <a class="data-atualizacao">Última atualização em: {{data | date: 'dd/MM/yyyy HH:mm:ss'}}</a>
+    </div>
+  </mat-card-content>
+</mat-card>

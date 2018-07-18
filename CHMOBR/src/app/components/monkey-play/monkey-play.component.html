@@ -1,59 +1,334 @@
 <card-slide [activePane]="!isLeftVisible" [backWhite]=true>
-    <div leftPane>
-      <div>
-        <mat-card *ngFor="let macaco of macacos">
-          <mat-card-title>{{macaco.nome}}</mat-card-title>
-          <mat-card-content>
-            <span>{{macaco.descricao}}</span>
-          </mat-card-content>
-          <mat-divider></mat-divider>
-          <mat-card-actions>
-            <button mat-button mat-raised-button color="primary" (click)="selecionarMacaco(macaco.nome, macaco.descricao)"> Selecionar Macaco </button>
-          </mat-card-actions>
-        </mat-card>
-      </div>
+  <div leftPane style="padding-left: 24px; padding-right: 24px">
+    <div>
+      <mat-card class="card-left" *ngFor="let macaco of macacos">
+        <mat-card-title>{{macaco.nome}}</mat-card-title>
+        <mat-card-content>
+          <span>{{macaco.descricao}}</span>
+        </mat-card-content>
+        <mat-divider></mat-divider>
+        <mat-card-actions>
+          <button mat-button mat-raised-button color="primary" (click)="selecionarMacaco(macaco.nome, macaco.descricao)"> Selecionar Macaco </button>
+        </mat-card-actions>
+      </mat-card>
     </div>
-    <div rightPane>
-        <button mat-button mat-raised-button color="primary" (click)="isLeftVisible = !isLeftVisible"> Voltar para o Lado Esquerdo </button>
-        <mat-card>
-          <mat-card-title>Execução do <b> {{nomeMacaco}} </b> </mat-card-title>
-          <mat-card-content>
-            <table>
-              <tr>
-                <td style="border: 1px solid black; width:70%; padding: 40px; justify-content: center">
-                    <mat-form-field>
-                        <mat-select [(value)]="cpdSelected" placeholder="Data Center">
-                          <mat-option value="cmps">Sul</mat-option>
-                          <mat-option value="cmpn">Norte</mat-option>
-                        </mat-select>
-                      </mat-form-field>
-                      <div>
-                      <span>Projeto OC</span>
-                      <button mat-button>CH_Mon</button>
-                      </div>
-                      <div>
-                      <span>APP OC</span>
-                      <button mat-button>Backend</button>
-                      </div>
-                      <mat-form-field>
-                          <mat-select [(value)]="levelSelected" placeholder="Nível do Ataque">
-                            <mat-option value="1">Leve</mat-option>
-                            <mat-option value="2">Moderado</mat-option>
-                            <mat-option value="3">Intenso</mat-option>
-                            <mat-option value="4">Insano</mat-option>
-                          </mat-select>
-                      </mat-form-field> <br>
-                      <button mat-button mat-raised-button>Executar Macaco</button>
-                </td>
-                <td style="width: 30%; background-color: rgb(223, 223, 74); border-radius: 5%">
-                  <div>
-                  <p style="font-size: 1.2vw; font-weight: 600; color: rgb(189, 189, 0)"> <mat-icon>info</mat-icon> Mais Informações sobre o Macaco</p>
-                  <p>{{descricaoMacaco}}</p>
-                </div>
-                </td>
-              </tr>
-            </table>
-          </mat-card-content>
-        </mat-card>
-    </div>
+  </div>
+  <div rightPane>
+    <mat-card>
+      <mat-card-title>
+        <button mat-button mat-raised-button style="margin-right: 10px; top: -4.3px" color="primary" (click)="isLeftVisible = !isLeftVisible">
+          <mat-icon>keyboard_arrow_left</mat-icon> Selecionar outro Macaco </button>
+        Execução do
+        <b> {{nomeMacaco}} </b>
+        <div class="toolti">
+          <mat-icon style="color:#4c4cff; display: inline-flex; vertical-align: middle;">info</mat-icon>
+          <span class="tooltiptext">{{descricaoMacaco}}</span>
+        </div>
+      </mat-card-title>
+      <mat-card-content>
+        <section *ngIf="monkeyId == 1">
+          <div>
+            <span class="options-label">Data Center: </span>
+            <mat-button-toggle-group name="dataCenter" multiple="true" #dataCenter="matButtonToggleGroup" aria-label="Data Center">
+              <mat-button-toggle value="CMPN">Norte</mat-button-toggle>
+              <mat-button-toggle value="CMPS">Sul</mat-button-toggle>
+            </mat-button-toggle-group>
+          </div>
+        </section>
+        <section *ngIf="monkeyId == 2">
+          <div>
+            <span class="options-label">Data Center: </span>
+            <mat-button-toggle-group name="dataCenter" #dataCenter="matButtonToggleGroup" aria-label="Data Center">
+              <mat-button-toggle value="CMPN">Norte</mat-button-toggle>
+              <mat-button-toggle value="CMPS">Sul</mat-button-toggle>
+            </mat-button-toggle-group>
+            <br>
+            <span class="options-label">Zona: </span>
+            <mat-button-toggle-group name="zoneSelectN" #zoneSelectNorth="matButtonToggleGroup" aria-label="Zona (Norte)" *ngIf="dataCenter.value == 'CMPN'">
+              <mat-button-toggle value="CMPN">CMPN-1</mat-button-toggle>
+              <mat-button-toggle value="CMPN">CMPN-2</mat-button-toggle>
+              <mat-button-toggle value="CMPN">CMPN-3</mat-button-toggle>
+              <mat-button-toggle value="CMPN">CMPN-4</mat-button-toggle>
+            </mat-button-toggle-group>
+            <mat-button-toggle-group name="zoneSelectS" #zoneSelectSouth="matButtonToggleGroup" aria-label="Zona (Sul)" *ngIf="dataCenter.value == 'CMPS'">
+              <mat-button-toggle value="CMPS">CMPS-1</mat-button-toggle>
+              <mat-button-toggle value="CMPS">CMPS-2</mat-button-toggle>
+              <mat-button-toggle value="CMPS">CMPS-3</mat-button-toggle>
+              <mat-button-toggle value="CMPS">CMPS-4</mat-button-toggle>
+            </mat-button-toggle-group>
+          </div>
+          <div>
+            <span class="options-label">Fase: </span>
+            <mat-form-field>
+              <mat-select>
+                <mat-option value="1 - MS Cluster"> 1 - MS Cluster</mat-option>
+                <mat-option value="2 - Must"> 2 - Must</mat-option>
+                <mat-option value="3 - Should"> 3 - Should</mat-option>
+                <mat-option value="4 - DB Críticos"> 4 - DB Críticos</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </section>
+        <section *ngIf="monkeyId == 3">
+          <div>
+            <span class="options-label">Data Center: </span>
+            <mat-button-toggle-group multiple name="dataCenter" #dataCenter="matButtonToggleGroup" aria-label="Data Center">
+              <mat-button-toggle value="CMPN">Norte</mat-button-toggle>
+              <mat-button-toggle value="CMPS">Sul</mat-button-toggle>
+            </mat-button-toggle-group>
+            <br>
+            <span class="options-label">Nome do Projeto: </span>
+            <mat-form-field>
+              <input matInput>
+            </mat-form-field>
+            <br>
+
+            <span class="options-label">Nome do POD: </span>
+            <mat-form-field>
+              <input matInput>
+            </mat-form-field>
+            <br>
+            <span class="options-label">Duração do Ataque (seconds): </span>
+            <mat-form-field>
+              <input matInput>
+            </mat-form-field>
+            <br>
+            <span class="options-label">Tempo de espera entre os ataques (seconds): </span>
+            <mat-form-field>
+              <input matInput>
+            </mat-form-field>
+            <br>
+            <span class="options-label"> Percentual de Agressividade(%): </span>
+            <mat-slider thumbLabel=true></mat-slider>
+          </div>
+
+        </section>
+        <section *ngIf="monkeyId == 4">
+          <span class="options-label">Arquitetura: </span>
+          <mat-button-toggle-group name="dataCenter" #architecture="matButtonToggleGroup" aria-label="Data Center">
+            <mat-button-toggle value="paas">
+              <img class="architecture_image" src="./assets/img/logos/PaaS.png"> PaaS</mat-button-toggle>
+            <mat-button-toggle value="iaas">
+              <img class="architecture_image" src="./assets/img/logos/IaaS.png"> IaaS</mat-button-toggle>
+          </mat-button-toggle-group>
+          <br>
+          <div *ngIf="architecture.value === 'paas'">
+              <span class="options-label">Nome do Projeto: </span>
+              <mat-form-field>
+                <input matInput>
+              </mat-form-field>
+          <br>
+          <span class="options-label">Nome do POD: </span>
+          <mat-form-field>
+            <input matInput>
+          </mat-form-field>
+          <br>
+          </div>
+          <div *ngIf="architecture.value === 'iaas'">
+              <span class="options-label">Nome do Host: </span>
+              <mat-form-field>
+                <input matInput>
+              </mat-form-field>
+          </div>
+          <span class="options-label">Ambiente: </span>
+          <mat-button-toggle-group multiple name="dataCenter" #dataCenter="matButtonToggleGroup" aria-label="Data Center">
+            <mat-button-toggle value="dev">Desenvolvimento</mat-button-toggle>
+            <mat-button-toggle value="hk">Homologação</mat-button-toggle>
+            <mat-button-toggle value="prod">Produção</mat-button-toggle>
+          </mat-button-toggle-group>
+          <br>
+
+          <span class="options-label">Tipo de Ataque: </span>
+          <mat-button-toggle-group name="dataCenter" #attackType="matButtonToggleGroup" aria-label="Data Center">
+            <mat-button-toggle *ngIf="architecture.value == 'iaas'" value="latency">Latency Monkey</mat-button-toggle>
+            <mat-button-toggle *ngIf="architecture.value == 'iaas'" value="loss">Loss Monkey</mat-button-toggle>
+            <mat-button-toggle value="kill">Kill Monkey</mat-button-toggle>
+            <mat-button-toggle *ngIf="architecture.value == 'iaas'" value="corruption">Corruption Monkey</mat-button-toggle>
+          </mat-button-toggle-group>
+          <br>
+          <div *ngIf="attackType.value == 'latency'">
+            <span class="options-label">Duração do Ataque (seconds): </span>
+            <mat-form-field>
+              <input matInput>
+            </mat-form-field>
+            <br>
+            <span class="options-label">Interface de Rede: </span>
+            <mat-form-field>
+              <input matInput>
+            </mat-form-field>
+            <br>
+            <span class="options-label">Delay Mínimo (milisegundos): </span>
+            <mat-form-field>
+              <input matInput>
+            </mat-form-field>
+            <br>
+            <span class="options-label">Delay Máximo (milisegundos): </span>
+            <mat-form-field>
+              <input matInput>
+            </mat-form-field>
+          </div>
+          <div *ngIf="attackType.value == 'loss'">
+            <span class="options-label">Duração do Ataque (seconds): </span>
+            <mat-form-field>
+              <input matInput>
+            </mat-form-field>
+            <br>
+            <span class="options-label">Interface de Rede: </span>
+            <mat-form-field>
+              <input matInput>
+            </mat-form-field>
+            <br>
+            <span class="options-label"> Porcentagem mínima de perda de pacote(%): </span>
+            <mat-slider thumbLabel=true></mat-slider>
+            <br>
+            <span class="options-label"> Porcentagem máxima de perda de pacote(%): </span>
+            <mat-slider thumbLabel=true></mat-slider>
+          </div>
+          <div *ngIf="attackType.value == 'kill'">
+            <span class="options-label">Nome do Processo: </span>
+            <mat-form-field>
+              <input matInput>
+            </mat-form-field>
+            <br>
+            <span class="options-label">Duração do Ataque(s): </span>
+            <mat-form-field>
+              <input matInput>
+            </mat-form-field>
+            <br>
+          </div>
+          <div *ngIf="attackType.value == 'corruption'">
+            <span class="options-label">Duração do Ataque (seconds): </span>
+            <mat-form-field>
+              <input matInput>
+            </mat-form-field>
+            <br>
+            <span class="options-label">Interface de Rede: </span>
+            <mat-form-field>
+              <input matInput>
+            </mat-form-field>
+            <br>
+            <span class="options-label"> Porcentagem de corrupção(%): </span>
+            <mat-slider thumbLabel=true></mat-slider>
+          </div>
+
+        </section>
+        <section *ngIf="monkeyId == 5">
+          <span class="options-label">Arquitetura: </span>
+          <mat-button-toggle-group name="architect" #architecture="matButtonToggleGroup" aria-label="Data Center">
+            <mat-button-toggle value="paas">
+              <img class="architecture_image" src="./assets/img/logos/PaaS.png"> PaaS</mat-button-toggle>
+            <mat-button-toggle value="iaas">
+              <img class="architecture_image" src="./assets/img/logos/IaaS.png"> IaaS</mat-button-toggle>
+          </mat-button-toggle-group>
+          <br>
+          <div *ngIf="architecture.value == 'paas'">
+            <span class="options-label">Nome do Projeto: </span>
+            <mat-form-field>
+              <input matInput>
+            </mat-form-field>
+            <br>
+            <span class="options-label">Nome do POD: </span>
+            <mat-form-field>
+              <input matInput>
+            </mat-form-field>
+            <br>
+          </div>
+          <div *ngIf="architecture.value == 'iaas'">
+            <span class="options-label">Nome do Host: </span>
+            <mat-form-field>
+              <input matInput>
+            </mat-form-field>
+            <br>
+          </div>
+          <span class="options-label">Método de Seleção: </span>
+          <mat-button-toggle-group name="dataCenter" #memoryMethod="matButtonToggleGroup" aria-label="Data Center">
+            <mat-button-toggle value="quantity">
+              <img class="architecture_image" src="./assets/img/logos/PaaS.png"> Por Quantidade</mat-button-toggle>
+            <mat-button-toggle value="percentage">
+              <img class="architecture_image" src="./assets/img/logos/IaaS.png"> Percentual</mat-button-toggle>
+          </mat-button-toggle-group>
+          <br>
+          <div *ngIf="memoryMethod.value === 'quantity'">
+            <span class="options-label">Quantidade de Memória (MB): </span>
+            <mat-form-field>
+              <input matInput>
+            </mat-form-field>
+            <br>
+          </div>
+          <div *ngIf="memoryMethod.value === 'percentage'">
+            <span class="options-label"> Quantidade de Memória(%): </span>
+            <mat-slider thumbLabel=true></mat-slider>
+          </div>
+
+        </section>
+        <section *ngIf="monkeyId == 6">
+          <span class="options-label">Arquitetura: </span>
+          <mat-button-toggle-group name="architect" #architecture="matButtonToggleGroup" aria-label="Data Center">
+            <mat-button-toggle value="paas">
+              <img class="architecture_image" src="./assets/img/logos/PaaS.png"> PaaS</mat-button-toggle>
+            <mat-button-toggle value="iaas">
+              <img class="architecture_image" src="./assets/img/logos/IaaS.png"> IaaS</mat-button-toggle>
+          </mat-button-toggle-group>
+          <br>
+          <div *ngIf="architecture.value == 'paas'">
+            <span class="options-label">Nome do Projeto: </span>
+            <mat-form-field>
+              <input matInput>
+            </mat-form-field>
+            <br>
+            <span class="options-label">Nome do POD: </span>
+            <mat-form-field>
+              <input matInput>
+            </mat-form-field>
+            <br>
+          </div>
+          <div *ngIf="architecture.value == 'iaas'">
+            <span class="options-label">Nome do Host: </span>
+            <mat-form-field>
+              <input matInput>
+            </mat-form-field>
+            <br>
+          </div>
+          <span class="options-label">Quantidade de Núcleos do Processador: </span>
+          <mat-form-field>
+            <input matInput>
+          </mat-form-field>
+          <br>
+
+        </section>
+        <section *ngIf="monkeyId == 7">
+          <div>
+            <span class="options-label">Nome do Host</span>
+            <mat-form-field>
+              <input matInput>
+            </mat-form-field>
+          </div>
+          <div>
+            <span class="options-label">Modo do Shutdown: </span>
+            <mat-form-field>
+              <mat-select>
+                <mat-option value="Halt"> Shutdown</mat-option>
+                <mat-option value="2 - Must"> Reboot </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+        </section>
+      </mat-card-content>
+      <mat-card-actions>
+        <mat-divider></mat-divider>
+        <div style="margin-left: calc(50% - 250px)">
+              <mat-form-field class="centered-field" style="padding-top: 20px; padding-right: 20px">
+                <input matInput placeholder="Digite aqui o seu Login" [(ngModel)]="username" name="usrname">
+              </mat-form-field>
+  
+              <mat-form-field class="centered-field" style="padding-top: 20px">
+                <input matInput type="password" [(ngModel)]="senha" name="passwd" placeholder="Digite aqui a sua senha" (keydown.enter)="logar(username,senha)">
+              </mat-form-field>
+
+              <button mat-raised-button color="primary">Acionar Macaco</button>
+          </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
 </card-slide>

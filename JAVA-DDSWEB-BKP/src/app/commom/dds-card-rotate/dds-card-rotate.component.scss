@@ -1,0 +1,61 @@
+.scene {
+  width: calc(50% - 25px);
+  margin: 12px !important;
+  perspective: 3000px;
+  float: left;
+}
+
+@media screen and (max-width: 1366px) {
+  .mat-chip {
+    font-size: 1.0vw;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .scene {
+    min-height: 285px;
+  }
+}
+  
+@media screen and (min-width: 1367px) {
+  .mat-chip {
+    font-size: 0.84vw;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .scene {
+    min-height: 325px;
+  }
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.card.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.card__face {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.card__face--front {
+//   background: red;
+}
+
+.card__face--back {
+  transform: rotateY(180deg);
+}
+
+.menu {
+  float: right;
+  line-height: 32px;
+  display: flex !important;
+}

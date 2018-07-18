@@ -1,0 +1,23 @@
+<div class="login-header-container">
+  <img class="lock-icon" src="../../../assets/img/lock-icon.png">
+  <span class="mat-card-title"> Por favor, digite seus dados de acesso à ferramenta. </span>
+</div>
+
+<div class="login-body container">
+  <mat-card style="height:400px">
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <mat-form-field class="s12">
+        <input autocomplete="off" type="text" [(ngModel)]="userLogin" ngModel matInput placeholder="Usuário" #login="ngModel" name="login"
+          required>
+        <dds-error-messages [control]="login"></dds-error-messages>
+      </mat-form-field>
+      <mat-form-field class="s12">
+        <input autocomplete="off" type="password" [(ngModel)]="passwordLogin" ngModel matInput placeholder="Senha" #password="ngModel"
+          name="password" required>
+        <dds-error-messages [control]="password"></dds-error-messages>
+      </mat-form-field>
+      <button float="float-center" mat-raised-button color="primary" style="width: 60%" (click)="auth()"> Fazer Login </button>
+    </mat-card-content>
+  </mat-card>
+</div>

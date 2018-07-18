@@ -1,0 +1,51 @@
+.breadcrumb {
+  height: 35px;
+  color: rgba(39, 38, 38, 0.41);
+  li {
+    display: flex;
+    line-height: 35px;
+  }
+
+  label.nav {
+    display: flex;    
+    font-size: 20px;
+    font-weight: bold;    
+  }  
+}
+
+ol {
+  padding: 0 0 0 33px;
+  margin: 0px;
+  display: flex;
+  line-height: 35px;
+}
+
+mat-icon {
+  text-align: center;
+  font-size: 14px;
+  line-height: 35px;
+}
+
+.child {
+  color: #787878;
+  outline: none;
+  font-size: 14px;
+}
+
+.child.last {
+  font-weight: bold;
+}
+
+.icon{
+  float: right !important;
+  font-size: 18px !important;
+}
+
+.div-icons {
+  float: right !important;
+}
+
+.arrow {
+  padding-left: 8px; 
+  padding-right: 8px;
+}

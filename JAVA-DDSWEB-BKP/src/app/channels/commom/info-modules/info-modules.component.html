@@ -1,0 +1,39 @@
+<div class="info-group" style="margin: 20px 20px 20px 20px !important;">
+  <div class="detail-right">
+    <span>ID Log:
+      <span class="info-text">{{detalhes?.execid}}</span>
+    </span>
+    <br>
+    <span>Módulo:
+      <span class="info-text">{{detalhes?.modulo | uppercase}}</span>
+    </span>
+    <br>
+    <span *ngIf="detalhes?.cdUsuarioUltimaAtualizacao != null">Usuário ultima atualização:
+      <span class="info-text">{{detalhes?.username | uppercase}}</span>
+    </span>
+    <span>
+      Estado Anterior:
+      <span class="info-text"></span>
+    </span>
+    <br>
+    <span>
+      Novo Estado:
+      <span class="info-text">{{detalhes?.estado | uppercase}}</span>
+    </span>
+    <br>
+  </div>
+  <!-- <div class="detail-left">
+        <span *ngIf="detalhes?.dtInclusao != null">Data criação:
+          <span class="info-text">{{detalhes?.dtInclusao | date: 'dd/MM/yyyy HH:mm'}}</span>
+        </span>
+        <br *ngIf="detalhes?.dtUltimaAtualizacao != null">
+        <span *ngIf="detalhes?.dtUltimaAtualizacao != null">Data ultima atualização:
+          <span class="info-text">{{detalhes?.dtUltimaAtualizacao | date: 'dd/MM/yyyy HH:mm'}}</span>
+        </span>
+        <br *ngIf="detalhes?.totalPublicoSelecionado != 0 && detalhes?.totalPublicoSelecionado != null && detalhes?.totalPublicoSelecionado != undefined">
+        <span *ngIf="detalhes?.totalPublicoSelecionado != 0 && detalhes?.totalPublicoSelecionado != null && detalhes?.totalPublicoSelecionado != undefined">Público:
+          <span class="info-text">{{detalhes?.totalPublicoSelecionado}}</span>
+        </span>
+      </div> -->
+</div>
+<br>

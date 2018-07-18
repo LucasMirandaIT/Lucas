@@ -1,0 +1,19 @@
+<h1 mat-dialog-title class="title-modal">{{data.title}}</h1>
+<div class="content-modal">
+  <p>{{data.message}}</p>
+  <div [innerHtml]="htmlContent"></div>
+</div>
+<mat-divider></mat-divider>
+<div>
+  <form id="dataForm" #dataForm="ngForm">
+    <mat-form-field style="padding-top: 20px; width: 40%; float: left; padding-left: 20px;" *ngIf="data.InputPeticao">
+      <input minlength="5" maxlength="15" autocomplete="off" type="text" [(ngModel)]="numeroPeticao" ngModel matInput placeholder="Nº Petição"
+        #peticao="ngModel" name="peticao" required>
+      <dds-error-messages [control]="peticao"></dds-error-messages>
+    </mat-form-field>
+  </form>
+  <button mat-raised-button color="primary" *ngIf="data?.buttonOk[0]" [mat-dialog-close]="confirm(dataForm.valid)" >{{data.buttonOk[1]}}</button>
+  <button mat-raised-button color="primary" *ngIf="data?.buttonDownload[0]" [mat-dialog-close]="confirm(dataForm.valid)"><a [attr.href]="data?.buttonDownload[2]" download style="color: #fff">{{data?.buttonDownload[1]}}</a></button>
+  <button mat-raised-button color="primary" *ngIf="data?.buttonDownload2[0]" [mat-dialog-close]="confirm(dataForm.valid)" style="margin-right: 4px !important"><a [attr.href]="data?.buttonDownload2[2]" download style="color: #fff">{{data?.buttonDownload2[1]}}</a></button>
+  <button mat-raised-button color="warn" *ngIf="data.buttonCancel[0]" [mat-dialog-close]="false" cdkFocusInitial>{{data.buttonCancel[1]}}</button>
+</div>

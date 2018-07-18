@@ -1,0 +1,33 @@
+<mat-accordion *ngFor="let menu of userAuth?.permissoes?.hierarquiaPerfil; let i = index">
+  <mat-expansion-panel *ngIf="menu.nomeTransacao == column" class="home"  [expanded]="true" [hideToggle]="true" [disabled]="true">
+    <mat-expansion-panel-header class="menu">
+        <mat-panel-title>
+            <span class="title-menu">{{menu.descricaoTransacao}}</span> 
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-accordion *ngFor="let submenu of userAuth?.permissoes?.hierarquiaPerfil">
+      <mat-expansion-panel *ngIf="submenu.nomeTransacaoSuperior == menu.nomeTransacao" [hideToggle]="submenu.linkTransacao != '' || hideArrow">
+        
+        <mat-expansion-panel-header class="submenu" (click)="navigation(submenu.linkTransacao)">
+         <mat-panel-title>
+          <mat-icon>{{submenu.icons}}</mat-icon>
+          <span>{{submenu.descricaoTransacao}}</span>
+         </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-accordion *ngFor="let submenuI of userAuth?.permissoes?.hierarquiaPerfil">
+          <mat-expansion-panel *ngIf="submenuI.nomeTransacaoSuperior == submenu.nomeTransacao" [hideToggle]="submenuI.linkTransacao != '' || hideArrow">
+            <mat-expansion-panel-header class="submenuI" (click)="navigation(submenuI.linkTransacao)">
+                <mat-panel-title>
+                  {{submenuI.descricaoTransacao}}
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="body" *ngFor="let submenuII of userAuth?.permissoes?.hierarquiaPerfil">
+              <a *ngIf="verifyTransation(submenuII.nomeTransacaoSuperior, submenuI.nomeTransacao, submenuII.nomeTransacao)" class="body" (click)="navigation(submenuII.linkTransacao)">{{submenuII.descricaoTransacao}}</a>
+            </div>
+          </mat-expansion-panel>        
+        </mat-accordion>    
+      </mat-expansion-panel>    
+    </mat-accordion>
+  </mat-expansion-panel>
+</mat-accordion>

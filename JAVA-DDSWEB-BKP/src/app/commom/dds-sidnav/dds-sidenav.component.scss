@@ -1,0 +1,79 @@
+.example-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.example-radio-group {
+  display: block;
+  border: 1px solid #555;
+  margin: 20px;
+  padding: 10px;
+}
+mat-drawer {
+  min-width: 52px !important;
+  z-index:9999999 !important;
+}
+
+p {
+  margin: 0px !important;
+}
+
+mat-icon {
+  height: 42px !important;
+  line-height: 42px !important;
+}
+
+mat-drawer {
+  overflow-x: hidden !important;
+}
+
+hidden {
+  -webkit-transition: width 2s;
+  transition: width 2s;
+}
+
+.mat-expansion-panel,
+.mat-drawer {
+  background-color: #2b4651 !important;
+}
+
+.mat-expansion-panel-body {
+  background-color: #18282e !important;
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+}
+
+.mat-expansion-panel-header-title {
+  color: unset !important;
+}
+
+.mat-expansion-panel-body {
+  padding: 0px !important;
+}
+
+.mat-expansion-panel-header-description, .mat-expansion-indicator::after {
+  color: unset !important;
+}
+
+.mat-drawer-container {
+  background-color: #F0F0F0;
+}
+
+.sidenav {
+  display: inline-block;
+  white-space:nowrap;
+  width: 52px;
+  -webkit-transiton: width .2s linear; /* For Safari 3.1 to 6.0 */
+  transition: width .2s linear;
+}
+
+.sidenav:hover {
+  width: 300px;
+}
+
+.background-icons {
+  background-color: #1F323A !important;
+  color: rgba(255, 255, 255, 0.884) !important;
+}

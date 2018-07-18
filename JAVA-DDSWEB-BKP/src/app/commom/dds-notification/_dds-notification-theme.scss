@@ -1,0 +1,68 @@
+// @import '~@angular/material/theming';
+
+// // @mixin dds-notification-color($color, $default: 500, $darker: 700) {
+//   color: mat-contrast($color, $default);
+//   background: mat-color($color, $default);
+
+//   .dds-notification-item-buttons {
+//     background: mat-color($color, $darker);
+//   }
+
+//   .dds-notification-button-close {
+//     &:hover {
+//       background-color: mat-color($color, $darker + 200);
+//     }
+//   }
+
+//   mat-progress-bar {
+//     .mat-progress-bar-fill {
+//       &::after {
+//         background-color: mat-color($color, $darker) !important;
+//       }
+//     }
+//   }
+// }
+
+
+dds-notification-area {
+  dds-notification-item {
+    &.dds-success {
+      background-color: #DFF0D8 !important;
+      // background-color: #3C763D !important;
+      font-size: 12px !important;
+      color: #3C763D !important;
+      border-radius: 4px !important;
+      border: 2px solid #3C763D !important;
+    }
+
+    &.dds-error {
+      background-color: #F2DEDE !important;
+      font-size: 12px !important;
+      color: #A94442 !important;
+      border-radius: 4px !important;
+      border: 2px solid #CC362C !important;
+    }
+
+    &.dds-warn {
+      background-color: #FCF8E3 !important;
+      font-size: 12px !important;
+      color: #8A6D3B !important;
+      border-radius: 4px !important;
+      border: 2px solid #F0B322 !important;
+    }
+
+    &.dds-info {
+      background-color: #D2FCFF !important;
+      font-size: 12px !important;
+      color: #137E84 !important;
+      border-radius: 4px !important;
+      border: 2px solid #20B2BB !important;
+    }
+  }
+}
+
+.dds-success{
+  & dds-notification-item-icon{
+    background-color: #CC362C !important;
+}
+}

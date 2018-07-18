@@ -1,0 +1,19 @@
+{
+  "name": "Digital Desk Santander",
+  "short_name": "DDS",
+  "start_url": "https://dds.paas.isbanbr.dev.corp/",
+  "manifest_version": "1",
+  "lang": "pt-BR",
+  "version": "0.0.1",
+  "background_color": "#FFF",
+  "orientation": "any",
+  "display": "Browser",
+  "description": "A application that allow users to create a Public Selection to test Development Version of Santander Services and manage dashboards about each module.",
+  "icons": [{
+    "src": "./assets/img/logo.png",
+    "sizes": "275x34",
+    "type": "image/png"
+  }],
+  "content_security_policy": "default-src 'self' style-src 'self' 'unsafe-inline';"
+}
+

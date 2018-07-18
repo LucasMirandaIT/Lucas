@@ -1,10 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
 @import './assets/bootstrap/bootstrap.min.css';
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~material-design-icons/iconfont/material-icons.css';
 @import './assets/scss/global/index';
 @import './assets/scss/components/index';
 
 body .page {
     padding-left: 55px;
     padding-top: 55px;
+}
+
+/* Tooltip container */
+.toolti {
+    position: relative;
+    display: inline-block;
+    // border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.toolti .tooltiptext {
+    visibility: hidden;
+    min-width: 400px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 6px;
+    font-size: 1vw;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    bottom: -69%;
+    margin-left: 2px;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.toolti:hover .tooltiptext {
+    visibility: visible;
 }
